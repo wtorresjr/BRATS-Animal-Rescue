@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import Rescue, db
+from datetime import date
 
 
 animal_routes = Blueprint("animals", __name__)
@@ -20,6 +21,7 @@ def get_all_animals():
 
 
 
+
 @animal_routes.route("/<int:animal_id>", methods=["PUT","DELETE"])
 def animal_operations_by_id(animal_id):
     
@@ -29,7 +31,23 @@ def animal_operations_by_id(animal_id):
         return jsonify({"message":f"Error: Animal ID {animal_id} cannot be found."})
     
     if request.method == "PUT":
-        return jsonify({"message":"EDIT ROUTE REACHED"})
+        
+        user_changes = request.json               
+        for key, value in user_changes.items():
+            if hasattr(animal_found, key):
+                # Convert string date to date object
+                if key == "rescue_date":
+                    int_val = value.split("-")
+                    year = int(int_val[0])
+                    month = int(int_val[1])
+                    day = int(int_val[2])
+                    new_val = date(year,month,day)
+                    setattr(animal_found, key, new_val )
+                else:
+                    setattr(animal_found, key, value)
+        db.session.commit()
+    
+        return jsonify({"Successful Changes":user_changes})
  
     if request.method == "DELETE":
         db.session.delete(animal_found)
