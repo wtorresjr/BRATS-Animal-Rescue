@@ -1,11 +1,11 @@
 from .db import db, environment, SCHEMA
-from wekzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash
 from flask_login import UserMixin
-from datetime import datetime
+from datetime import datetime, date
 from sqlalchemy import Enum
 
 
-class Rescue(db.model, UserMixin):
+class Rescue(db.Model, UserMixin):
     __tablename__ = "rescue"
     
     if environment == "production":
@@ -13,12 +13,12 @@ class Rescue(db.model, UserMixin):
         
         
     id = db.Column(db.Integer, primary_key=True)    
-    animal_name = db.Column(db.String(30), nullable=False)
+    sex = db.Column(Enum('Male', 'Female', name='animal_sex'), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     type = db.Column(Enum('Dog', 'Cat', 'Parrot', name='animal_types'), nullable=False)
-    sex = db.Column(Enum('Male', 'Female', name='animal_sex'), nullable=False)
+    animal_name = db.Column(db.String(30), nullable=False)
     
-    rescue_date = db.Column(db.DateTime, nullable=False)
+    rescue_date = db.Column(db.Date, nullable=False)
     story = db.Column(db.String(500), nullable=False)
     breed = db.Column(db.String(30), nullable=False)
     potty_trained = db.Column(db.Boolean, nullable=False)
@@ -39,10 +39,10 @@ class Rescue(db.model, UserMixin):
 def to_dict(self):
     return {
         "id":self.id,
-        "animal_name":self.animal_name,
+        "sex":self.sex,
         "age":self.age,
         "type":self.type,
-        "sex":self.sex,
+        "animal_name":self.animal_name,
         "rescue_date":self.rescue_date,
         "story":self.story,
         "breed":self.breed,
