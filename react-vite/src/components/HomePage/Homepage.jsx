@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AppContext } from "../../context/AppContext";
+import { getAllAnimalsThunk } from "../../redux/animals";
+import AnimalCard from "../AnimalCard/AnimalCard";
 
 const Homepage = () => {
-  const { data, loading, error } = useContext(AppContext);
+  const { animals, loading, error } = useContext(AppContext);
 
-  console.log(data);
+  // const currRescues = animals["animals"];
+
+  // console.log(...currRescues);
 
   if (loading) {
-    <div>Home page</div>;
+    <div>LOADING...</div>;
   }
   if (error) {
     <p>{error}</p>;
@@ -15,7 +19,10 @@ const Homepage = () => {
 
   return (
     <>
-      <p>HOMEPAGE</p>
+      {animals &&
+        animals["animals"]?.map((rescue) => {
+          return <AnimalCard key={rescue.id} rescue={rescue} />;
+        })}
     </>
   );
 };

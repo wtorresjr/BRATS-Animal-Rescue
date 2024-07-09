@@ -1,22 +1,22 @@
 // AppContext.jsx
 import React, { createContext, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllAnimalsThunk } from "../redux/animals";
 
 // Create the context
 export const AppContext = createContext();
 
 // Define the provider component
 export const AppProvider = ({ children }) => {
-  const [data, setData] = useState(null);
+  const dispatch = useDispatch();
+  const animals = useSelector((state) => state.animals);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Replace with your API call
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/animals/");
-        const result = await response.json();
-        setData(result);
+        await dispatch(getAllAnimalsThunk());
       } catch (error) {
         setError(error);
       } finally {
@@ -25,10 +25,10 @@ export const AppProvider = ({ children }) => {
     };
 
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   return (
-    <AppContext.Provider value={{ data, loading, error }}>
+    <AppContext.Provider value={{ animals, loading, error }}>
       {children}
     </AppContext.Provider>
   );
