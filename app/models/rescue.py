@@ -36,20 +36,20 @@ class Rescue(db.Model, UserMixin):
     
     
     
-def to_dict(self):
-    return {
-        "id":self.id,
-        "sex":self.sex,
-        "age":self.age,
-        "type":self.type,
-        "animal_name":self.animal_name,
-        "rescue_date":self.rescue_date,
-        "story":self.story,
-        "breed":self.breed,
-        "potty_trained":self.potty_trained,
-        "fixed":self.fixed,
-        "good_w_dogs":self.good_w_dogs,
-        "good_w_cats":self.good_w_cats,
-        "good_w_kids":self.good_w_kids,
-        "thumbnail_img":self.thumbnail_img,
-    }
+    def to_dict(self):
+        return {
+            "id":self.id,
+            "sex":self.sex,
+            "age":self.age,
+            "type":self.type,
+            "animal_name":self.animal_name,
+            "rescue_date":self.rescue_date,
+            "story":self.story,
+            "breed":self.breed,
+            "potty_trained":self.potty_trained,
+            "fixed":self.fixed,
+            "good_w_dogs":self.good_w_dogs,
+            "good_w_cats":self.good_w_cats,
+            "good_w_kids":self.good_w_kids,
+            "thumbnail_img":self.thumbnail_img,
+        }
