@@ -9,15 +9,15 @@ animal_routes = Blueprint("animals", __name__)
 
 @animal_routes.route("/", methods=["GET"])
 def get_all_animals():
-
     animals_found = Rescue.query.all()
 
     if not animals_found:
         return jsonify({"message": "No animals found"})
 
-    animals = [animal.to_dict() for animal in animals_found]
+    # Reverse the order of the animals
+    animals = [animal.to_dict() for animal in reversed(animals_found)]
 
-    return animals
+    return jsonify(animals)
 
 
 @animal_routes.route("/", methods=["POST"])
