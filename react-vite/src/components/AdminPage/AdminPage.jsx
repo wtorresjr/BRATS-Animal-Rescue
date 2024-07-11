@@ -93,6 +93,7 @@ const AdminPage = () => {
           value={rescueType}
           onChange={(e) => setRescueType(e.target.value)}
         >
+          <option value={""}>Choose Rescue Type</option>
           <option value={"Dog"}>Dog</option>
           <option value={"Cat"}>Cat</option>
         </select>
@@ -114,8 +115,9 @@ const AdminPage = () => {
       </div>
 
       <div>
-        <label>Fixed:</label>
+        <label>Spayed or Neutered:</label>
         <select value={fixed} onChange={(e) => setFixed(e.target.value)}>
+          <option value={""}>Spayed or Neutered?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
         </select>
@@ -127,6 +129,7 @@ const AdminPage = () => {
       <div>
         <label>Good With Cats?</label>
         <select value={gwCats} onChange={(e) => setGWCats(e.target.value)}>
+          <option value={""}>Good With Cats?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
         </select>
@@ -138,6 +141,7 @@ const AdminPage = () => {
       <div>
         <label>Good With Dogs?</label>
         <select value={gwDogs} onChange={(e) => setGWDogs(e.target.value)}>
+          <option value={""}>Good With Dogs?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
         </select>
@@ -149,6 +153,7 @@ const AdminPage = () => {
       <div>
         <label>Good With Kids?</label>
         <select value={gwKids} onChange={(e) => setGWKids(e.target.value)}>
+          <option value={""}>Good With Kids?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
         </select>
@@ -160,6 +165,7 @@ const AdminPage = () => {
       <div>
         <label>Potty Trained?</label>
         <select value={trained} onChange={(e) => setTrained(e.target.value)}>
+          <option value={""}>Potty Trained?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
         </select>
@@ -183,6 +189,7 @@ const AdminPage = () => {
       <div>
         <label>Sex:</label>
         <select value={sex} onChange={(e) => setSex(e.target.value)}>
+          <option value={""}>Rescue's Sex?</option>
           <option value={"Male"}>Male</option>
           <option value={"Female"}>Female</option>
         </select>

@@ -1,5 +1,5 @@
 const validateData = (data) => {
-//   console.log(data, "FROM VALIDATION");
+  //   console.log(data, "FROM VALIDATION");
 
   const errors = {};
 
@@ -34,7 +34,7 @@ const validateData = (data) => {
     : (errors.thumbnail_img = "Thumbnail image url required.");
   data.type ? null : (errors.rescueType = "Rescue type is required.");
 
-  if (errors.length === 0) {
+  if (Object.keys(errors).length === 0) {
     return true;
   } else {
     return errors;
