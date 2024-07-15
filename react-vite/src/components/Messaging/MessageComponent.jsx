@@ -14,7 +14,7 @@ const MessageComponent = ({ message, isVisible, origin }) => {
   useEffect(() => {
     if (origin === "loginPage") {
       const intervalId = setInterval(() => {
-        if (window.location.pathname === "/home") {
+        if (window.location.pathname === "/admin") {
           closeModal();
           clearInterval(intervalId);
         }

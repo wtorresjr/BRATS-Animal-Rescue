@@ -1,28 +1,25 @@
 import React, { useContext, useEffect } from "react";
-import { AppContext } from "../../context/AppContext";
-import { getAllAnimalsThunk } from "../../redux/animals";
 import AnimalCard from "../AnimalCard/AnimalCard";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllAnimalsThunk } from "../../redux/animals";
 
 const Homepage = () => {
-  const { animals, loading, error } = useContext(AppContext);
+  const animals = useSelector((state) => state?.animals);
+  const dispatch = useDispatch();
 
-  // const currRescues = animals["animals"];
-
-  // console.log(...currRescues);
-
-  if (loading) {
-    <div>LOADING...</div>;
-  }
-  if (error) {
-    <p>{error}</p>;
-  }
+  useEffect(() => {
+    dispatch(getAllAnimalsThunk());
+  }, [animals.new_animal]);
 
   return (
     <>
-      {animals &&
-        animals["animals"]?.map((rescue) => {
-          return <AnimalCard key={rescue.id} rescue={rescue} />;
-        })}
+      {animals?.animals?.length > 0 ? (
+        animals.animals.map((rescue) => (
+          <AnimalCard key={rescue.id} rescue={rescue} />
+        ))
+      ) : (
+        <p>No animals found</p>
+      )}
     </>
   );
 };

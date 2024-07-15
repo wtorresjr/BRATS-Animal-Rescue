@@ -34,7 +34,7 @@ function LoginFormPage() {
         closeModal();
         setErrors(serverResponse);
       } else {
-        navigate("/home");
+        navigate("/admin");
       }
     } catch (error) {
       // Handle errors, if any, from the thunkLogin action
@@ -66,7 +66,7 @@ function LoginFormPage() {
       if (loginDemo) {
         setErrors(serverResponse);
       } else {
-        navigate("/home");
+        navigate("/admin");
       }
     } catch (error) {
       console.error("Error during login:", error);
