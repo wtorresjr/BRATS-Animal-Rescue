@@ -4,6 +4,7 @@ import SignupFormPage from "../components/SignupFormPage";
 import Layout from "./Layout";
 import { Homepage } from "../components/HomePage";
 import { PrivateRoute } from "../components/PrivateRoute";
+import AdminPage from "../components/AdminPage/AdminPage";
 
 export const router = createBrowserRouter([
   {
@@ -11,15 +12,19 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LoginFormPage />,
+        element: <Homepage />,
       },
       {
-        path: "/home",
+        path: "/admin",
         element: (
-          // <PrivateRoute>
-            <Homepage />
-          // </PrivateRoute>
+          <PrivateRoute>
+            <AdminPage />
+          </PrivateRoute>
         ),
+      },
+      {
+        path: "/login",
+        element: <LoginFormPage />,
       },
       {
         path: "signup",

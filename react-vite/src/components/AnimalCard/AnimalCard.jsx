@@ -4,7 +4,7 @@ const AnimalCard = (rescue) => {
   const resc = rescue.rescue;
 
   return (
-    <div key={resc.id + resc.animal_name} className="animal-card">
+    <div className="animal-card">
       <div>{resc.animal_name}</div>
       <div>Estimated Age: {resc.age}</div>
       <div>Sex: {resc.sex}</div>
