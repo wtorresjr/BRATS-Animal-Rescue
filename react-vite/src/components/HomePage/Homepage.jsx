@@ -1,5 +1,13 @@
+import { Header } from "../Header";
+import { NavMenu } from "../NavMenu";
+
 const Homepage = () => {
-  return <>Home Page</>;
+  return (
+    <>
+      <Header />
+      <NavMenu />
+    </>
+  );
 };
 
 export default Homepage;
