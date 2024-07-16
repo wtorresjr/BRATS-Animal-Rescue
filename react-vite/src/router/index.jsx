@@ -5,6 +5,7 @@ import Layout from "./Layout";
 import { Homepage } from "../components/HomePage";
 import { PrivateRoute } from "../components/PrivateRoute";
 import AdminPage from "../components/AdminPage/AdminPage";
+import { AdoptionPage } from "../components/AdoptionPage";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Homepage />,
+      },
+      {
+        path: "/adopt",
+        element: <AdoptionPage />,
       },
       {
         path: "/admin",
