@@ -14,12 +14,6 @@
   padding: 0 0 10px 0;
 }
 
-/* .top-border-line {
-  display: inline-block;
-  width: 75%;
-  border-top: 3px solid #ca0300;
-} */
-
 .header img {
   width: 30%;
 }
@@ -29,7 +23,7 @@
   font-optical-sizing: auto;
   font-weight: bolder;
   font-style: normal;
-  font-size: 22px;
+  font-size: 18px;
   letter-spacing: -0.8px;
   width: 40%;
   color: #00235b;
@@ -39,4 +33,5 @@
 .menuButton {
   color: "#ca0300";
   border: "2px solid #ca0300";
+  box-shadow: 3px 3px 3px black;
 }
