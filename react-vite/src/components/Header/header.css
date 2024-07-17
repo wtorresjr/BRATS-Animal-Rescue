@@ -35,3 +35,8 @@
   color: #00235b;
   /* border-top:3px solid #ca0300; */
 }
+
+.menuButton {
+  color: "#ca0300";
+  border: "2px solid #ca0300";
+}

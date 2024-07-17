@@ -1,3 +1,4 @@
+import MenuSharpIcon from "@mui/icons-material/MenuSharp";
 import "./navmenu.css";
 
 const NavMenu = () => {
