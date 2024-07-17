@@ -1,15 +1,27 @@
-import MenuSharpIcon from "@mui/icons-material/MenuSharp";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+// import Stack from "@mui/material/Stack";
+// import { purple } from "@mui/material/colors";
 import "./navmenu.css";
+
+const ColorButton = styled(Button)(({ theme }) => ({
+  color: "#FFF",
+  backgroundColor: "#00275e",
+  "&:hover": {
+    backgroundColor: "#ca0300",
+    color: "#FFF",
+  },
+}));
 
 const NavMenu = () => {
   return (
     <div className="navmenu">
-      <button>Foster A Rescue</button>
-      <button>Adopt A Rescue</button>
-      <button>Event Calendar</button>
-      <button>Make A Donation</button>
-      <button>Our Sponsors</button>
-      <button>Ways To Volunteer</button>
+      <ColorButton>Foster A Rescue</ColorButton>
+      <ColorButton>Adopt A Rescue</ColorButton>
+      <ColorButton>Event Calendar</ColorButton>
+      <ColorButton>Make A Donation</ColorButton>
+      <ColorButton>Our Sponsors</ColorButton>
+      <ColorButton>Ways To Volunteer</ColorButton>
     </div>
   );
 };
