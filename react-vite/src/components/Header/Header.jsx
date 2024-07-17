@@ -1,20 +1,21 @@
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Button from "@mui/material/Button";
-import { useState } from "react";
+import { useContext } from "react";
+import { MyContext } from "../../context/MyContext";
 import "./header.css";
 
 const logo = "../src/Assets/Brats-Logo-simple.png";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { openMenu, setOpenMenu } = useContext(MyContext);
 
   return (
     <div className="header">
       <img src={logo} />
       <p className="header-title">Bringing Rescued Animals To Safety</p>
       <Button
-        onClick={() => setMenuOpen(!menuOpen)}
+        onClick={() => setOpenMenu(!openMenu)}
         variant="outlined"
         style={{
           color: "#ca0300",
@@ -22,7 +23,7 @@ const Header = () => {
           borderRadius: "10px",
         }}
       >
-        {menuOpen ? (
+        {openMenu ? (
           <HighlightOffIcon fontSize={"large"} />
         ) : (
           <MenuRoundedIcon fontSize={"large"} />
