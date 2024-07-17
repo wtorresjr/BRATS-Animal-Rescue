@@ -25,6 +25,10 @@ button:hover {
   color: black;
 }
 
+Button:hover {
+  color: white;
+}
+
 @media only screen and (max-width: 840px) {
   .small-screens {
     background-color: red;
