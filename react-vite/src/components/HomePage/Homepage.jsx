@@ -5,7 +5,7 @@ import { MyContext } from "../../context/MyContext";
 import { useContext } from "react";
 import { Button } from "@mui/material";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import AdoptCard from "../AdoptCard/AdoptCard";
+import HomeCard from "../HomeCard/HomeCard";
 
 const Homepage = () => {
   const { openMenu, setOpenMenu } = useContext(MyContext);
@@ -28,7 +28,15 @@ const Homepage = () => {
 
       <div style={{ margin: "10px 0 0 0" }}></div>
 
-      <AdoptCard />
+      <HomeCard
+        title={"Adopt Today"}
+        cardText={
+          "  Find the perfect companion. Browse rescue animals in need of a home..."
+        }
+        callToAction={"SEARCH"}
+        imgSrc={"./"}
+        
+      />
     </>
   );
 };
