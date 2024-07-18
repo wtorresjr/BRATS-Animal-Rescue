@@ -6,7 +6,7 @@
   display: flex;
   flex-flow: row nowrap;
   gap: 10px;
-  height: 18vh;
+  max-height: 18vh;
   justify-content: space-between;
 }
 
@@ -20,7 +20,7 @@
   justify-content: space-between;
   text-align: right;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 1.1rem;
   width: 50%;
 }
 
@@ -57,6 +57,6 @@
   justify-content: space-between;
   text-align: left;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 1.1rem;
   width: 50%;
 }
