@@ -35,7 +35,19 @@ const Homepage = () => {
         }
         callToAction={"SEARCH"}
         imgSrc={"./"}
-        
+        cssStyle={"adopt"}
+      />
+
+      <div style={{ margin: "10px 0 0 0" }}></div>
+
+      <HomeCard
+        title={"Special Events"}
+        cardText={
+          "View our upcoming events..."
+        }
+        callToAction={"VIEW CALENDAR"}
+        imgSrc={"./"}
+        cssStyle={"event"}
       />
     </>
   );

@@ -1,13 +1,13 @@
-import "./adoptcard.css";
+import "./homecard.css";
 
-const HomeCard = ({ title, cardText, callToAction, imgSrc }) => {
+const HomeCard = ({ title, cardText, callToAction, imgSrc, cssStyle }) => {
   return (
-    <div className="adopt-card">
-      <div className="adopt-img">
+    <div className={`${cssStyle}-card`}>
+      <div className={`${cssStyle}-img`}>
         <img src={imgSrc}></img>
       </div>
-      <div className="adopt-text">
-        <div className="adopt-text-title">
+      <div className={`${cssStyle}-text`}>
+        <div className={`${cssStyle}-text-title`}>
           <h1>{title}</h1>
           {cardText}
         </div>
