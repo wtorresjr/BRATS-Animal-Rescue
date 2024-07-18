@@ -30,3 +30,33 @@
   background-color: white;
   border-radius: 10px;
 }
+
+.event-card {
+  background-color: #ca0300;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  display: flex;
+  /* flex-flow: row nowrap; */
+  flex-direction: row-reverse;
+  gap: 10px;
+  height: 18vh;
+  justify-content: space-between;
+}
+
+.event-img {
+  width: 50%;
+  height: 18vh;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.event-text {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  text-align: left;
+  font-weight: 300;
+  font-size: 20px;
+  width: 50%;
+}
