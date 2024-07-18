@@ -1,0 +1,32 @@
+.adopt-card {
+  background-color: #00275e;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  height: 18vh;
+  justify-content: space-between;
+}
+
+.regular-weight {
+  font-weight: 100;
+}
+
+.adopt-text {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  text-align: right;
+  font-weight: 300;
+  font-size: 20px;
+  width: 50%;
+}
+
+.adopt-img {
+  width: 50%;
+  height: 18vh;
+  background-color: white;
+  border-radius: 10px;
+}
