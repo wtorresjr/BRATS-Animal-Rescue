@@ -6,17 +6,15 @@ import { useContext } from "react";
 import { Button } from "@mui/material";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import HomeCard from "../HomeCard/HomeCard";
+import { Footer } from "../Footer";
 
 const Homepage = () => {
   const { openMenu, setOpenMenu } = useContext(MyContext);
   return (
     <>
       <Header />
-
       {openMenu ? <NavMenu /> : null}
-
       <div style={{ margin: "10px 0 0 0" }}></div>
-
       <Button
         style={{ backgroundColor: "#ca0300", alignItems: "center" }}
         fullWidth={"True"}
@@ -25,9 +23,7 @@ const Homepage = () => {
       >
         Our Mission
       </Button>
-
       <div style={{ margin: "10px 0 0 0" }}></div>
-
       <HomeCard
         title={"Adopt Today"}
         cardText={
@@ -37,9 +33,7 @@ const Homepage = () => {
         imgSrc={"./"}
         cssStyle={"adopt"}
       />
-
       <div style={{ margin: "10px 0 0 0" }}></div>
-
       <HomeCard
         title={"Special Events"}
         cardText={"View our upcoming events..."}
@@ -47,11 +41,8 @@ const Homepage = () => {
         imgSrc={"./"}
         cssStyle={"event"}
       />
-
       <div style={{ margin: "10px 0 0 0" }}></div>
-
-      
-
+      <Footer />
     </>
   );
 };
