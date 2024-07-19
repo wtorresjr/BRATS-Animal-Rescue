@@ -42,13 +42,16 @@ const Homepage = () => {
 
       <HomeCard
         title={"Special Events"}
-        cardText={
-          "View our upcoming events..."
-        }
+        cardText={"View our upcoming events..."}
         callToAction={"VIEW CALENDAR"}
         imgSrc={"./"}
         cssStyle={"event"}
       />
+
+      <div style={{ margin: "10px 0 0 0" }}></div>
+
+      
+
     </>
   );
 };
