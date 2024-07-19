@@ -1,0 +1,33 @@
+.footer-contain > div {
+  background-color: #00275e;
+  color: white;
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  gap: 5px 10px;
+  font-size: 18px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.social-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  display: flex;
+  justify-content: right;
+  /* text-align: right; */
+}
