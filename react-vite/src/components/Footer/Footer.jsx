@@ -25,7 +25,9 @@ const Footer = () => {
           <InstagramIcon fontSize="large" />
           <YouTubeIcon fontSize="large" />
         </div>
-      <span>© 2024 by B.R.A.T.S. Alliance, Inc.</span>
+        <span style={{ textAlign: "right" }}>
+          © 2024 by B.R.A.T.S. Alliance, Inc.
+        </span>
       </div>
     </div>
   );
