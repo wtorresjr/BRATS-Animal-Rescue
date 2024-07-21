@@ -1,4 +1,4 @@
-const VolunteerCard = ({ title, cssStyle, cardText, callToAction, imgSrc }) => {
+const SmallCard = ({ title, cssStyle, cardText, callToAction, imgSrc }) => {
   return (
     <>
       <div className={`${cssStyle}-card`}>
@@ -16,4 +16,4 @@ const VolunteerCard = ({ title, cssStyle, cardText, callToAction, imgSrc }) => {
     </>
   );
 };
-export default VolunteerCard;
+export default SmallCard;
