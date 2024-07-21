@@ -5,13 +5,17 @@
 .header {
   display: flex;
   flex-flow: row nowrap;
-  width: 100%;
+  /* width: 100%; */
   justify-content: space-between;
   align-items: center;
   height: auto;
   border-bottom: 3px solid #ca0300;
-
-  padding: 0 0 10px 0;
+  padding: 10px;
+  position: fixed;
+  background-color: white;
+  top: 0;
+  right: 0;
+  z-index: 100;
 }
 
 .header img {
