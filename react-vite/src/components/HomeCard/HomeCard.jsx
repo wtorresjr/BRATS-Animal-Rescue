@@ -1,3 +1,4 @@
+import DonationsCard from "./DonationsCard";
 import "./homecard.css";
 
 const HomeCard = ({ title, cardText, callToAction, imgSrc, cssStyle }) => {

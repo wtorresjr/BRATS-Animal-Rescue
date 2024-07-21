@@ -7,6 +7,7 @@ import { Button } from "@mui/material";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import HomeCard from "../HomeCard/HomeCard";
 import { Footer } from "../Footer";
+import { DonationsCard } from "../HomeCard";
 
 const Homepage = () => {
   const { openMenu, setOpenMenu } = useContext(MyContext);
@@ -42,6 +43,11 @@ const Homepage = () => {
         cssStyle={"event"}
       />
       <div style={{ margin: "10px 0 0 0" }}></div>
+
+      <DonationsCard mainTitle={"MAKE A DONATION"} tagLine={"Your donations save lives"} cssStyle={"donation"} />
+
+      <div style={{ margin: "10px 0 0 0" }}></div>
+
       <Footer />
     </>
   );
