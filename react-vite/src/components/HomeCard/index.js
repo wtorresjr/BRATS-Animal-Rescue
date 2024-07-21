@@ -1,5 +1,5 @@
 import HomeCard from "./HomeCard";
 import DonationsCard from "./DonationsCard";
-import VolunteerCard from "./VolunteerCard";
+import SmallCard from "./SmallCard";
 
-export { HomeCard, DonationsCard, VolunteerCard };
+export { HomeCard, DonationsCard, SmallCard };

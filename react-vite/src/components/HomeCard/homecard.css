@@ -2,6 +2,14 @@ h4 {
   margin-bottom: 0px;
 }
 
+.adopt-img,
+.event-img,
+.donation-img,
+.volunteer-img,
+.sponsors-img {
+  border-radius: 10px;
+}
+
 .donation-card h2 {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -18,7 +26,8 @@ h4 {
 .adopt-card,
 .event-card,
 .donation-card,
-.volunteer-card {
+.volunteer-card,
+.sponsors-card {
   background-color: #00275e;
   border-radius: 10px;
   color: white;
@@ -26,7 +35,6 @@ h4 {
   display: flex;
   flex-flow: row nowrap;
   gap: 10px;
-  height: auto;
   justify-content: space-between;
 }
 
@@ -37,15 +45,28 @@ h4 {
   text-align: right;
 }
 
+.sponsors-card {
+  background-color: white;
+  color: #00275e;
+  border: 3px solid #00275e;
+  text-align: left;
+  flex-direction: row-reverse;
+}
+
 .adopt-img,
 .event-img {
   width: 50%;
-  aspect-ratio: 1 / 1;
   background-color: white;
-  border-radius: 10px;
+  aspect-ratio: 1 / 1;
 }
 
 .volunteer-img {
+  border: 1px solid grey;
+  width: 25%;
+  aspect-ratio: 1/1;
+}
+
+.sponsors-img {
   border: 1px solid grey;
   width: 25%;
   aspect-ratio: 1/1;
@@ -93,8 +114,36 @@ h4 {
 @media (max-width: 480px) {
   .adopt-card,
   .event-card,
-  .volunteer-card {
-    padding: 10px;
+  .donation-card,
+  .volunteer-card,
+  .sponsors-card {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .adopt-img,
+  .event-img,
+  .donation-img,
+  .volunteer-img,
+  .sponsors-img {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .event-card,
+  .sponsors-card {
+    flex-direction: row-reverse;
+  }
+
+  .event-text,
+  .sponsors-text {
+    text-align: left;
+  }
+
+  .adopt-text,
+  .volunteer-text {
+    text-align: right;
+    width: 50%;
   }
 
   .adopt-text,
@@ -102,20 +151,16 @@ h4 {
     font-size: 1rem;
   }
 
-  .adopt-text,
-  .event-text {
-    width: 55%;
+  .event-text-title,
+  .sponsors-text-title {
+    font-size: 1.5rem;
+    text-align: left;
+    justify-content: left;
   }
 
   .adopt-text-title,
-  .event-text-title {
-    font-size: 2rem;
-    font-weight: bolder;
-    display: flex;
-    flex-flow: row nowrap;
-  }
-
-  .adopt-text-title {
+  .volunteer-text-title {
+    font-size: 1.5rem;
     text-align: right;
     justify-content: right;
   }
