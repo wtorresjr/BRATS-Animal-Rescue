@@ -17,7 +17,8 @@ h4 {
 
 .adopt-card,
 .event-card,
-.donation-card {
+.donation-card,
+.volunteer-card {
   background-color: #00275e;
   border-radius: 10px;
   color: white;
@@ -29,12 +30,25 @@ h4 {
   justify-content: space-between;
 }
 
+.volunteer-card {
+  background-color: white;
+  color: #ca0300;
+  border: 1px solid grey;
+  text-align: right;
+}
+
 .adopt-img,
 .event-img {
   width: 50%;
   aspect-ratio: 1 / 1;
   background-color: white;
   border-radius: 10px;
+}
+
+.volunteer-img {
+  border: 1px solid grey;
+  width: 25%;
+  aspect-ratio: 1/1;
 }
 
 .adopt-text-title,
@@ -78,7 +92,8 @@ h4 {
 
 @media (max-width: 480px) {
   .adopt-card,
-  .event-card {
+  .event-card,
+  .volunteer-card {
     padding: 10px;
   }
 
