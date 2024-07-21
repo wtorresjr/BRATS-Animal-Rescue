@@ -10,6 +10,11 @@ import { Footer } from "../Footer";
 import { DonationsCard } from "../HomeCard";
 import { SmallCard } from "../HomeCard";
 
+const volunteerImg = "../src/Assets/Cat-n-Dog.jpg";
+const sponsorsImg = "../src/Assets/sponsor-image.jpg";
+const adoptImg = "../src/Assets/dog-img1.jpg";
+const eventsImg = "../src/Assets/special-events.jpg";
+
 const Homepage = () => {
   const { openMenu, setOpenMenu } = useContext(MyContext);
   return (
@@ -32,7 +37,7 @@ const Homepage = () => {
           "  Find the perfect companion. Browse rescue animals in need of a home..."
         }
         callToAction={"SEARCH"}
-        imgSrc={"./"}
+        imgSrc={adoptImg}
         cssStyle={"adopt"}
       />
       <div style={{ margin: "10px 0 0 0" }}></div>
@@ -40,7 +45,7 @@ const Homepage = () => {
         title={"Special Events"}
         cardText={"View our upcoming events..."}
         callToAction={"VIEW CALENDAR"}
-        imgSrc={"./"}
+        imgSrc={eventsImg}
         cssStyle={"event"}
       />
       <div style={{ margin: "10px 0 0 0" }}></div>
@@ -58,7 +63,7 @@ const Homepage = () => {
         cssStyle={"volunteer"}
         cardText={"See how you can help..."}
         callToAction={"VOLUNTEER"}
-        imgSrc={"./"}
+        imgSrc={volunteerImg}
       />
 
       <div style={{ margin: "10px 0 0 0" }}></div>
@@ -68,7 +73,7 @@ const Homepage = () => {
         cssStyle={"sponsors"}
         cardText={"Help keep our mission alive..."}
         callToAction={"SPONSORS"}
-        imgSrc={"./"}
+        imgSrc={sponsorsImg}
       />
       <div style={{ margin: "10px 0 0 0" }}></div>
       <Footer />
