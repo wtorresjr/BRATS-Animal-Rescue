@@ -1,6 +1,4 @@
 const validateData = (data) => {
-  //   console.log(data, "FROM VALIDATION");
-
   const errors = {};
 
   data.age > 0 ? null : (errors.age_error = "Age must be greater than 0.");
