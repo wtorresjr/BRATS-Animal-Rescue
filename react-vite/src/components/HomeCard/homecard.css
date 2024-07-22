@@ -1,0 +1,175 @@
+h4 {
+  margin-bottom: 0px;
+}
+
+.adopt-img,
+.event-img,
+.donation-img,
+.volunteer-img,
+.sponsors-img {
+  border-radius: 10px;
+}
+
+img {
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.donation-card h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.donation-card {
+  align-items: center;
+}
+
+.donation-tag {
+  font-weight: 100;
+}
+
+.adopt-card,
+.event-card,
+.donation-card,
+.volunteer-card,
+.sponsors-card {
+  background-color: #00275e;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.volunteer-card {
+  background-color: white;
+  color: #ca0300;
+  border: 1px solid grey;
+  text-align: right;
+}
+
+.sponsors-card {
+  background-color: white;
+  color: #00275e;
+  border: 3px solid #00275e;
+  text-align: left;
+  flex-direction: row-reverse;
+}
+
+.adopt-img,
+.event-img {
+  width: 50%;
+  background-color: white;
+  aspect-ratio: 1 / 1;
+}
+
+.volunteer-img {
+  /* border: 1px solid grey; */
+  width: 25%;
+  aspect-ratio: 1/1;
+}
+
+.sponsors-img {
+  /* border: 1px solid grey; */
+  width: 25%;
+  aspect-ratio: 1/1;
+}
+
+.adopt-text-title,
+.event-text-title {
+  font-size: 2rem;
+  font-weight: bolder;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.event-card {
+  background-color: #ca0300;
+  flex-direction: row-reverse;
+}
+
+.regular-weight {
+  font-weight: 100;
+}
+
+.adopt-text,
+.event-text {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  text-align: right;
+  font-weight: 300;
+  font-size: 1.1rem;
+  width: 50%;
+}
+
+.event-text {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .adopt-text,
+  .event-text {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .adopt-card,
+  .event-card,
+  .donation-card,
+  .volunteer-card,
+  .sponsors-card {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .adopt-img,
+  .event-img,
+  .donation-img,
+  .volunteer-img,
+  .sponsors-img {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .event-card,
+  .sponsors-card {
+    flex-direction: row-reverse;
+  }
+
+  .event-text,
+  .sponsors-text {
+    text-align: left;
+  }
+
+  .adopt-text,
+  .volunteer-text {
+    text-align: right;
+    width: 50%;
+  }
+
+  .adopt-text,
+  .event-text {
+    font-size: 1rem;
+  }
+
+  .event-text-title,
+  .sponsors-text-title {
+    font-size: 1.5rem;
+    text-align: left;
+    justify-content: left;
+  }
+
+  .adopt-text-title,
+  .volunteer-text-title {
+    font-size: 1.5rem;
+    text-align: right;
+    justify-content: right;
+  }
+}
