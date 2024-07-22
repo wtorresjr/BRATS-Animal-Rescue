@@ -23,7 +23,11 @@ const Homepage = () => {
       {openMenu ? <NavMenu /> : null}
       <div style={{ margin: "10px 0 0 0" }}></div>
       <Button
-        style={{ backgroundColor: "#ca0300", alignItems: "center" }}
+        style={{
+          backgroundColor: "#ca0300",
+          alignItems: "center",
+          borderRadius: "10px",
+        }}
         fullWidth={"True"}
         variant="contained"
         endIcon={<ArrowRightIcon />}

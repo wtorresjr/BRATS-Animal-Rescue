@@ -1,10 +1,14 @@
 .navmenu {
-  padding: 10px 0 10px 0;
+  padding: 0 0 10px 0;
   border-bottom: 3px solid #ca0300;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   gap: 10px 5px;
+  /* position: fixed; */
+  z-index: 1000;
+  background-color: white;
+  /* margin-top: 145px; */
 }
 
 .navmenu button {
