@@ -19,7 +19,7 @@
 }
 
 .header img {
-  width: 30%;
+  width: 25%;
 }
 
 .header-title {
@@ -27,7 +27,7 @@
   font-optical-sizing: auto;
   font-weight: bolder;
   font-style: normal;
-  font-size: 18px;
+  font-size: 1rem;
   letter-spacing: -0.8px;
   width: 40%;
   color: #00235b;
