@@ -4,18 +4,19 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className="footer-contain">
       <div className="link-div">
         <div>
-          <a href="">DONATE</a>|<a href="">ADOPT A PET</a>|
-          <a href="">FOSTER A PET</a>
+          <NavLink>DONATE</NavLink>|<NavLink to={"/adopt"}>ADOPT A PET</NavLink>|
+          <NavLink>FOSTER A PET</NavLink>
         </div>
         <div>
-          <a href="">EVENTS</a>|<a href="">BECOME A SPONSOR</a>|
-          <a href="">VOLUNTEER</a>
+          <NavLink>EVENTS</NavLink>|<NavLink>BECOME A SPONSOR</NavLink>|
+          <NavLink>VOLUNTEER</NavLink>
         </div>
       </div>
 
