@@ -1,6 +1,7 @@
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import "./navmenu.css";
+import { Link, NavLink } from "react-router-dom";
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: "#FFF",
@@ -14,12 +15,24 @@ const ColorButton = styled(Button)(({ theme }) => ({
 const NavMenu = () => {
   return (
     <div className="navmenu">
-      <ColorButton>Foster A Rescue</ColorButton>
-      <ColorButton>Adopt A Rescue</ColorButton>
-      <ColorButton>Event Calendar</ColorButton>
-      <ColorButton>Make A Donation</ColorButton>
-      <ColorButton>Our Sponsors</ColorButton>
-      <ColorButton>Ways To Volunteer</ColorButton>
+      <ColorButton>
+        <NavLink>Foster A Rescue</NavLink>
+      </ColorButton>
+      <ColorButton>
+        <NavLink to={"/adopt"}>Adopt A Rescue</NavLink>
+      </ColorButton>
+      <ColorButton>
+        <NavLink>Event Calendar</NavLink>
+      </ColorButton>
+      <ColorButton>
+        <NavLink>Make A Donation</NavLink>
+      </ColorButton>
+      <ColorButton>
+        <NavLink>Our Sponsors</NavLink>
+      </ColorButton>
+      <ColorButton>
+        <NavLink>Ways To Volunteer</NavLink>
+      </ColorButton>
     </div>
   );
 };
