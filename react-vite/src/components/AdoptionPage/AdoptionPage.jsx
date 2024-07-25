@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import AnimalCard from "../AnimalCard/AnimalCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllAnimalsThunk } from "../../redux/animals";
+import { Header } from "../Header";
+import { Footer } from "../Footer";
 
 const AdoptionPage = () => {
   const animals = useSelector((state) => state?.animals);
@@ -13,6 +15,7 @@ const AdoptionPage = () => {
 
   return (
     <>
+      <Header />
       {animals?.animals?.length > 0 ? (
         animals.animals.map((rescue) => (
           <AnimalCard key={rescue.id} rescue={rescue} />
@@ -20,6 +23,7 @@ const AdoptionPage = () => {
       ) : (
         <p>No animals found</p>
       )}
+      <Footer />
     </>
   );
 };
