@@ -3,18 +3,23 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Button from "@mui/material/Button";
 import { useContext } from "react";
 import { MyContext } from "../../context/MyContext";
-import { NavMenu } from "../NavMenu";
 import "./header.css";
+import { useNavigate } from "react-router-dom";
 
 const logo = "../src/Assets/Brats-Logo-simple.png";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const goHome = () => {
+    navigate("/");
+  };
   const { openMenu, setOpenMenu } = useContext(MyContext);
 
   return (
     <>
       <div className="header">
-        <img src={logo} />
+        <img src={logo} onClick={goHome} />
+
         <div className="header-title">Bringing Rescued Animals To Safety</div>
         <Button
           onClick={() => setOpenMenu(!openMenu)}
