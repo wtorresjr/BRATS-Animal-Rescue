@@ -22,7 +22,7 @@ const AdoptionPage = () => {
       {openMenu ? <NavMenu /> : null}
       {animals?.animals?.length > 0 ? (
         animals.animals.map((rescue) => (
-          <AdoptionCard key={rescue.id} rescue={rescue} cssStyle={"adopt-detail-card"}/>
+          <AdoptionCard key={rescue.id} rescue={rescue} cssStyle={"adopt-detail"}/>
         ))
       ) : (
         <p>No animals found</p>
