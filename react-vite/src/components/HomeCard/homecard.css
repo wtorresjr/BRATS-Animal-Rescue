@@ -6,7 +6,8 @@ h4 {
 .event-img,
 .donation-img,
 .volunteer-img,
-.sponsors-img {
+.sponsors-img,
+.adopt-detail-img {
   border-radius: 10px;
 }
 
@@ -35,7 +36,8 @@ img {
 .event-card,
 .donation-card,
 .volunteer-card,
-.sponsors-card {
+.sponsors-card,
+.adopt-detail-card {
   background-color: #00275e;
   border-radius: 10px;
   color: white;
@@ -44,6 +46,12 @@ img {
   flex-flow: row nowrap;
   gap: 10px;
   justify-content: space-between;
+}
+
+.adopt-detail-card {
+  background-color: rgb(240, 240, 240);
+  border: 1px solid grey;
+  margin: 10px 0;
 }
 
 .volunteer-card {
@@ -68,6 +76,12 @@ img {
   aspect-ratio: 1 / 1;
 }
 
+.adopt-detail-img {
+  width: 33%;
+  /* background-color: white; */
+  aspect-ratio: 1/1;
+}
+
 .volunteer-img {
   /* border: 1px solid grey; */
   width: 25%;
@@ -81,7 +95,8 @@ img {
 }
 
 .adopt-text-title,
-.event-text-title {
+.event-text-title,
+.adopt-detail-title {
   font-size: 2rem;
   font-weight: bolder;
   display: flex;
@@ -98,7 +113,8 @@ img {
 }
 
 .adopt-text,
-.event-text {
+.event-text,
+.adopt-detail-text {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -124,9 +140,16 @@ img {
   .event-card,
   .donation-card,
   .volunteer-card,
-  .sponsors-card {
+  .sponsors-card,
+  .adopt-detail-card {
     flex-direction: row;
     align-items: center;
+  }
+
+  .adopt-detail-card {
+    background-color: rgb(240, 240, 240);
+    border: 1px solid grey;
+    margin: 10px 0;
   }
 
   .adopt-img,
@@ -155,7 +178,8 @@ img {
   }
 
   .adopt-text,
-  .event-text {
+  .event-text,
+  .adopt-detail-text {
     font-size: 1rem;
   }
 

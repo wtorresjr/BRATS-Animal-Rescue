@@ -9,6 +9,7 @@ import HomeCard from "../HomeCard/HomeCard";
 import { Footer } from "../Footer";
 import { DonationsCard } from "../HomeCard";
 import { SmallCard } from "../HomeCard";
+import { NavLink } from "react-router-dom";
 
 const volunteerImg = "../src/Assets/Cat-n-Dog.jpg";
 const sponsorsImg = "../src/Assets/sponsor-image.jpg";
@@ -24,6 +25,7 @@ const Homepage = () => {
       <div style={{ margin: "10px 0 0 0" }}></div>
       <Button
         style={{
+
           backgroundColor: "#ca0300",
           alignItems: "center",
           borderRadius: "10px",
@@ -35,15 +37,17 @@ const Homepage = () => {
         Our Mission
       </Button>
       <div style={{ margin: "10px 0 0 0" }}></div>
-      <HomeCard
-        title={"Adopt Today"}
-        cardText={
-          "  Find the perfect companion. Browse rescue animals in need of a home..."
-        }
-        callToAction={"SEARCH"}
-        imgSrc={adoptImg}
-        cssStyle={"adopt"}
-      />
+      <NavLink to={"/adopt"}>
+        <HomeCard
+          title={"Adopt Today"}
+          cardText={
+            "Find the perfect companion. Browse rescue animals in need of a home..."
+          }
+          callToAction={"SEARCH"}
+          imgSrc={adoptImg}
+          cssStyle={"adopt"}
+        />
+      </NavLink>
       <div style={{ margin: "10px 0 0 0" }}></div>
       <HomeCard
         title={"Special Events"}
