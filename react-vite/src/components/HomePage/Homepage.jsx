@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Header } from "../Header";
 import { NavMenu } from "../NavMenu";
 import { MyContext } from "../../context/MyContext";
@@ -13,7 +12,7 @@ import { NavLink } from "react-router-dom";
 
 const volunteerImg = "../src/Assets/Cat-n-Dog.jpg";
 const sponsorsImg = "../src/Assets/sponsor-image.jpg";
-const adoptImg = "../src/Assets/dog-img1.jpg";
+const adoptImg = "../dist/assets/dog-img1.jpg";
 const eventsImg = "../src/Assets/special-events.jpg";
 
 const Homepage = () => {
@@ -25,7 +24,6 @@ const Homepage = () => {
       <div style={{ margin: "10px 0 0 0" }}></div>
       <Button
         style={{
-
           backgroundColor: "#ca0300",
           alignItems: "center",
           borderRadius: "10px",
