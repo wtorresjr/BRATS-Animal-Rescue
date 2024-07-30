@@ -1,0 +1,39 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    # depends_on:
+    #   - db
+
+  frontend:
+    build:
+      context: .
+      dockerfile: react-vite/Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./react-vite:/app
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8000
+
+#   db:
+#     image: postgres:13
+#     container_name: db
+#     environment:
+#       POSTGRES_USER: youruser
+#       POSTGRES_PASSWORD: yourpassword
+#       POSTGRES_DB: yourdb
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+
+# volumes:
+#   postgres_data:

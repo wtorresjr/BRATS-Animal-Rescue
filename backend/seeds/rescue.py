@@ -1,9 +1,9 @@
-from app.models import db, Staff, environment, SCHEMA
-from app.models.db import fake
+from backend.models import db, Staff, environment, SCHEMA
+from backend.models.db import fake
 from sqlalchemy.sql import text
 from random import randint, choice
-from app import db
-from app.models import Rescue
+from backend import db
+from backend.models import Rescue
 from datetime import date
 
 
