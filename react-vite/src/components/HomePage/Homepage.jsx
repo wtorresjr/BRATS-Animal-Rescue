@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 
 const volunteerImg = "../src/Assets/Cat-n-Dog.jpg";
 const sponsorsImg = "../src/Assets/sponsor-image.jpg";
-const adoptImg = "../dist/assets/dog-img1.jpg";
+const adoptImg = "../src/Assets/dog-img1.jpg";
 const eventsImg = "../src/Assets/special-events.jpg";
 
 const Homepage = () => {
