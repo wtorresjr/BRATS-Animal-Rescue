@@ -5,7 +5,7 @@ from .rescue import seed_rescue, undo_rescue
 # from .daily_charts import seed_daily_charts, undo_daily_charts
 # from .discreet_trials import seed_discreet_trials, undo_discreet_trials
 
-from app.models.db import db, environment, SCHEMA
+from backend.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`

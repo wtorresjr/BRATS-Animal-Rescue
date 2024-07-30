@@ -1,3 +1,4 @@
-FLASK_APP=app
+FLASK_APP=backend
 FLASK_DEBUG=true
 FLASK_RUN_PORT=8000
+FLASK_ENV=development
