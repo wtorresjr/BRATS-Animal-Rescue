@@ -4,7 +4,7 @@ from faker import Faker
 
 import os
 
-environment = os.getenv("FLASK_DEBUG")
+environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 
