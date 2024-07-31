@@ -15,6 +15,8 @@ const sponsorsImg = "sponsor-image.jpg";
 const adoptImg = "dog-img1.jpg";
 const eventsImg = "special-events.jpg";
 
+//Updated git configuration email
+
 const Homepage = () => {
   const { openMenu, setOpenMenu } = useContext(MyContext);
   return (
