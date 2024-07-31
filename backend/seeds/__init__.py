@@ -1,10 +1,6 @@
 from flask.cli import AppGroup
 from .staff import seed_staff, undo_staff
 from .rescue import seed_rescue, undo_rescue
-
-# from .daily_charts import seed_daily_charts, undo_daily_charts
-# from .discreet_trials import seed_discreet_trials, undo_discreet_trials
-
 from backend.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -12,10 +8,20 @@ from backend.models.db import db, environment, SCHEMA
 seed_commands = AppGroup("seed")
 
 
+# Function to create schema if it does not exist
+def create_schema():
+    if environment == "production":
+        schema_sql = f"CREATE SCHEMA IF NOT EXISTS {SCHEMA};"
+        with db.engine.connect() as conn:
+            conn.execute(schema_sql)
+            conn.execute(f"SET search_path TO {SCHEMA};")
+
+
 # Creates the `flask seed all` command
 @seed_commands.command("all")
 def seed():
     if environment == "production":
+        create_schema()
         undo_staff()
         undo_rescue()
     seed_staff()
