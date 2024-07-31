@@ -15,8 +15,7 @@ class Config:
     #     SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace(
     #         "postgres://", "postgresql://", 1)
 
-    SQLALCHEMY_DATABASE_URI = "sqlite:///dev.db"
-
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
     SQLALCHEMY_ECHO = True
     print(SQLALCHEMY_DATABASE_URI, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
