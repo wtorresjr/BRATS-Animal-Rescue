@@ -34,26 +34,3 @@ EXPOSE 8000
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "backend:app"]
 
 
-
-# CMD ["pipenv", "run", "gunicorn", "--bind", "0.0.0.0:8000", "backend:app"]
-
-# WORKDIR /app
-
-# # Copy Pipfile and Pipfile.lock to the working directory
-# COPY Pipfile Pipfile.lock ./
-
-# # Install pipenv
-# RUN pip install pipenv
-
-# # Create the virtual environment and install dependencies
-# RUN pipenv install --deploy --ignore-pipfile
-
-# # Copy the rest of the application code to the working directory
-# COPY backend /app
-
-# # Expose the port the app runs on
-# EXPOSE 8000
-
-# # Run the application using pipenv to ensure correct environment
-# CMD ["pipenv", "run", "gunicorn", "--bind", "0.0.0.0:8000", "backend:app"]
-
