@@ -6,7 +6,7 @@ import { MyContext } from "../../context/MyContext";
 import "./header.css";
 import { useNavigate } from "react-router-dom";
 
-const logo = "../public/Brats-Logo-simple.png";
+const logo = "Brats-Logo-simple.png";
 
 const Header = () => {
   const navigate = useNavigate();
