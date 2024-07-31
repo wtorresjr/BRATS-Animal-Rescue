@@ -10,10 +10,10 @@ import { DonationsCard } from "../HomeCard";
 import { SmallCard } from "../HomeCard";
 import { NavLink } from "react-router-dom";
 
-const volunteerImg = "../src/Assets/Cat-n-Dog.jpg";
-const sponsorsImg = "../src/Assets/sponsor-image.jpg";
-const adoptImg = "../src/Assets/dog-img1.jpg";
-const eventsImg = "../src/Assets/special-events.jpg";
+const volunteerImg = "../../public/imgs/Cat-n-Dog.jpg";
+const sponsorsImg = "../../public/imgs/sponsor-image.jpg";
+const adoptImg = "../../public/imgs/dog-img1.jpg";
+const eventsImg = "../../public/imgs/special-events.jpg";
 
 const Homepage = () => {
   const { openMenu, setOpenMenu } = useContext(MyContext);
