@@ -17,4 +17,7 @@ export default defineConfig((mode) => ({
       "/api": "http://0.0.0.0:8000",
     },
   },
+  build: {
+    outDir: "dist",
+  },
 }));
