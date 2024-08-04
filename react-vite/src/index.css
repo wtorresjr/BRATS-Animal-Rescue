@@ -20,16 +20,16 @@
 button {
   cursor: pointer;
 }
-button:hover {
+/* button:hover {
   background-color: white;
   color: black;
 }
 
 Button:hover {
   color: white;
-}
+} */
 
-@media only screen and (max-width: 840px) {
+/* @media only screen and (max-width: 840px) {
   .small-screens {
     background-color: red;
   }
@@ -44,10 +44,10 @@ Button:hover {
     background-attachment: fixed;
     overflow: auto;
   }
-}
+} */
 
 /* Small devices (tablets) */
-@media only screen and (min-width: 841px) {
+/* @media only screen and (min-width: 841px) {
   .big-screens {
     background-color: red;
   }
@@ -70,7 +70,7 @@ Button:hover {
     background-attachment: fixed;
     overflow: auto;
   }
-}
+} */
 
 html {
   /* font-family: system-ui, -apple-system, Roboto; */
@@ -118,8 +118,18 @@ label {
   padding: 5px;
 }
 
-#root {
-  margin: 100px 0 145px 0;
+body {
+  /* margin: 0 auto; */
+  max-width: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+img {
+  cursor: pointer;
 }
 
-
+#root {
+  margin: 85px 0 145px 0;
+  background-color: ;
+}

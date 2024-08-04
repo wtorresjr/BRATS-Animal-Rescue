@@ -20,7 +20,9 @@ const Header = () => {
       <div className="header">
         <img src={logo} onClick={goHome} />
 
-        <div className="header-title">Bringing Rescued Animals To Safety</div>
+        <div className="header-title" onClick={goHome}>
+          Bringing Rescued Animals To Safety
+        </div>
         <Button
           onClick={() => setOpenMenu(!openMenu)}
           variant="outlined"
