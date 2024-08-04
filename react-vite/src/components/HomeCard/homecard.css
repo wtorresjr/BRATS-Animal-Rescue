@@ -50,7 +50,7 @@ img {
 
 .adopt-detail-card {
   background-color: rgb(240, 240, 240);
-  border: 1px solid grey;
+  border: 1px solid #00275e;
   margin: 10px 0;
   display: flex;
   flex-flow: row wrap;
@@ -65,6 +65,36 @@ img {
   text-align: left;
   flex-grow: 1;
   font-size: 0.9rem;
+}
+
+.adopt-detail-adptText h1 {
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+}
+
+.adopt-story-contain {
+  /* display: flex; */
+  position: relative;
+}
+.adopt-story-contain > button {
+  border-radius: 10px;
+  color: white;
+  border: 1px solid #ca0300;
+  background-color: #ca0300;
+  /* height: auto; */
+  /* width: 80px;
+  height: 60px; */
+  font-size: 0.7rem;
+  float: right;
+  margin: 10px 0 0 0;
+  padding: 5px;
+}
+.adopt-story-contain > text {
+  display: inline-block;
+  /* height: auto; */
+  /* width: calc(100%-90px); */
+  /* height: 20%; */
+  /* vertical-align: top; */
 }
 
 .volunteer-card {

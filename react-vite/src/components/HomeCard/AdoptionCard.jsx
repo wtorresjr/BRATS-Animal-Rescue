@@ -1,5 +1,7 @@
+const getInfo = (rescueInfo) => {
+  alert(`Rescue info for ${rescueInfo}`);
+};
 const AdoptionCard = ({ cssStyle, rescue }) => {
-  console.log(rescue);
   const r_date = rescue.rescue_date.split(" ");
 
   return (
@@ -11,7 +13,7 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
       <div className={`${cssStyle}-adptText`}>
         <h1>{rescue.animal_name}</h1>
         <div>{`Rescue Date: ${r_date[2]}-${r_date[1]}-${r_date[3]}`}</div>
-        <div>Age: {rescue.age}</div>
+        <div>Age: {rescue.age} Years Old</div>
         <div>Sex: {rescue.sex}</div>
         <div>Good With Kids? {rescue.good_w_kids ? "Yes" : "No"}</div>
         <div>Good With Cats? {rescue.good_w_cats ? "Yes" : "No"}</div>
@@ -19,9 +21,18 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
         <div>Spayed/Neutered? {rescue.fixed ? "Yes" : "No"}</div>
         <div>Potty Trained? {rescue.potty_trained ? "Yes" : "No"}</div>
       </div>
-        <div>
-          {`${rescue.animal_name}'s Story`}: {rescue.story}
+      <div>
+        <div className="adopt-story-contain">
+          <text>
+            <strong>{`${rescue.animal_name}'s Story`}:</strong> {rescue.story}
+          </text>
+          <button
+            onClick={() => {
+              getInfo(rescue.animal_name);
+            }}
+          >{`Learn More About ${rescue.animal_name}`}</button>
         </div>
+      </div>
     </div>
   );
 };
