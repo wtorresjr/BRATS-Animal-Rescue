@@ -4,11 +4,11 @@ const AnimalCard = (rescue) => {
   const resc = rescue.rescue;
 
 
-  
-
-
-
-
+  return (
+    <>
+      <div>{resc.animal_name}</div>
+    </>
+  );
 
   // return (
   //   <div className="animal-card">
