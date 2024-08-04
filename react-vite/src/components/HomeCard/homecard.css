@@ -52,6 +52,19 @@ img {
   background-color: rgb(240, 240, 240);
   border: 1px solid grey;
   margin: 10px 0;
+  display: flex;
+  flex-flow: row wrap;
+  color: black;
+  font-size: 0.9rem;
+}
+
+.adopt-detail-adptText {
+  color: black;
+  display: flex;
+  flex-flow: column wrap;
+  text-align: left;
+  flex-grow: 1;
+  font-size: 0.9rem;
 }
 
 .volunteer-card {
@@ -77,7 +90,7 @@ img {
 }
 
 .adopt-detail-img {
-  width: 33%;
+  width: 50%;
   /* background-color: white; */
   aspect-ratio: 1/1;
 }
@@ -128,7 +141,7 @@ img {
   text-align: left;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .adopt-text,
   .event-text {
     width: 50%;
@@ -196,4 +209,4 @@ img {
     text-align: right;
     justify-content: right;
   }
-}
+} */
