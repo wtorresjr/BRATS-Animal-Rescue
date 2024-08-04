@@ -8,7 +8,7 @@
   /* width: 100%; */
   justify-content: space-between;
   align-items: center;
-  height: auto;
+  /* height: auto; */
   border-bottom: 3px solid #ca0300;
   padding: 10px;
   position: fixed;
