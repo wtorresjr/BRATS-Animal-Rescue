@@ -1,7 +1,7 @@
 import { Header } from "../Header";
 import { NavMenu } from "../NavMenu";
 import { MyContext } from "../../context/MyContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Button } from "@mui/material";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import HomeCard from "../HomeCard/HomeCard";
@@ -19,6 +19,11 @@ const eventsImg = "special-events.jpg";
 
 const Homepage = () => {
   const { openMenu, setOpenMenu } = useContext(MyContext);
+
+  useEffect(() => {
+    setOpenMenu(false);
+  }, []);
+
   return (
     <>
       <Header />
