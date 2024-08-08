@@ -7,7 +7,7 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
   return (
     <div className={`${cssStyle}-card`}>
       <div className={`${cssStyle}-img`}>
-        <img src="dog-img1.jpg"></img>
+        <img src={rescue.thumbnail_img}></img>
       </div>
 
       <div className={`${cssStyle}-adptText`}>
