@@ -23,7 +23,6 @@ def get_img_thumb():
 
     if response.status_code == 200:
         return response.url
-        # print(response.url)
     else:
         print("Error", response.status_code)
 
