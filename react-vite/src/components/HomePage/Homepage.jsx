@@ -63,11 +63,13 @@ const Homepage = () => {
       />
       <div style={{ margin: "10px 0 0 0" }}></div>
 
-      <DonationsCard
-        mainTitle={"MAKE A DONATION"}
-        tagLine={"Your donations save lives"}
-        cssStyle={"donation"}
-      />
+      <NavLink to={"/donate"}>
+        <DonationsCard
+          mainTitle={"MAKE A DONATION"}
+          tagLine={"Your donations save lives"}
+          cssStyle={"donation"}
+        />
+      </NavLink>
 
       <div style={{ margin: "10px 0 0 0" }}></div>
 

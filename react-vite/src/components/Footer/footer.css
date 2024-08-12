@@ -12,6 +12,7 @@
   max-width: 380px;
   /* min-width:620px; */
   /* left: 0; */
+  z-index: 1000;
 }
 
 .link-div div {

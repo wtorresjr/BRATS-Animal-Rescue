@@ -23,9 +23,9 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
       </div>
       <div>
         <div className="adopt-story-contain">
-          <text>
+          <div>
             <strong>{`${rescue.animal_name}'s Story`}:</strong> {rescue.story}
-          </text>
+          </div>
           <button
             onClick={() => {
               getInfo(rescue.animal_name);
