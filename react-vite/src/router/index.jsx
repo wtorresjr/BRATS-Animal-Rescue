@@ -7,6 +7,7 @@ import { PrivateRoute } from "../components/PrivateRoute";
 import AdminPage from "../components/AdminPage/AdminPage";
 import { AdoptionPage } from "../components/AdoptionPage";
 import { DonatePage } from "../components/DonatePage";
+import { VolunteerPage } from "../components/VolunteerPage";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: "/donate",
         element: <DonatePage />,
+      },
+      {
+        path: "/volunteer",
+        element: <VolunteerPage />,
       },
       {
         path: "/admin",

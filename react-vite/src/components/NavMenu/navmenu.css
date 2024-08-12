@@ -5,7 +5,8 @@
   flex-flow: row wrap;
   justify-content: space-between;
   gap: 10px 5px;
-  /* position: fixed; */
+  position: fixed;
+  width: 380px;
   z-index: 1000;
   background-color: white;
   /* margin-top: 145px; */

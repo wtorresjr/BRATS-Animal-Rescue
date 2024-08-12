@@ -3,8 +3,8 @@ import { Footer } from "../Footer";
 import { useContext, useEffect } from "react";
 import { MyContext } from "../../context/MyContext";
 import { NavMenu } from "../NavMenu";
-import { AdoptionCard } from "../HomeCard";
-import { useDispatch, useSelector } from "react-redux";
+// import { AdoptionCard } from "../HomeCard";
+// import { useDispatch, useSelector } from "react-redux";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const DonatePage = () => {
@@ -29,18 +29,18 @@ const DonatePage = () => {
             crucial to BRATS Alliance.
           </h2>
           <img src={adoptDogImg} style={{ width: "50%" }} />
+          <p>
+            Every dollar saves lives! BRATS Alliance is a non-profit rescue
+            operated entirely by volunteers and relies solely on donations to
+            finance veterinary exams, vaccinations, medications and surgeries,
+            as well as funding the daily feeding and care for our rescued pets.
+          </p>
+          <p>
+            Thanks to the support of kindhearted, animal loving people like you,
+            we will be able to provide shelter and assistance to the animals in
+            need, assist Veterans and educate the community.
+          </p>
         </div>
-        <p>
-          Every dollar saves lives! BRATS Alliance is a non-profit rescue
-          operated entirely by volunteers and relies solely on donations to
-          finance veterinary exams, vaccinations, medications and surgeries, as
-          well as funding the daily feeding and care for our rescued pets.
-        </p>
-        <p>
-          Thanks to the support of kindhearted, animal loving people like you,
-          we will be able to provide shelter and assistance to the animals in
-          need, assist Veterans and educate the community.
-        </p>
 
         <p style={{ fontSize: "12px", textAlign: "center" }}>
           Florida Non-profit Registration # CH76111 expiration date: July 31,
@@ -59,7 +59,6 @@ const DonatePage = () => {
                 "https://www.paypal.com/ncp/payment/4EKJQKMWY2RW6";
             }}
             createOrder={() => {
-              // Return null because no order is created here
               return null;
             }}
           />

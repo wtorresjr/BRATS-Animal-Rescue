@@ -73,13 +73,15 @@ const Homepage = () => {
 
       <div style={{ margin: "10px 0 0 0" }}></div>
 
-      <SmallCard
-        title={"Ways To Volunteer"}
-        cssStyle={"volunteer"}
-        cardText={"See how you can help..."}
-        callToAction={"VOLUNTEER"}
-        imgSrc={volunteerImg}
-      />
+      <NavLink to={"/volunteer"}>
+        <SmallCard
+          title={"Ways To Volunteer"}
+          cssStyle={"volunteer"}
+          cardText={"See how you can help..."}
+          callToAction={"VOLUNTEER"}
+          imgSrc={volunteerImg}
+        />
+      </NavLink>
 
       <div style={{ margin: "10px 0 0 0" }}></div>
 
