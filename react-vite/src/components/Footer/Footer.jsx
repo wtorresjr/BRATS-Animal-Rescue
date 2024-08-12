@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
         <div>
           <NavLink>EVENTS</NavLink>|<NavLink>BECOME A SPONSOR</NavLink>|
-          <NavLink>VOLUNTEER</NavLink>
+          <NavLink to={"/volunteer"}>VOLUNTEER</NavLink>
         </div>
       </div>
 

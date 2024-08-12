@@ -31,7 +31,7 @@ const NavMenu = () => {
         <NavLink>Our Sponsors</NavLink>
       </ColorButton>
       <ColorButton>
-        <NavLink>Ways To Volunteer</NavLink>
+        <NavLink to={"/volunteer"}>Ways To Volunteer</NavLink>
       </ColorButton>
     </div>
   );
