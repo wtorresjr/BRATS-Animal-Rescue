@@ -37,7 +37,8 @@ img {
 .donation-card,
 .volunteer-card,
 .sponsors-card,
-.adopt-detail-card {
+.adopt-detail-card,
+.genGreyContainer {
   background-color: #00275e;
   border-radius: 10px;
   color: white;
@@ -46,6 +47,13 @@ img {
   flex-flow: row nowrap;
   gap: 10px;
   justify-content: space-between;
+}
+
+.genGreyContainer {
+  background-color: #f1eff0;
+  color: black;
+  flex-flow: column wrap;
+  margin: 10px 0 0 0;
 }
 
 .adopt-detail-card {
@@ -73,7 +81,6 @@ img {
 }
 
 .adopt-story-contain {
-  /* display: flex; */
   position: relative;
 }
 .adopt-story-contain > button {
@@ -81,9 +88,6 @@ img {
   color: white;
   border: 1px solid #ca0300;
   background-color: #ca0300;
-  /* height: auto; */
-  /* width: 80px;
-  height: 60px; */
   font-size: 0.7rem;
   float: right;
   margin: 10px 0 0 0;
@@ -91,10 +95,6 @@ img {
 }
 .adopt-story-contain > text {
   display: inline-block;
-  /* height: auto; */
-  /* width: calc(100%-90px); */
-  /* height: 20%; */
-  /* vertical-align: top; */
 }
 
 .volunteer-card {
@@ -121,18 +121,15 @@ img {
 
 .adopt-detail-img {
   width: 50%;
-  /* background-color: white; */
   aspect-ratio: 1/1;
 }
 
 .volunteer-img {
-  /* border: 1px solid grey; */
   width: 25%;
   aspect-ratio: 1/1;
 }
 
 .sponsors-img {
-  /* border: 1px solid grey; */
   width: 25%;
   aspect-ratio: 1/1;
 }
@@ -170,73 +167,3 @@ img {
 .event-text {
   text-align: left;
 }
-
-/* @media (max-width: 768px) {
-  .adopt-text,
-  .event-text {
-    width: 50%;
-  }
-}
-
-@media (max-width: 480px) {
-  .adopt-card,
-  .event-card,
-  .donation-card,
-  .volunteer-card,
-  .sponsors-card,
-  .adopt-detail-card {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .adopt-detail-card {
-    background-color: rgb(240, 240, 240);
-    border: 1px solid grey;
-    margin: 10px 0;
-  }
-
-  .adopt-img,
-  .event-img,
-  .donation-img,
-  .volunteer-img,
-  .sponsors-img {
-    width: 50%;
-    aspect-ratio: 1 / 1;
-  }
-
-  .event-card,
-  .sponsors-card {
-    flex-direction: row-reverse;
-  }
-
-  .event-text,
-  .sponsors-text {
-    text-align: left;
-  }
-
-  .adopt-text,
-  .volunteer-text {
-    text-align: right;
-    width: 50%;
-  }
-
-  .adopt-text,
-  .event-text,
-  .adopt-detail-text {
-    font-size: 1rem;
-  }
-
-  .event-text-title,
-  .sponsors-text-title {
-    font-size: 1.5rem;
-    text-align: left;
-    justify-content: left;
-  }
-
-  .adopt-text-title,
-  .volunteer-text-title {
-    font-size: 1.5rem;
-    text-align: right;
-    justify-content: right;
-  }
-} */

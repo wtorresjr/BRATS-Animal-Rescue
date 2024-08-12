@@ -20,57 +20,6 @@
 button {
   cursor: pointer;
 }
-/* button:hover {
-  background-color: white;
-  color: black;
-}
-
-Button:hover {
-  color: white;
-} */
-
-/* @media only screen and (max-width: 840px) {
-  .small-screens {
-    background-color: red;
-  }
-
-  body {
-    padding: 20px 10px;
-    max-width: 100%;
-    min-width: 60%;
-    margin: 0 auto;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: auto;
-  }
-} */
-
-/* Small devices (tablets) */
-/* @media only screen and (min-width: 841px) {
-  .big-screens {
-    background-color: red;
-  }
-  .navLinkStyle {
-    color: white;
-    font-size: 16px;
-    color: orange;
-  }
-  .logo-image {
-    height: 6vh;
-    cursor: pointer;
-  }
-  body {
-    padding: 20px 0px;
-    max-width: 65%;
-    min-width: 60%;
-    margin: 0 auto;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: auto;
-  }
-} */
 
 html {
   /* font-family: system-ui, -apple-system, Roboto; */
@@ -132,3 +81,5 @@ img {
 #root {
   margin: 85px 0 145px 0;
 }
+
+

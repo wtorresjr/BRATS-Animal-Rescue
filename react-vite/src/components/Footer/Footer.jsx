@@ -11,7 +11,8 @@ const Footer = () => {
     <div className="footer-contain">
       <div className="link-div">
         <div>
-          <NavLink>DONATE</NavLink>|<NavLink to={"/adopt"}>ADOPT A PET</NavLink>|
+          <NavLink to={"/donate"}>DONATE</NavLink>|
+          <NavLink to={"/adopt"}>ADOPT A PET</NavLink>|
           <NavLink>FOSTER A PET</NavLink>
         </div>
         <div>
