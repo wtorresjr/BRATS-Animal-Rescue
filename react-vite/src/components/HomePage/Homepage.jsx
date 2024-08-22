@@ -29,18 +29,20 @@ const Homepage = () => {
       <Header />
       {openMenu ? <NavMenu /> : null}
       <div style={{ margin: "10px 0 0 0" }}></div>
-      <Button
-        style={{
-          backgroundColor: "#ca0300",
-          alignItems: "center",
-          borderRadius: "10px",
-        }}
-        fullWidth={"True"}
-        variant="contained"
-        endIcon={<ArrowRightIcon />}
-      >
-        Our Mission
-      </Button>
+      <NavLink to={"/mission"}>
+        <Button
+          style={{
+            backgroundColor: "#ca0300",
+            alignItems: "center",
+            borderRadius: "10px",
+          }}
+          fullWidth={"True"}
+          variant="contained"
+          endIcon={<ArrowRightIcon />}
+        >
+          Our Mission
+        </Button>
+      </NavLink>
       <div style={{ margin: "10px 0 0 0" }}></div>
       <NavLink to={"/adopt"}>
         <HomeCard
