@@ -7,16 +7,21 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import { NavLink } from "react-router-dom";
 
 const Footer = () => {
+  const alertSoon = () => {
+    alert("Coming Soon!");
+  };
+
   return (
     <div className="footer-contain">
       <div className="link-div">
         <div>
           <NavLink to={"/donate"}>DONATE</NavLink>|
           <NavLink to={"/adopt"}>ADOPT A PET</NavLink>|
-          <NavLink>FOSTER A PET</NavLink>
+          <NavLink onClick={alertSoon}>FOSTER A PET</NavLink>
         </div>
         <div>
-          <NavLink>EVENTS</NavLink>|<NavLink>BECOME A SPONSOR</NavLink>|
+          <NavLink onClick={alertSoon}>EVENTS</NavLink>|
+          <NavLink onClick={alertSoon}>BECOME A SPONSOR</NavLink>|
           <NavLink to={"/volunteer"}>VOLUNTEER</NavLink>
         </div>
       </div>
