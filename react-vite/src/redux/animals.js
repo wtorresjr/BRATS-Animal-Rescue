@@ -8,7 +8,7 @@ const addNewAnimal = (animal) => ({
 });
 
 export const addAnimalThunk = (animalData) => async (dispatch) => {
-  console.log(animalData, "DATA IN THUNK");
+  // console.log(animalData, "DATA IN THUNK");
   const response = await fetch("/api/animals/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

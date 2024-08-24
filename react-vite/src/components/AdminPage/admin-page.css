@@ -1,5 +1,19 @@
 .errors-red {
   color: red;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  width: 100%;
 }
+
+.dropDown-div {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+/* 
+div {
+  margin: 5px 0;
+  width: 100%;
+} */

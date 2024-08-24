@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { addAnimalThunk } from "../../redux/animals";
+import { addAnimalThunk, getAllAnimalsThunk } from "../../redux/animals";
 import { useDispatch } from "react-redux";
 import "./admin-page.css";
 import validateData from "./validation";
+import { useNavigate } from "react-router-dom";
 
 const AdminPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [age, setAge] = useState("");
   const [name, setName] = useState("");
@@ -18,6 +20,7 @@ const AdminPage = () => {
   const [rescueDate, setRescueDate] = useState("");
   const [sex, setSex] = useState("");
   const [story, setStory] = useState("");
+  const [canAdopt, setCanAdopt] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [rescueType, setRescueType] = useState("");
 
@@ -37,6 +40,7 @@ const AdminPage = () => {
       good_w_dogs: parseInt(gwDogs),
       good_w_kids: parseInt(gwKids),
       potty_trained: parseInt(trained),
+      can_adopt: parseInt(canAdopt),
       rescue_date: rescueDate,
       sex: sex,
       story: story,
@@ -50,7 +54,12 @@ const AdminPage = () => {
       try {
         const addRescue = await dispatch(addAnimalThunk(data));
         if (addRescue) {
-          alert("Added Rescue Successfully!");
+          // alert("Added Rescue Successfully!");
+          const loadNew = await dispatch(getAllAnimalsThunk());
+
+            // console.log(loadNew);
+            navigate("/adopt");
+          
         }
       } catch (error) {
         console.error("Error Adding Rescue", error);
@@ -63,6 +72,7 @@ const AdminPage = () => {
 
   return (
     <>
+      <h1>Admin</h1>
       <div>
         <label>Name:</label>
         <input
@@ -87,7 +97,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Rescue Type:</label>
         <select
           value={rescueType}
@@ -114,7 +124,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Spayed or Neutered:</label>
         <select value={fixed} onChange={(e) => setFixed(e.target.value)}>
           <option value={""}>Spayed or Neutered?</option>
@@ -126,7 +136,19 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
+        <label>Available For Adoption?:</label>
+        <select value={canAdopt} onChange={(e) => setCanAdopt(e.target.value)}>
+          <option value={""}>Available To Adopt?</option>
+          <option value={0}>No</option>
+          <option value={1}>Yes</option>
+        </select>
+        {formErrors.can_adopt && (
+          <span className="errors-red">{formErrors.can_adopt}</span>
+        )}
+      </div>
+
+      <div className="dropDown-div">
         <label>Good With Cats?</label>
         <select value={gwCats} onChange={(e) => setGWCats(e.target.value)}>
           <option value={""}>Good With Cats?</option>
@@ -138,7 +160,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Good With Dogs?</label>
         <select value={gwDogs} onChange={(e) => setGWDogs(e.target.value)}>
           <option value={""}>Good With Dogs?</option>
@@ -150,7 +172,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Good With Kids?</label>
         <select value={gwKids} onChange={(e) => setGWKids(e.target.value)}>
           <option value={""}>Good With Kids?</option>
@@ -162,7 +184,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Potty Trained?</label>
         <select value={trained} onChange={(e) => setTrained(e.target.value)}>
           <option value={""}>Potty Trained?</option>
@@ -186,7 +208,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Sex:</label>
         <select value={sex} onChange={(e) => setSex(e.target.value)}>
           <option value={""}>Rescue's Sex?</option>
