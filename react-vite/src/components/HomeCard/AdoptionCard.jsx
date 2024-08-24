@@ -26,11 +26,20 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
           <div>
             <strong>{`${rescue.animal_name}'s Story`}:</strong> {rescue.story}
           </div>
-          <button
-            onClick={() => {
-              getInfo(rescue.animal_name);
-            }}
-          >{`Learn More About ${rescue.animal_name}`}</button>
+
+          {/* {rescue.can_adopt ? "CAN ADOPT" : "ADOPTED!"} */}
+
+          {rescue.can_adopt ? (
+            <button
+              onClick={() => {
+                getInfo(rescue.animal_name);
+              }}
+            >{`Learn More About ${rescue.animal_name}`}</button>
+          ) : (
+            <button style={{ backgroundColor: "green", border: "0px" }}>
+              {"ADOPTED!"}
+            </button>
+          )}
         </div>
       </div>
     </div>
