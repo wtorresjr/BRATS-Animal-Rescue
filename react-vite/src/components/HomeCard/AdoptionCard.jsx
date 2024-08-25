@@ -11,7 +11,9 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
       </div>
 
       <div className={`${cssStyle}-adptText`}>
-        <h1>{rescue.animal_name}</h1>
+        <h1>
+          {rescue.animal_name}
+        </h1>
         <div>{`Rescue Date: ${r_date[2]}-${r_date[1]}-${r_date[3]}`}</div>
         <div>Age: {rescue.age} Years Old</div>
         <div>Sex: {rescue.sex}</div>

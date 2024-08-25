@@ -72,7 +72,7 @@ const AdminPage = () => {
 
   return (
     <>
-      <h1>Admin - Add a Rescue</h1>
+      <h1 >Admin - Add a Rescue</h1>
       <div className="div-admin dropDown-div">
         <label>Name:</label>
         <input
