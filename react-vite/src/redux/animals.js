@@ -1,6 +1,25 @@
 // redux/animals.js
 const GET_ALL_ANIMALS = "animals/getAll";
 const ADD_ANIMAL = "animals/addAnimal";
+const DELETE_ANIMAL = "animals/deleteAnimal";
+
+const deleteAnimal = (animalId) => ({
+  type: DELETE_ANIMAL,
+  payload: animalId,
+});
+
+export const deleteAnimalThunk = (animalId) => async (dispatch) => {
+  // console.log("Animal ID from DeleteTHunk", animalId);
+  const response = await fetch(`/api/animals/${animalId}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    dispatch(deleteAnimal(animalId)); // Dispatch the animalId directly
+    return animalId;
+  } else {
+    throw new Error("Error Deleting Animal");
+  }
+};
 
 const addNewAnimal = (animal) => ({
   type: ADD_ANIMAL,
@@ -54,6 +73,11 @@ function animalReducer(state = initialState, action) {
         ...state,
         animals: [...state.animals, action.payload],
         new_animal: [...state.new_animal, action.payload],
+      };
+    case DELETE_ANIMAL:
+      return {
+        ...state,
+        animals: state.animals.filter((animal) => animal.id !== action.payload),
       };
     default:
       return state;
