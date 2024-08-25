@@ -1,7 +1,18 @@
+import { useSelector } from "react-redux";
+import { Button } from "@mui/material";
+import { useDispatch } from "react-redux";
+
 const getInfo = (rescueInfo) => {
   alert(`Rescue info for ${rescueInfo}`);
 };
 const AdoptionCard = ({ cssStyle, rescue }) => {
+  const dispatch = useDispatch();
+
+  const deleteRescue = async () => {
+    alert(rescue.id);
+  };
+
+  const sessionUser = useSelector((state) => state.session.user);
   const r_date = rescue.rescue_date.split(" ");
 
   return (
@@ -11,9 +22,7 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
       </div>
 
       <div className={`${cssStyle}-adptText`}>
-        <h1>
-          {rescue.animal_name}
-        </h1>
+        <h1>{rescue.animal_name}</h1>
         <div>{`Rescue Date: ${r_date[2]}-${r_date[1]}-${r_date[3]}`}</div>
         <div>Age: {rescue.age} Years Old</div>
         <div>Sex: {rescue.sex}</div>
@@ -30,19 +39,40 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
           </div>
 
           {/* {rescue.can_adopt ? "CAN ADOPT" : "ADOPTED!"} */}
-
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexFlow: "column wrap",
+            flexGrow: "1",
+            marginTop: "10px",
+            marginBottom: "10px",
+          }}
+        >
           {rescue.can_adopt ? (
-            <button
+            <Button
+              variant="contained"
+              color="error"
               onClick={() => {
                 getInfo(rescue.animal_name);
               }}
-            >{`Learn More About ${rescue.animal_name}`}</button>
+            >{`Learn More About ${rescue.animal_name}`}</Button>
           ) : (
-            <button style={{ backgroundColor: "green", border: "0px" }}>
+            <Button variant="contained" color="success">
               {"ADOPTED!"}
-            </button>
+            </Button>
           )}
         </div>
+        {sessionUser && (
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Button variant="contained" onClick={deleteRescue}>
+              Delete
+            </Button>
+            <Button variant="contained" color="secondary">
+              Edit
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -17,10 +17,23 @@ const NavBar = () => {
     <>
       {sessionUser && (
         <>
+          Administrative Functions
           <div className="nav-bar-contain">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/admin">Add New Rescue</NavLink>
-            <NavLink to="/admin">Edit Rescue Info</NavLink>
+            <Button variant="contained">
+              <NavLink to="/">Home</NavLink>
+            </Button>
+            <Button variant="contained" color="success">
+              <NavLink to="/admin">Add New Rescue</NavLink>
+            </Button>
+            <Button variant="contained" color="secondary">
+              <NavLink to="/adopt">Edit / Delete Rescue Info</NavLink>
+            </Button>
+            <Button variant="contained" color="success">
+              <NavLink to="/add-event">Add An Event</NavLink>
+            </Button>
+            <Button variant="contained" color="secondary">
+              <NavLink to="/edit-event">Edit / Delete An Event</NavLink>
+            </Button>
             <Button onClick={logOutNow} color="error" variant="contained">
               Log Out
             </Button>

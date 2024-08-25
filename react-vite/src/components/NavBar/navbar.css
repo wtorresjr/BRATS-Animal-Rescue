@@ -1,12 +1,11 @@
 .nav-bar-contain {
-  background-color: lightcoral;
+  background-color:silver;
   padding: 10px;
   justify-content: space-between;
   max-width: 100%;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   align-items: center;
   gap: 10px;
+  border-radius: 0 0 10px 10px;
 }
-
-
