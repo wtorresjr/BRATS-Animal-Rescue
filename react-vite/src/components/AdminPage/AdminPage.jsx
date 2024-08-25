@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import "./admin-page.css";
 import validateData from "./validation";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const AdminPage = () => {
   const dispatch = useDispatch();
@@ -57,9 +58,8 @@ const AdminPage = () => {
           // alert("Added Rescue Successfully!");
           const loadNew = await dispatch(getAllAnimalsThunk());
 
-            // console.log(loadNew);
-            navigate("/adopt");
-          
+          // console.log(loadNew);
+          navigate("/adopt");
         }
       } catch (error) {
         console.error("Error Adding Rescue", error);
@@ -72,8 +72,8 @@ const AdminPage = () => {
 
   return (
     <>
-      <h1>Admin</h1>
-      <div>
+      <h1>Admin - Add a Rescue</h1>
+      <div className="div-admin dropDown-div">
         <label>Name:</label>
         <input
           type="text"
@@ -85,7 +85,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="div-admin dropDown-div">
         <label>Age:</label>
         <input
           type="number"
@@ -112,7 +112,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="div-admin dropDown-div">
         <label>Breed:</label>
         <input
           type="text"
@@ -196,7 +196,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="div-admin dropDown-div">
         <label>Rescue Date:</label>
         <input
           type="date"
@@ -218,10 +218,9 @@ const AdminPage = () => {
         {formErrors.sex && <span className="errors-red">{formErrors.sex}</span>}
       </div>
 
-      <div>
+      <div className="div-admin dropDown-div storyInput">
         <label>Story:</label>
-        <input
-          type="textarea"
+        <textarea
           value={story}
           onChange={(e) => setStory(e.target.value)}
         />
@@ -230,7 +229,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="div-admin url-input">
         <label>Thumbnail Image URL:</label>
         <input
           type="text"
@@ -242,7 +241,14 @@ const AdminPage = () => {
         )}
       </div>
 
-      <button onClick={addAnimal}>Add New Rescue</button>
+      <Button
+        className="subButton"
+        style={{ margin: "10px 0 0 0", width: "100%" }}
+        variant="contained"
+        onClick={addAnimal}
+      >
+        Add New Rescue
+      </Button>
     </>
   );
 };
