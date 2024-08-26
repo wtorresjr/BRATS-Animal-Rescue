@@ -20,13 +20,13 @@ function SignupFormModal() {
   useEffect(() => {
     const errorCollector = {};
 
-    if (!first_name.length) {
-      errorCollector.firstName =
-        "First name must be between 2 to 30 characters";
-    }
-    if (!last_name.length) {
-      errorCollector.lastName = "Last name must be between 2 to 35 characters";
-    }
+    // if (!first_name.length) {
+    //   errorCollector.firstName =
+    //     "First name must be between 2 to 30 characters";
+    // }
+    // if (!last_name.length) {
+    //   errorCollector.lastName = "Last name must be between 2 to 35 characters";
+    // }
     if (!email.match(emailRegex)) {
       errorCollector.email = "Invalid email address";
     }

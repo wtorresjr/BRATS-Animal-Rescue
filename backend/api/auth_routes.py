@@ -54,8 +54,6 @@ def sign_up():
     if form.validate_on_submit():
         staff = Staff(
             email=form.data['email'],
-            first_name=form.data['first_name'],
-            last_name=form.data['last_name'],
             password=form.data['password']
         )
         db.session.add(staff)

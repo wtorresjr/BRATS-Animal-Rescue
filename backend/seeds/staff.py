@@ -7,8 +7,8 @@ from sqlalchemy.sql import text
 def seed_staff():
     # Create the table if it doesn't exist
     demouser = Staff(
-        first_name="Demo",
-        last_name="User",
+        # first_name="Demo",
+        # last_name="User",
         email="demo@demo.com",
         password="password",
     )
@@ -16,8 +16,8 @@ def seed_staff():
 
     for _ in range(2):
         demo = Staff(
-            first_name=fake.first_name(),
-            last_name=fake.last_name(),
+            # first_name=fake.first_name(),
+            # last_name=fake.last_name(),
             email=fake.email(),
             password="password",
         )
