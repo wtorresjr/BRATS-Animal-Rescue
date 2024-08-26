@@ -107,9 +107,9 @@ function LoginFormPage() {
             />
           </label>
           <button type="submit">Log In</button>
-          <button type="submit" onClick={demoLogIn}>
+          {/* <button type="submit" onClick={demoLogIn}>
             Demo Login
-          </button>
+          </button> */}
           <p>
             <NavLink onClick={openSignUpModal}>Sign Up</NavLink>
           </p>
