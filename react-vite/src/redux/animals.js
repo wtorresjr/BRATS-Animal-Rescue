@@ -2,6 +2,28 @@
 const GET_ALL_ANIMALS = "animals/getAll";
 const ADD_ANIMAL = "animals/addAnimal";
 const DELETE_ANIMAL = "animals/deleteAnimal";
+const EDIT_ANIMAL = "animals/editAnimal";
+
+const editAnimal = (animalId) => ({
+  type: EDIT_ANIMAL,
+  payload: animalId,
+});
+
+export const editAnimalThunk =
+  (animalId, editAnimalData) => async (dispatch) => {
+    const response = await fetch(`/api/animals/${animalId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editAnimalData),
+    });
+    if (response.ok) {
+      const editedAnimal = await response.json();
+      dispatch(editAnimal(editedAnimal));
+      return editedAnimal;
+    } else {
+      throw new Error("Error Editing Animal");
+    }
+  };
 
 const deleteAnimal = (animalId) => ({
   type: DELETE_ANIMAL,
@@ -78,6 +100,13 @@ function animalReducer(state = initialState, action) {
       return {
         ...state,
         animals: state.animals.filter((animal) => animal.id !== action.payload),
+      };
+    case EDIT_ANIMAL:
+      return {
+        ...state,
+        animals: state.animals.map((animal) =>
+          animal.id === action.payload.id ? action.payload : animal
+        ),
       };
     default:
       return state;

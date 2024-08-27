@@ -3,13 +3,22 @@ import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { deleteAnimalThunk } from "../../redux/animals";
 import { useEffect, useState } from "react";
+import AdminPage from "../AdminPage/AdminPage";
+import { useNavigate } from "react-router-dom";
 
 const getInfo = (rescueInfo) => {
   alert(`Rescue info for ${rescueInfo}`);
 };
+
 const AdoptionCard = ({ cssStyle, rescue }) => {
+  const navigate = useNavigate();
   const [deleting, setDeleting] = useState(false);
   const dispatch = useDispatch();
+
+  const editAnimal = () => {
+    // console.log("Animal To Edit", rescue);
+    navigate("/admin", { state: { editRescue: rescue } });
+  };
 
   const deleteRescue = async () => {
     dispatch(deleteAnimalThunk(rescue.id));
@@ -95,7 +104,11 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
                 <Button variant="contained" onClick={() => setDeleting(true)}>
                   Delete
                 </Button>
-                <Button variant="contained" color="secondary">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={editAnimal}
+                >
                   Edit
                 </Button>
               </div>
