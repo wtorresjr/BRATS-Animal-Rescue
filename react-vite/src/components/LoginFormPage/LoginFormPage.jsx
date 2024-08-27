@@ -100,7 +100,7 @@ function LoginFormPage() {
           <label>
             Password
             <input
-              type="current-password"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
