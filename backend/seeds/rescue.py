@@ -48,6 +48,7 @@ def seed_rescue():
             rescue_date=fake.date_between(
                 start_date=start_date, end_date=end_date),
             story=fake.paragraph(nb_sentences=6),
+            can_adopt=choice([True, False]),
             breed=fake.last_name(),
             potty_trained=choice([True, False]),
             fixed=choice([True, False]),

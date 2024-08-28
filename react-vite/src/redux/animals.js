@@ -1,6 +1,47 @@
 // redux/animals.js
 const GET_ALL_ANIMALS = "animals/getAll";
 const ADD_ANIMAL = "animals/addAnimal";
+const DELETE_ANIMAL = "animals/deleteAnimal";
+const EDIT_ANIMAL = "animals/editAnimal";
+
+const editAnimal = (animalId) => ({
+  type: EDIT_ANIMAL,
+  payload: animalId,
+});
+
+export const editAnimalThunk =
+  (animalId, editAnimalData) => async (dispatch) => {
+    const response = await fetch(`/api/animals/${animalId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editAnimalData),
+    });
+    if (response.ok) {
+      const editedAnimal = await response.json();
+      dispatch(editAnimal(editedAnimal));
+      return editedAnimal;
+    } else {
+      throw new Error("Error Editing Animal");
+    }
+  };
+
+const deleteAnimal = (animalId) => ({
+  type: DELETE_ANIMAL,
+  payload: animalId,
+});
+
+export const deleteAnimalThunk = (animalId) => async (dispatch) => {
+  // console.log("Animal ID from DeleteTHunk", animalId);
+  const response = await fetch(`/api/animals/${animalId}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    dispatch(deleteAnimal(animalId)); // Dispatch the animalId directly
+    return animalId;
+  } else {
+    throw new Error("Error Deleting Animal");
+  }
+};
 
 const addNewAnimal = (animal) => ({
   type: ADD_ANIMAL,
@@ -8,7 +49,7 @@ const addNewAnimal = (animal) => ({
 });
 
 export const addAnimalThunk = (animalData) => async (dispatch) => {
-  console.log(animalData, "DATA IN THUNK");
+  // console.log(animalData, "DATA IN THUNK");
   const response = await fetch("/api/animals/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -54,6 +95,18 @@ function animalReducer(state = initialState, action) {
         ...state,
         animals: [...state.animals, action.payload],
         new_animal: [...state.new_animal, action.payload],
+      };
+    case DELETE_ANIMAL:
+      return {
+        ...state,
+        animals: state.animals.filter((animal) => animal.id !== action.payload),
+      };
+    case EDIT_ANIMAL:
+      return {
+        ...state,
+        animals: state.animals.map((animal) =>
+          animal.id === action.payload.id ? action.payload : animal
+        ),
       };
     default:
       return state;

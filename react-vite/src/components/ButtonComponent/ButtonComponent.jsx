@@ -9,22 +9,15 @@ const ButtonComponent = ({
   btnRadius,
 }) => {
   const dispatch = useDispatch();
-  const checkValue = (e) => {
-    if (buttonText === "Logout") {
+  const logOutNow = (e) => {
+    if (buttonText === "Log Out") {
       dispatch(thunkLogout());
     }
   };
 
   return (
     <button
-      onClick={checkValue}
-      style={{
-        backgroundColor: bgColor,
-        color: textColor,
-        borderRadius: btnRadius,
-        height: size[0],
-        width: size[1],
-      }}
+      onClick={logOutNow}
     >
       {buttonText}
     </button>

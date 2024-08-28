@@ -13,22 +13,26 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 const NavMenu = () => {
+  const alertSoon = () => {
+    alert("Coming Soon!");
+  };
+
   return (
     <div className="navmenu">
       <ColorButton>
-        <NavLink>Foster A Rescue</NavLink>
+        <NavLink onClick={alertSoon}>Foster A Rescue</NavLink>
       </ColorButton>
       <ColorButton>
         <NavLink to={"/adopt"}>Adopt A Rescue</NavLink>
       </ColorButton>
       <ColorButton>
-        <NavLink>Event Calendar</NavLink>
+        <NavLink onClick={alertSoon}>Event Calendar</NavLink>
       </ColorButton>
       <ColorButton>
         <NavLink to={"/donate"}>Make A Donation</NavLink>
       </ColorButton>
       <ColorButton>
-        <NavLink>Our Sponsors</NavLink>
+        <NavLink onClick={alertSoon}>Our Sponsors</NavLink>
       </ColorButton>
       <ColorButton>
         <NavLink to={"/volunteer"}>Ways To Volunteer</NavLink>

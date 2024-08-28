@@ -3,8 +3,6 @@ import { Footer } from "../Footer";
 import { useContext, useEffect } from "react";
 import { MyContext } from "../../context/MyContext";
 import { NavMenu } from "../NavMenu";
-// import { AdoptionCard } from "../HomeCard";
-// import { useDispatch, useSelector } from "react-redux";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const DonatePage = () => {

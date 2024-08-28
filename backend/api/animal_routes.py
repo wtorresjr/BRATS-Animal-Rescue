@@ -43,6 +43,7 @@ def create_animal():
         rescue_date=rescue_date,
         sex=new_animal["sex"],
         story=new_animal["story"],
+        can_adopt=new_animal["can_adopt"],
         thumbnail_img=new_animal["thumbnail_img"],
         type=new_animal["type"]
     )

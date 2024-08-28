@@ -8,6 +8,8 @@ import AdminPage from "../components/AdminPage/AdminPage";
 import { AdoptionPage } from "../components/AdoptionPage";
 import { DonatePage } from "../components/DonatePage";
 import { VolunteerPage } from "../components/VolunteerPage";
+import { ComingSoon } from "../components/ComingSoon";
+import { MissionPage } from "../components/MissionPage";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ export const router = createBrowserRouter([
       {
         path: "/volunteer",
         element: <VolunteerPage />,
+      },
+      {
+        path: "/sponsors",
+        element: <ComingSoon />,
+      },
+      {
+        path: "/mission",
+        element: <MissionPage />,
       },
       {
         path: "/admin",

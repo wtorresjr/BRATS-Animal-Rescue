@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
-import { addAnimalThunk } from "../../redux/animals";
+import {
+  addAnimalThunk,
+  editAnimalThunk,
+  getAllAnimalsThunk,
+} from "../../redux/animals";
 import { useDispatch } from "react-redux";
 import "./admin-page.css";
 import validateData from "./validation";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
 const AdminPage = () => {
+  const location = useLocation();
+  const editRescue = location.state?.editRescue;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [age, setAge] = useState("");
   const [name, setName] = useState("");
@@ -18,16 +28,54 @@ const AdminPage = () => {
   const [rescueDate, setRescueDate] = useState("");
   const [sex, setSex] = useState("");
   const [story, setStory] = useState("");
+  const [canAdopt, setCanAdopt] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [rescueType, setRescueType] = useState("");
 
   const [formErrors, setFormErrors] = useState({});
 
   useEffect(() => {
-    console.log(formErrors, "Errors from useeffect");
-  }, [formErrors]);
+    if (editRescue !== undefined) {
+      const date = new Date(editRescue.rescue_date);
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are zero-based, so we add 1
+      const day = String(date.getDate()).padStart(2, "0");
+      const formattedDate = `${year}-${month}-${day}`;
 
-  const addAnimal = async () => {
+      setAge(editRescue?.age);
+      setName(editRescue?.animal_name);
+      setBreed(editRescue?.breed);
+      setFixed(editRescue?.fixed ? 1 : 0);
+      setGWCats(editRescue?.good_w_cats ? 1 : 0);
+      setGWDogs(editRescue?.good_w_dogs ? 1 : 0);
+      setGWKids(editRescue?.good_w_kids ? 1 : 0);
+      setTrained(editRescue?.potty_trained ? 1 : 0);
+      setRescueDate(formattedDate);
+      setRescueType(editRescue?.type);
+      setSex(editRescue?.sex);
+      setStory(editRescue?.story);
+      setCanAdopt(editRescue?.can_adopt ? 1 : 0);
+      setThumbnail(editRescue?.thumbnail_img);
+    } else {
+      setAge("");
+      setName("");
+      setBreed("");
+      setFixed("");
+      setGWCats("");
+      setGWDogs("");
+      setGWKids("");
+      setTrained("");
+      setRescueDate("");
+      setRescueType("");
+      setSex("");
+      setStory("");
+      setCanAdopt("");
+      setThumbnail("");
+    }
+  }, [editRescue]);
+
+  const addEditAnimal = async (actionType) => {
+    console.log("The Action Type is", actionType);
     const data = {
       animal_name: name,
       age: parseInt(age),
@@ -37,6 +85,7 @@ const AdminPage = () => {
       good_w_dogs: parseInt(gwDogs),
       good_w_kids: parseInt(gwKids),
       potty_trained: parseInt(trained),
+      can_adopt: parseInt(canAdopt),
       rescue_date: rescueDate,
       sex: sex,
       story: story,
@@ -48,22 +97,29 @@ const AdminPage = () => {
 
     if (validationResult === true) {
       try {
-        const addRescue = await dispatch(addAnimalThunk(data));
-        if (addRescue) {
-          alert("Added Rescue Successfully!");
+        let editedRescue;
+        let addRescue;
+        if (editRescue !== undefined) {
+          editedRescue = await dispatch(editAnimalThunk(editRescue.id, data));
+        } else {
+          addRescue = await dispatch(addAnimalThunk(data));
+        }
+        if (addRescue || editedRescue) {
+          const loadNew = await dispatch(getAllAnimalsThunk());
+          navigate("/adopt");
         }
       } catch (error) {
         console.error("Error Adding Rescue", error);
       }
     } else {
-      // console.log(validationResult, "ERRORS from Return");
       setFormErrors(validationResult);
     }
   };
 
   return (
     <>
-      <div>
+      <h1>Admin - {editRescue ? "Edit A Rescue" : "Add A Rescue"}</h1>
+      <div className="div-admin dropDown-div">
         <label>Name:</label>
         <input
           type="text"
@@ -75,7 +131,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="div-admin dropDown-div">
         <label>Age:</label>
         <input
           type="number"
@@ -87,7 +143,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Rescue Type:</label>
         <select
           value={rescueType}
@@ -102,7 +158,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="div-admin dropDown-div">
         <label>Breed:</label>
         <input
           type="text"
@@ -114,7 +170,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Spayed or Neutered:</label>
         <select value={fixed} onChange={(e) => setFixed(e.target.value)}>
           <option value={""}>Spayed or Neutered?</option>
@@ -126,7 +182,19 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
+        <label>Available For Adoption?:</label>
+        <select value={canAdopt} onChange={(e) => setCanAdopt(e.target.value)}>
+          <option value={""}>Available To Adopt?</option>
+          <option value={0}>No</option>
+          <option value={1}>Yes</option>
+        </select>
+        {formErrors.can_adopt && (
+          <span className="errors-red">{formErrors.can_adopt}</span>
+        )}
+      </div>
+
+      <div className="dropDown-div">
         <label>Good With Cats?</label>
         <select value={gwCats} onChange={(e) => setGWCats(e.target.value)}>
           <option value={""}>Good With Cats?</option>
@@ -138,7 +206,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Good With Dogs?</label>
         <select value={gwDogs} onChange={(e) => setGWDogs(e.target.value)}>
           <option value={""}>Good With Dogs?</option>
@@ -150,7 +218,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Good With Kids?</label>
         <select value={gwKids} onChange={(e) => setGWKids(e.target.value)}>
           <option value={""}>Good With Kids?</option>
@@ -162,7 +230,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Potty Trained?</label>
         <select value={trained} onChange={(e) => setTrained(e.target.value)}>
           <option value={""}>Potty Trained?</option>
@@ -174,7 +242,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="div-admin dropDown-div">
         <label>Rescue Date:</label>
         <input
           type="date"
@@ -186,7 +254,7 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div>
+      <div className="dropDown-div">
         <label>Sex:</label>
         <select value={sex} onChange={(e) => setSex(e.target.value)}>
           <option value={""}>Rescue's Sex?</option>
@@ -196,19 +264,15 @@ const AdminPage = () => {
         {formErrors.sex && <span className="errors-red">{formErrors.sex}</span>}
       </div>
 
-      <div>
+      <div className="div-admin dropDown-div storyInput">
         <label>Story:</label>
-        <input
-          type="textarea"
-          value={story}
-          onChange={(e) => setStory(e.target.value)}
-        />
+        <textarea value={story} onChange={(e) => setStory(e.target.value)} />
         {formErrors.story && (
           <span className="errors-red">{formErrors.story}</span>
         )}
       </div>
 
-      <div>
+      <div className="div-admin url-input">
         <label>Thumbnail Image URL:</label>
         <input
           type="text"
@@ -220,7 +284,14 @@ const AdminPage = () => {
         )}
       </div>
 
-      <button onClick={addAnimal}>Add New Rescue</button>
+      <Button
+        className="subButton"
+        style={{ margin: "10px 0 0 0", width: "100%" }}
+        variant="contained"
+        onClick={addEditAnimal}
+      >
+        {editRescue ? "Save Edits" : "Add New Rescue"}
+      </Button>
     </>
   );
 };

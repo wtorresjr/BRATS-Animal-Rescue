@@ -10,6 +10,9 @@ const validateData = (data) => {
   data.good_w_cats === 0 || data.good_w_cats === 1
     ? null
     : (errors.good_w_cats = "Must indicate if good with cats.");
+  data.can_adopt === 0 || data.can_adopt === 1
+    ? null
+    : (errors.can_adopt = "Must indicate if available to adopt.");
   data.good_w_dogs === 0 || data.good_w_dogs === 1
     ? null
     : (errors.good_w_dogs = "Must indicate if good with dogs.");

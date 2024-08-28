@@ -16,6 +16,7 @@ function SignupFormPage() {
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
   const handleSubmit = async (e) => {
+    console.log("SIGN UP!!!!!!!!!!");
     e.preventDefault();
 
     if (password !== confirmPassword) {

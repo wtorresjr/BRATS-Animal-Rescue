@@ -29,18 +29,20 @@ const Homepage = () => {
       <Header />
       {openMenu ? <NavMenu /> : null}
       <div style={{ margin: "10px 0 0 0" }}></div>
-      <Button
-        style={{
-          backgroundColor: "#ca0300",
-          alignItems: "center",
-          borderRadius: "10px",
-        }}
-        fullWidth={"True"}
-        variant="contained"
-        endIcon={<ArrowRightIcon />}
-      >
-        Our Mission
-      </Button>
+      <NavLink to={"/mission"}>
+        <Button
+          style={{
+            backgroundColor: "#ca0300",
+            alignItems: "center",
+            borderRadius: "10px",
+          }}
+          fullWidth={"True"}
+          variant="contained"
+          endIcon={<ArrowRightIcon />}
+        >
+          Our Mission
+        </Button>
+      </NavLink>
       <div style={{ margin: "10px 0 0 0" }}></div>
       <NavLink to={"/adopt"}>
         <HomeCard
@@ -54,13 +56,17 @@ const Homepage = () => {
         />
       </NavLink>
       <div style={{ margin: "10px 0 0 0" }}></div>
+
+
       <HomeCard
         title={"Special Events"}
         cardText={"View our upcoming events..."}
-        callToAction={"VIEW CALENDAR"}
+        callToAction={"COMING SOON!"}
         imgSrc={eventsImg}
         cssStyle={"event"}
       />
+
+
       <div style={{ margin: "10px 0 0 0" }}></div>
 
       <NavLink to={"/donate"}>
@@ -89,7 +95,7 @@ const Homepage = () => {
         title={"OUR SPONSORS"}
         cssStyle={"sponsors"}
         cardText={"Help keep our mission alive..."}
-        callToAction={"SPONSORS"}
+        callToAction={"COMING SOON!"}
         imgSrc={sponsorsImg}
       />
       <div style={{ margin: "10px 0 0 0" }}></div>

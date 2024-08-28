@@ -100,16 +100,16 @@ function LoginFormPage() {
           <label>
             Password
             <input
-              type="current-password"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </label>
           <button type="submit">Log In</button>
-          <button type="submit" onClick={demoLogIn}>
+          {/* <button type="submit" onClick={demoLogIn}>
             Demo Login
-          </button>
+          </button> */}
           <p>
             <NavLink onClick={openSignUpModal}>Sign Up</NavLink>
           </p>
