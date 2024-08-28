@@ -10,11 +10,11 @@ class Event(db.Model, UserMixin):
     if environment == "production":
         __table_args__ = {"schema": SCHEMA}
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
 
     event_title = db.Column(db.String(75), nullable=False)
-    event_date = db.Column(db.Date, nullable=False)
-    event_time = db.Column(db.Time, nullable=False)
+    event_date = db.Column(db.String(), nullable=False)
+    event_time = db.Column(db.String(), nullable=False)
     event_location = db.Column(db.String(120), nullable=False)
     event_desc = db.Column(db.String(500), nullable=False)
     event_img = db.Column(db.String(), nullable=False)
