@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
-const AdminPage = () => {
+const AdminPageEvents = () => {
   const location = useLocation();
   const editRescue = location.state?.editRescue;
   const dispatch = useDispatch();
@@ -74,8 +74,7 @@ const AdminPage = () => {
     }
   }, [editRescue]);
 
-  const addEditAnimal = async (actionType) => {
-    console.log("The Action Type is", actionType);
+  const addEditEvent = async (actionType) => {
     const data = {
       animal_name: name,
       age: parseInt(age),
@@ -97,16 +96,16 @@ const AdminPage = () => {
 
     if (validationResult === true) {
       try {
-        let editedRescue;
-        let addRescue;
+        let editedEvent;
+        let addEvent;
         if (editRescue !== undefined) {
-          editedRescue = await dispatch(editAnimalThunk(editRescue.id, data));
+          editedEvent = await dispatch(editAnimalThunk(editRescue.id, data));
         } else {
-          addRescue = await dispatch(addAnimalThunk(data));
+          addEvent = await dispatch(addAnimalThunk(data));
         }
-        if (addRescue || editedRescue) {
+        if (addEvent || editedEvent) {
           const loadNew = await dispatch(getAllAnimalsThunk());
-          navigate("/adopt");
+          navigate("/events");
         }
       } catch (error) {
         console.error("Error Adding Rescue", error);
@@ -118,9 +117,9 @@ const AdminPage = () => {
 
   return (
     <>
-      <h1>Admin - {editRescue ? "Edit A Rescue" : "Add A Rescue"}</h1>
+      <h1>Admin - {editRescue ? "Edit An Event" : "Add An Event"}</h1>
       <div className="div-admin dropDown-div">
-        <label>Name:</label>
+        <label>Event Title:</label>
         <input
           type="text"
           value={name}
@@ -132,7 +131,7 @@ const AdminPage = () => {
       </div>
 
       <div className="div-admin dropDown-div">
-        <label>Age:</label>
+        <label>Event Date:</label>
         <input
           type="number"
           value={age}
@@ -144,7 +143,7 @@ const AdminPage = () => {
       </div>
 
       <div className="dropDown-div">
-        <label>Rescue Type:</label>
+        <label>Event Time:</label>
         <select
           value={rescueType}
           onChange={(e) => setRescueType(e.target.value)}
@@ -159,7 +158,7 @@ const AdminPage = () => {
       </div>
 
       <div className="div-admin dropDown-div">
-        <label>Breed:</label>
+        <label>Location:</label>
         <input
           type="text"
           value={breed}
@@ -171,7 +170,7 @@ const AdminPage = () => {
       </div>
 
       <div className="dropDown-div">
-        <label>Spayed or Neutered:</label>
+        <label>Event Description:</label>
         <select value={fixed} onChange={(e) => setFixed(e.target.value)}>
           <option value={""}>Spayed or Neutered?</option>
           <option value={0}>No</option>
@@ -182,90 +181,8 @@ const AdminPage = () => {
         )}
       </div>
 
-      <div className="dropDown-div">
-        <label>Available For Adoption?:</label>
-        <select value={canAdopt} onChange={(e) => setCanAdopt(e.target.value)}>
-          <option value={""}>Available To Adopt?</option>
-          <option value={0}>No</option>
-          <option value={1}>Yes</option>
-        </select>
-        {formErrors.can_adopt && (
-          <span className="errors-red">{formErrors.can_adopt}</span>
-        )}
-      </div>
-
-      <div className="dropDown-div">
-        <label>Good With Cats?</label>
-        <select value={gwCats} onChange={(e) => setGWCats(e.target.value)}>
-          <option value={""}>Good With Cats?</option>
-          <option value={0}>No</option>
-          <option value={1}>Yes</option>
-        </select>
-        {formErrors.good_w_cats && (
-          <span className="errors-red">{formErrors.good_w_cats}</span>
-        )}
-      </div>
-
-      <div className="dropDown-div">
-        <label>Good With Dogs?</label>
-        <select value={gwDogs} onChange={(e) => setGWDogs(e.target.value)}>
-          <option value={""}>Good With Dogs?</option>
-          <option value={0}>No</option>
-          <option value={1}>Yes</option>
-        </select>
-        {formErrors.good_w_dogs && (
-          <span className="errors-red">{formErrors.good_w_dogs}</span>
-        )}
-      </div>
-
-      <div className="dropDown-div">
-        <label>Good With Kids?</label>
-        <select value={gwKids} onChange={(e) => setGWKids(e.target.value)}>
-          <option value={""}>Good With Kids?</option>
-          <option value={0}>No</option>
-          <option value={1}>Yes</option>
-        </select>
-        {formErrors.good_w_kids && (
-          <span className="errors-red">{formErrors.good_w_kids}</span>
-        )}
-      </div>
-
-      <div className="dropDown-div">
-        <label>Potty Trained?</label>
-        <select value={trained} onChange={(e) => setTrained(e.target.value)}>
-          <option value={""}>Potty Trained?</option>
-          <option value={0}>No</option>
-          <option value={1}>Yes</option>
-        </select>
-        {formErrors.potty_trained && (
-          <span className="errors-red">{formErrors.potty_trained}</span>
-        )}
-      </div>
-
-      <div className="div-admin dropDown-div">
-        <label>Rescue Date:</label>
-        <input
-          type="date"
-          value={rescueDate}
-          onChange={(e) => setRescueDate(e.target.value)}
-        />
-        {formErrors.rescue_date && (
-          <span className="errors-red">{formErrors.rescue_date}</span>
-        )}
-      </div>
-
-      <div className="dropDown-div">
-        <label>Sex:</label>
-        <select value={sex} onChange={(e) => setSex(e.target.value)}>
-          <option value={""}>Rescue's Sex?</option>
-          <option value={"Male"}>Male</option>
-          <option value={"Female"}>Female</option>
-        </select>
-        {formErrors.sex && <span className="errors-red">{formErrors.sex}</span>}
-      </div>
-
       <div className="div-admin dropDown-div storyInput">
-        <label>Story:</label>
+        <label>Event Description:</label>
         <textarea value={story} onChange={(e) => setStory(e.target.value)} />
         {formErrors.story && (
           <span className="errors-red">{formErrors.story}</span>
@@ -288,12 +205,12 @@ const AdminPage = () => {
         className="subButton"
         style={{ margin: "10px 0 0 0", width: "100%" }}
         variant="contained"
-        onClick={addEditAnimal}
+        onClick={addEditEvent}
       >
-        {editRescue ? "Save Edits" : "Add New Rescue"}
+        {editRescue ? "Save Edits" : "Add New Event"}
       </Button>
     </>
   );
 };
 
-export default AdminPage;
+export default AdminPageEvents;
