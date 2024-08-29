@@ -30,7 +30,7 @@ const EventsPage = () => {
           <EventCard key={event.id} event={event} cssStyle={"adopt-detail"} />
         ))
       ) : (
-        <p>No events found</p>
+        <p style={{ width: "100%" }}>No events found</p>
       )}
       <Footer />
     </>
