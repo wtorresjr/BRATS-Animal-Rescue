@@ -7,6 +7,19 @@ from datetime import date
 event_routes = Blueprint("events", __name__)
 
 
+@event_routes.route("/<int:event_id>", methods=["DELETE"])
+def delete_event(event_id):
+    event_to_delete = Event.query.filter_by(id=event_id).first()
+
+    if not event_to_delete:
+        return jsonify({"message": f"Event ID {event_id} could not be found."})
+
+    db.session.delete(event_to_delete)
+    db.session.commit()
+
+    return jsonify({"message": f"Successfully Deleted Event # {event_id}"})
+
+
 @event_routes.route("/", methods=["GET"])
 def get_all_events():
     events_found = Event.query.all()
