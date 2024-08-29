@@ -1,4 +1,4 @@
-from backend.models import db, Staff, environment, SCHEMA
+from backend.models import db, environment, SCHEMA
 from backend.models.db import fake
 from sqlalchemy.sql import text
 from backend import db

@@ -8,6 +8,7 @@ from .models import db, Staff
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.animal_routes import animal_routes
+from .api.event_routes import event_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -28,6 +29,8 @@ app.cli.add_command(seed_commands)
 
 
 app.config.from_object(Config)
+
+app.register_blueprint(event_routes, url_prefix="/api/events")
 app.register_blueprint(animal_routes, url_prefix="/api/animals")
 app.register_blueprint(user_routes, url_prefix="/api/staff")
 app.register_blueprint(auth_routes, url_prefix="/api/auth")
@@ -58,7 +61,8 @@ def inject_csrf_token(response):
         "csrf_token",
         generate_csrf(),
         secure=True if os.environ.get("FLASK_ENV") == "production" else False,
-        samesite="Strict" if os.environ.get("FLASK_ENV") == "production" else None,
+        samesite="Strict" if os.environ.get(
+            "FLASK_ENV") == "production" else None,
         httponly=True,
     )
     return response

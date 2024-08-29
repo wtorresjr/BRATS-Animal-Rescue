@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
-const AdminPage = () => {
+const AdminPageRescues = () => {
   const location = useLocation();
   const editRescue = location.state?.editRescue;
   const dispatch = useDispatch();
@@ -74,8 +74,7 @@ const AdminPage = () => {
     }
   }, [editRescue]);
 
-  const addEditAnimal = async (actionType) => {
-    console.log("The Action Type is", actionType);
+  const addEditAnimal = async () => {
     const data = {
       animal_name: name,
       age: parseInt(age),
@@ -296,4 +295,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default AdminPageRescues;

@@ -26,7 +26,7 @@ const NavMenu = () => {
         <NavLink to={"/adopt"}>Adopt A Rescue</NavLink>
       </ColorButton>
       <ColorButton>
-        <NavLink onClick={alertSoon}>Event Calendar</NavLink>
+        <NavLink to={"/events"}>Event Calendar</NavLink>
       </ColorButton>
       <ColorButton>
         <NavLink to={"/donate"}>Make A Donation</NavLink>

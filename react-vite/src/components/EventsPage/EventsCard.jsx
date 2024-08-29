@@ -1,31 +1,20 @@
-import { useSelector } from "react-redux";
-import { Button } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { deleteAnimalThunk } from "../../redux/animals";
-import { useEffect, useState } from "react";
-// import AdminPage from "../AdminPage/AdminPage";
+import "../HomeCard/homecard.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { Button } from "@mui/material";
+import { useSelector } from "react-redux";
 
-const getInfo = (rescueInfo) => {
-  alert(`Rescue info for ${rescueInfo}`);
-};
-
-const AdoptionCard = ({ cssStyle, rescue }) => {
+const EventCard = ({ cssStyle, event }) => {
+  const sessionUser = useSelector((state) => state.session.user);
   const navigate = useNavigate();
   const [deleting, setDeleting] = useState(false);
   const dispatch = useDispatch();
 
-  const editAnimal = () => {
+  const editEvent = () => {
     // console.log("Animal To Edit", rescue);
-    navigate("/admin", { state: { editRescue: rescue } });
+    navigate("/admin/event", { state: { editRescue: rescue } });
   };
-
-  const deleteRescue = async () => {
-    dispatch(deleteAnimalThunk(rescue.id));
-  };
-
-  const sessionUser = useSelector((state) => state.session.user);
-  const r_date = rescue.rescue_date.split(" ");
 
   return (
     <div className={`${cssStyle}-card`}>
@@ -39,8 +28,8 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
             width: "100%",
           }}
         >
-          <p>{`Please confirm you would like to delete ${rescue.animal_name}`}</p>
-          <Button variant="contained" color="error" onClick={deleteRescue}>
+          <p>{`Please confirm you would like to delete ${event.event_title}`}</p>
+          <Button variant="contained" color="error" onClick={deleteEvent}>
             DELETE
           </Button>
           <Button
@@ -54,27 +43,25 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
       ) : (
         <>
           <div className={`${cssStyle}-img`}>
-            <img src={rescue.thumbnail_img}></img>
+            <img src={event.event_img}></img>
           </div>
           <div className={`${cssStyle}-adptText`}>
-            <h1>{rescue.animal_name}</h1>
-            <div>{`Rescue Date: ${r_date[2]}-${r_date[1]}-${r_date[3]}`}</div>
-            <div>Age: {rescue.age} Years Old</div>
-            <div>Sex: {rescue.sex}</div>
-            <div>Good With Kids? {rescue.good_w_kids ? "Yes" : "No"}</div>
-            <div>Good With Cats? {rescue.good_w_cats ? "Yes" : "No"}</div>
-            <div>Good With Dogs? {rescue.good_w_dogs ? "Yes" : "No"}</div>
-            <div>Spayed/Neutered? {rescue.fixed ? "Yes" : "No"}</div>
-            <div>Potty Trained? {rescue.potty_trained ? "Yes" : "No"}</div>
+            <h1>{event.event_title}</h1>
+            <div>Age: {event.age} Years Old</div>
+            <div>Sex: {event.sex}</div>
+            <div>Good With Kids? {event.good_w_kids ? "Yes" : "No"}</div>
+            <div>Good With Cats? {event.good_w_cats ? "Yes" : "No"}</div>
+            <div>Good With Dogs? {event.good_w_dogs ? "Yes" : "No"}</div>
+            <div>Spayed/Neutered? {event.fixed ? "Yes" : "No"}</div>
+            <div>Potty Trained? {event.potty_trained ? "Yes" : "No"}</div>
           </div>
           <div>
             <div className="adopt-story-contain">
               <div>
-                <strong>{`${rescue.animal_name}'s Story`}:</strong>{" "}
-                {rescue.story}
+                <strong>{`${event.event_title}'s Story`}:</strong> {event.story}
               </div>
 
-              {/* {rescue.can_adopt ? "CAN ADOPT" : "ADOPTED!"} */}
+              {/* {event.can_adopt ? "CAN ADOPT" : "ADOPTED!"} */}
             </div>
             <div
               style={{
@@ -85,14 +72,14 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
                 marginBottom: "10px",
               }}
             >
-              {rescue.can_adopt ? (
+              {event.can_adopt ? (
                 <Button
                   variant="contained"
                   color="error"
                   onClick={() => {
-                    getInfo(rescue.animal_name);
+                    getInfo(event.event_title);
                   }}
-                >{`Learn More About ${rescue.animal_name}`}</Button>
+                >{`Learn More About ${event.event_title}`}</Button>
               ) : (
                 <Button variant="contained" color="success">
                   {"ADOPTED!"}
@@ -107,7 +94,7 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={editAnimal}
+                  onClick={editEvent}
                 >
                   Edit
                 </Button>
@@ -120,4 +107,4 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
   );
 };
 
-export default AdoptionCard;
+export { EventCard };
