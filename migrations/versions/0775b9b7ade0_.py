@@ -29,7 +29,7 @@ def upgrade():
                         length=120), nullable=False),
                     sa.Column("event_desc", sa.String(
                         length=500), nullable=False),
-                    sa.Column("event_img", sa.String(), nullable=False),
+                    sa.Column("event_img", sa.String()),
                     sa.PrimaryKeyConstraint('id'),
                     )
 

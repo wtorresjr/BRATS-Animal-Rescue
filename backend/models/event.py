@@ -17,7 +17,7 @@ class Event(db.Model, UserMixin):
     event_time = db.Column(db.String(), nullable=False)
     event_location = db.Column(db.String(120), nullable=False)
     event_desc = db.Column(db.String(500), nullable=False)
-    event_img = db.Column(db.String(), nullable=False)
+    event_img = db.Column(db.String())
 
     def to_dict(self):
         return {

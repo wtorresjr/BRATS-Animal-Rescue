@@ -29,10 +29,10 @@ const NavBar = () => {
               <NavLink to="/adopt">Edit / Delete Rescue Info</NavLink>
             </Button>
             <Button variant="contained" color="success">
-              <NavLink to="/add-event">Add An Event</NavLink>
+              <NavLink to="/admin/events">Add An Event</NavLink>
             </Button>
             <Button variant="contained" color="secondary">
-              <NavLink to="/edit-event">Edit / Delete An Event</NavLink>
+              <NavLink to="/events">Edit / Delete An Event</NavLink>
             </Button>
             <Button onClick={logOutNow} color="error" variant="contained">
               Log Out
