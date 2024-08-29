@@ -47,6 +47,8 @@ img {
   flex-flow: row nowrap;
   gap: 10px;
   justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .genGreyContainer {
