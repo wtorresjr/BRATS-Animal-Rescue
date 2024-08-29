@@ -11,6 +11,11 @@ const EventCard = ({ cssStyle, event }) => {
   const [deleting, setDeleting] = useState(false);
   const dispatch = useDispatch();
 
+  const editEvent = () => {
+    // console.log("Animal To Edit", rescue);
+    navigate("/admin/event", { state: { editRescue: rescue } });
+  };
+
   return (
     <div className={`${cssStyle}-card`}>
       {deleting ? (
