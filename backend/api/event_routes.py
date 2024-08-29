@@ -56,3 +56,22 @@ def create_event():
     db.session.commit()
 
     return jsonify({"message": f"Created new event {create_event.to_dict()}"})
+
+
+@event_routes.route("/<int:event_id>", methods=["PUT"])
+def edit_event(event_id):
+
+    event_to_edit = Event.query.filter_by(id=event_id).first()
+
+    if not event_to_edit:
+        return jsonify({"message": f"Cound Not Find Event# {event_id}"})
+
+    edits_to_event = request.json
+
+    for key, value in edits_to_event.items():
+        if hasattr(event_to_edit, key):
+            setattr(event_to_edit, key, value)
+
+    db.session.commit()
+
+    return jsonify({"message": f"Successfully made the changes below {edits_to_event}"})
