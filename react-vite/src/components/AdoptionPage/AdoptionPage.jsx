@@ -24,6 +24,7 @@ const AdoptionPage = () => {
     <>
       <Header />
       {openMenu ? <NavMenu /> : null}
+      <h2>Our BRATS</h2>
       {animals?.animals?.length > 0 ? (
         animals.animals.map((rescue) => (
           <AdoptionCard
