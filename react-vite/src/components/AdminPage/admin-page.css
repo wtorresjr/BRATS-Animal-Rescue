@@ -25,6 +25,7 @@ div > label {
   align-items: center;
   display: flex;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .subButton {
