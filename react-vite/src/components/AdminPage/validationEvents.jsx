@@ -12,6 +12,12 @@ const validateEvents = (data) => {
   data.event_desc > 0
     ? null
     : (errors.desc_error = "Description needs to be included");
+
+  if (Object.keys(errors).length === 0) {
+    return true;
+  } else {
+    return errors;
+  }
 };
 
 export default validateEvents;

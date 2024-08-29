@@ -44,7 +44,7 @@ const AdminPageEvents = () => {
     }
   }, [editEvent]);
 
-  const addEditEvent = async (actionType) => {
+  const addEditEvent = async () => {
     const data = {};
 
     const validationResult = await validateEvents(data);

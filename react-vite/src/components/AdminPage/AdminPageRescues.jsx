@@ -74,7 +74,7 @@ const AdminPageRescues = () => {
     }
   }, [editRescue]);
 
-  const addEditAnimal = async (actionType) => {
+  const addEditAnimal = async () => {
     const data = {
       animal_name: name,
       age: parseInt(age),
