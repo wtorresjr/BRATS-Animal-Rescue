@@ -57,7 +57,7 @@ const EventCard = ({ cssStyle, event }) => {
             <img src={event.event_img}></img>
           </div>
           <div className={`${cssStyle}-adptText`}>
-            <h1>{event.event_title}</h1>
+            <h1 style={{ color: "#ca0300" }}>{event.event_title}</h1>
           </div>
           <div>
             <div>

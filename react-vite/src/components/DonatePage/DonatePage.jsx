@@ -19,7 +19,7 @@ const DonatePage = () => {
       {openMenu ? <NavMenu /> : null}
       <div className="genGreyContainer">
         <h1 style={{ color: "#d20c09", textAlign: "center" }}>
-          Unleash your love!!
+          Unleash Your Love!!!
         </h1>
         <div style={{ display: "flex", flexFlow: "row wrap" }}>
           <h2 style={{ width: "50%", margin: "0 0" }}>
