@@ -18,6 +18,7 @@ const AdoptionPage = () => {
 
   useEffect(() => {
     dispatch(getAllAnimalsThunk());
+    window.scrollTo(0, 0);
   }, [animals.new_animal]);
 
   return (

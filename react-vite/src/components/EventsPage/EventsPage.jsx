@@ -15,6 +15,7 @@ const EventsPage = () => {
 
   useEffect(() => {
     setOpenMenu(false);
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
