@@ -24,7 +24,7 @@ const AdoptionPage = () => {
     <>
       <Header />
       {openMenu ? <NavMenu /> : null}
-      <h2>Our BRATS</h2>
+      <h1 style={{ color: "#ca0300", textAlign: "center" }}>Our B.R.A.T.S.</h1>
       {animals?.animals?.length > 0 ? (
         animals.animals.map((rescue) => (
           <AdoptionCard

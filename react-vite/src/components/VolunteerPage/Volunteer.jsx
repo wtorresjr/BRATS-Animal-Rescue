@@ -38,7 +38,7 @@ const VolunteerPage = () => {
         up pets from shelters, other volunteer transporters or fosters. Taking
         babies from to their furever home or taking them to vet appointments.
         <h4>Fundraising, Help Us Help Help Them!</h4>
-        As a non-profit, BRATS Alliance is completely driven by compassionate,
+        As a non-profit, B.R.A.T.S. Alliance is completely driven by compassionate,
         dedicated and fun-loving volunteers. You can volunteer to support our
         cause in many ways, from big jobs to little projects, we always are in
         need of helping hands. The more volunteers we have, the more babies we

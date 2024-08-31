@@ -6,6 +6,7 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { getAllEventsThunks } from "../../redux/events";
 import NavMenu from "../NavMenu/NavMenu";
+import "../HomeCard/homecard.css";
 
 const EventsPage = () => {
   const { openMenu, setOpenMenu } = useContext(MyContext);
@@ -24,10 +25,14 @@ const EventsPage = () => {
     <>
       <Header />
       {openMenu ? <NavMenu /> : null}
-      <h2>Upcoming Events</h2>
+      <h1 style={{ color: "#00275e", textAlign: "center" }}>Upcoming Events</h1>
       {events?.events?.length > 0 ? (
         events.events.map((event) => (
-          <EventCard key={event.id} event={event} cssStyle={"adopt-detail"} />
+          <EventCard
+            key={event.id}
+            event={event}
+            cssStyle={"genGreyContainer"}
+          />
         ))
       ) : (
         <p style={{ width: "100%" }}>No events found</p>

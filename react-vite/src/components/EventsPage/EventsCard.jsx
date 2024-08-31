@@ -11,9 +11,20 @@ const EventCard = ({ cssStyle, event }) => {
   const [deleting, setDeleting] = useState(false);
   const dispatch = useDispatch();
 
+  const calcTime = (time) => {
+    const convertTime = time.split(":");
+    if (convertTime[0] > 12) {
+      const newTime = convertTime[0] - 12 + ":" + convertTime[1] + " " + "PM";
+      return newTime;
+    } else {
+      const newTime = time + " " + "AM";
+      return newTime;
+    }
+  };
+
   const editEvent = () => {
     // console.log("Animal To Edit", rescue);
-    navigate("/admin/event", { state: { editRescue: rescue } });
+    navigate("/admin/events", { state: { editEvent: event } });
   };
 
   return (
@@ -47,47 +58,29 @@ const EventCard = ({ cssStyle, event }) => {
           </div>
           <div className={`${cssStyle}-adptText`}>
             <h1>{event.event_title}</h1>
-            <div>Age: {event.age} Years Old</div>
-            <div>Sex: {event.sex}</div>
-            <div>Good With Kids? {event.good_w_kids ? "Yes" : "No"}</div>
-            <div>Good With Cats? {event.good_w_cats ? "Yes" : "No"}</div>
-            <div>Good With Dogs? {event.good_w_dogs ? "Yes" : "No"}</div>
-            <div>Spayed/Neutered? {event.fixed ? "Yes" : "No"}</div>
-            <div>Potty Trained? {event.potty_trained ? "Yes" : "No"}</div>
           </div>
           <div>
+            <div>
+              <strong>When: </strong>
+              {event.event_date} at {calcTime(event.event_time)}
+            </div>
+            <div>
+              <strong>Where: </strong>
+              {event.event_location}
+            </div>
             <div className="adopt-story-contain">
-              <div>
-                <strong>{`${event.event_title}'s Story`}:</strong> {event.story}
-              </div>
+              <div>{event.event_desc}</div>
 
               {/* {event.can_adopt ? "CAN ADOPT" : "ADOPTED!"} */}
             </div>
-            <div
-              style={{
-                display: "flex",
-                flexFlow: "column wrap",
-                flexGrow: "1",
-                marginTop: "10px",
-                marginBottom: "10px",
-              }}
-            >
-              {event.can_adopt ? (
-                <Button
-                  variant="contained"
-                  color="error"
-                  onClick={() => {
-                    getInfo(event.event_title);
-                  }}
-                >{`Learn More About ${event.event_title}`}</Button>
-              ) : (
-                <Button variant="contained" color="success">
-                  {"ADOPTED!"}
-                </Button>
-              )}
-            </div>
             {sessionUser && (
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginTop: "10px",
+                }}
+              >
                 <Button variant="contained" onClick={() => setDeleting(true)}>
                   Delete
                 </Button>

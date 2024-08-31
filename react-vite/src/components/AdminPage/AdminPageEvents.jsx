@@ -10,6 +10,7 @@ import validateEvents from "./validationEvents";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import { editEventThunk } from "../../redux/events";
 
 const AdminPageEvents = () => {
   const location = useLocation();
@@ -31,9 +32,9 @@ const AdminPageEvents = () => {
       setEventTitle(editEvent?.event_title);
       setEventDate(editEvent?.event_date);
       setEventTime(editEvent?.event_time);
-      setEventLocation(editEvent?.event_location ? 1 : 0);
-      setEventDesc(editEvent?.event_desc ? 1 : 0);
-      setEventImg(editEvent?.event_img ? 1 : 0);
+      setEventLocation(editEvent?.event_location);
+      setEventDesc(editEvent?.event_desc);
+      setEventImg(editEvent?.event_img);
     } else {
       setEventTitle("");
       setEventDate("");
@@ -45,7 +46,15 @@ const AdminPageEvents = () => {
   }, [editEvent]);
 
   const addEditEvent = async () => {
-    const data = {};
+    // console.log("edited items", data);
+    const data = {
+      event_title: eventTitle,
+      event_location: eventLocation,
+      event_data: eventDate,
+      event_time: eventTime,
+      event_desc: eventDesc,
+      event_img: eventImg,
+    };
 
     const validationResult = await validateEvents(data);
 
@@ -54,7 +63,7 @@ const AdminPageEvents = () => {
         let editedEvent;
         let addEvent;
         if (editEvent !== undefined) {
-          editedEvent = await dispatch(editAnimalThunk(editEvent.id, data));
+          editedEvent = await dispatch(editEventThunk(editEvent.id, data));
         } else {
           addEvent = await dispatch(addAnimalThunk(data));
         }
@@ -63,7 +72,7 @@ const AdminPageEvents = () => {
           navigate("/events");
         }
       } catch (error) {
-        console.error("Error Adding Rescue", error);
+        console.error("Error Adding Event", error);
       }
     } else {
       setFormErrors(validationResult);
