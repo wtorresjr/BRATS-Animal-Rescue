@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
+import { deleteEventThunk } from "../../redux/events";
 
 const EventCard = ({ cssStyle, event }) => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -20,6 +21,10 @@ const EventCard = ({ cssStyle, event }) => {
       const newTime = time + " " + "AM";
       return newTime;
     }
+  };
+
+  const deleteEvent = async () => {
+    dispatch(deleteEventThunk(event.id));
   };
 
   const editEvent = () => {
@@ -39,7 +44,7 @@ const EventCard = ({ cssStyle, event }) => {
             width: "100%",
           }}
         >
-          <p>{`Please confirm you would like to delete ${event.event_title}`}</p>
+          <p>{`Please confirm you would like to delete the ${event.event_title} event?`}</p>
           <Button variant="contained" color="error" onClick={deleteEvent}>
             DELETE
           </Button>

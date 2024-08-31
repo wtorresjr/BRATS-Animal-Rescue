@@ -3,6 +3,23 @@ const ADD_EVENT = "events/addEvent";
 const DELETE_EVENT = "events/deleteEvent";
 const EDIT_EVENT = "events/editEvent";
 
+const deleteEvent = (event) => ({
+  type: DELETE_EVENT,
+  payload: event,
+});
+
+export const deleteEventThunk = (eventId) => async (dispatch) => {
+  const response = await fetch(`/api/events/${eventId}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    dispatch(deleteEvent(eventId));
+    return eventId;
+  } else {
+    throw new Error("Error Deleting Event");
+  }
+};
+
 const editEvent = (event) => ({
   type: EDIT_EVENT,
   payload: event,
