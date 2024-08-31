@@ -36,7 +36,11 @@ const EventsPage = () => {
           />
         ))
       ) : (
-        <p style={{ width: "100%" }}>No events found</p>
+        <div style={{ width: "100%" }}>
+          <p style={{ width: "100%" }}>
+            No events found, Please check back again later for updates.
+          </p>
+        </div>
       )}
       <Footer />
     </>
