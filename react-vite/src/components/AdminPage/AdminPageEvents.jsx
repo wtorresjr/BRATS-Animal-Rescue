@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import {
-  addAnimalThunk,
-  editAnimalThunk,
-  getAllAnimalsThunk,
-} from "../../redux/animals";
 import { useDispatch } from "react-redux";
 import "./admin-page.css";
 import validateEvents from "./validationEvents";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
-import { editEventThunk } from "../../redux/events";
+import {
+  addEventThunk,
+  editEventThunk,
+  getAllEventsThunks,
+} from "../../redux/events";
 
 const AdminPageEvents = () => {
   const location = useLocation();
@@ -46,11 +45,11 @@ const AdminPageEvents = () => {
   }, [editEvent]);
 
   const addEditEvent = async () => {
-    // console.log("edited items", data);
+
     const data = {
       event_title: eventTitle,
       event_location: eventLocation,
-      event_data: eventDate,
+      event_date: eventDate,
       event_time: eventTime,
       event_desc: eventDesc,
       event_img: eventImg,
@@ -65,10 +64,10 @@ const AdminPageEvents = () => {
         if (editEvent !== undefined) {
           editedEvent = await dispatch(editEventThunk(editEvent.id, data));
         } else {
-          addEvent = await dispatch(addAnimalThunk(data));
+          addEvent = await dispatch(addEventThunk(data));
         }
         if (addEvent || editedEvent) {
-          const loadNew = await dispatch(getAllAnimalsThunk());
+          const loadNew = await dispatch(getAllEventsThunks());
           navigate("/events");
         }
       } catch (error) {

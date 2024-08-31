@@ -37,12 +37,6 @@ def create_event():
 
     new_event = request.json
 
-    # int_val = new_event["event_date"].split("-")
-    # year = int(int_val[0])
-    # month = int(int_val[1])
-    # day = int(int_val[2])
-    # event_date = date(year, month, day)
-
     create_event = Event(
         event_title=new_event["event_title"],
         event_date=new_event["event_date"],

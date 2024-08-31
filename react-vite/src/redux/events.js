@@ -3,6 +3,27 @@ const ADD_EVENT = "events/addEvent";
 const DELETE_EVENT = "events/deleteEvent";
 const EDIT_EVENT = "events/editEvent";
 
+const addEvent = (event) => ({
+  type: ADD_EVENT,
+  payload: event,
+});
+
+export const addEventThunk = (eventData) => async (dispatch) => {
+  // console.log("eventData=>>>>>>>>>>>>>>>>>>>>>>>>>>", eventData);
+  const response = await fetch("/api/events/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(eventData),
+  });
+  if (response.ok) {
+    const newEventAdded = await response.json();
+    dispatch(addEvent(newEventAdded));
+    return newEventAdded;
+  } else {
+    throw new Error("Error adding event");
+  }
+};
+
 const deleteEvent = (event) => ({
   type: DELETE_EVENT,
   payload: event,
