@@ -43,7 +43,7 @@ def create_event():
         event_time=new_event["event_time"],
         event_location=new_event["event_location"],
         event_desc=new_event["event_desc"],
-        event_img=new_event["event_img"]
+        event_img=new_event["event_img"] or ""
     )
 
     db.session.add(create_event)
