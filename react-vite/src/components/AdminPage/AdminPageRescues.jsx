@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
-const AdminPage = () => {
+const AdminPageRescues = () => {
   const location = useLocation();
   const editRescue = location.state?.editRescue;
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const AdminPage = () => {
       setGWKids(editRescue?.good_w_kids ? 1 : 0);
       setTrained(editRescue?.potty_trained ? 1 : 0);
       setRescueDate(formattedDate);
-      setRescueType(editRescue?.type);
+      setRescueType(editRescue?.animal_type);
       setSex(editRescue?.sex);
       setStory(editRescue?.story);
       setCanAdopt(editRescue?.can_adopt ? 1 : 0);
@@ -74,8 +74,7 @@ const AdminPage = () => {
     }
   }, [editRescue]);
 
-  const addEditAnimal = async (actionType) => {
-    console.log("The Action Type is", actionType);
+  const addEditAnimal = async () => {
     const data = {
       animal_name: name,
       age: parseInt(age),
@@ -90,7 +89,7 @@ const AdminPage = () => {
       sex: sex,
       story: story,
       thumbnail_img: thumbnail,
-      type: rescueType,
+      animal_type: rescueType,
     };
 
     const validationResult = await validateData(data);
@@ -296,4 +295,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default AdminPageRescues;

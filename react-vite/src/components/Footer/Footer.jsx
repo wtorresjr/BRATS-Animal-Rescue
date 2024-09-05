@@ -20,7 +20,7 @@ const Footer = () => {
           <NavLink onClick={alertSoon}>FOSTER A PET</NavLink>
         </div>
         <div>
-          <NavLink onClick={alertSoon}>EVENTS</NavLink>|
+          <NavLink to={"/events"}>EVENTS</NavLink>|
           <NavLink onClick={alertSoon}>BECOME A SPONSOR</NavLink>|
           <NavLink to={"/volunteer"}>VOLUNTEER</NavLink>
         </div>

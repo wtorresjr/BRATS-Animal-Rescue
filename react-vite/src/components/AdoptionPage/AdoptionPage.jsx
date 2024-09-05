@@ -18,12 +18,14 @@ const AdoptionPage = () => {
 
   useEffect(() => {
     dispatch(getAllAnimalsThunk());
+    window.scrollTo(0, 0);
   }, [animals.new_animal]);
 
   return (
     <>
       <Header />
       {openMenu ? <NavMenu /> : null}
+      <h1 style={{ color: "#ca0300", textAlign: "center" }}>Our B.R.A.T.S.</h1>
       {animals?.animals?.length > 0 ? (
         animals.animals.map((rescue) => (
           <AdoptionCard

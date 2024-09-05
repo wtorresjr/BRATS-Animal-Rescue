@@ -1,2 +1,3 @@
-import AdminPage from "./AdminPage";
-export { AdminPage };
+import AdminPageRescues from "./AdminPageRescues";
+import AdminPageEvents from "./AdminPageEvents";
+export { AdminPageRescues, AdminPageEvents };

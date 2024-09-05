@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { deleteAnimalThunk } from "../../redux/animals";
 import { useEffect, useState } from "react";
-import AdminPage from "../AdminPage/AdminPage";
+// import AdminPage from "../AdminPage/AdminPage";
 import { useNavigate } from "react-router-dom";
 
 const getInfo = (rescueInfo) => {

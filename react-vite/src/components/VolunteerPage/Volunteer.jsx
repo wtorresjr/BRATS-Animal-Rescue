@@ -11,6 +11,7 @@ const VolunteerPage = () => {
 
   useEffect(() => {
     setOpenMenu(false);
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -37,12 +38,14 @@ const VolunteerPage = () => {
         proof? Then you can help transport! Transport volunteers may help pick
         up pets from shelters, other volunteer transporters or fosters. Taking
         babies from to their furever home or taking them to vet appointments.
-        <h4>Fundraising, Help Us Help Help Them!</h4>
-        As a non-profit, BRATS Alliance is completely driven by compassionate,
-        dedicated and fun-loving volunteers. You can volunteer to support our
-        cause in many ways, from big jobs to little projects, we always are in
-        need of helping hands. The more volunteers we have, the more babies we
-        can save!
+        <h4 style={{ color: "#ca0300" }}>
+          Fundraising, Help Us Help Help Them!
+        </h4>
+        As a non-profit, B.R.A.T.S. Alliance is completely driven by
+        compassionate, dedicated and fun-loving volunteers. You can volunteer to
+        support our cause in many ways, from big jobs to little projects, we
+        always are in need of helping hands. The more volunteers we have, the
+        more babies we can save!
         <h4 style={{ color: "#ca0300" }}>Home Checks</h4>
         Conduct home visits for potential adoptive families and fosters, and
         help them understand the benefits of becoming a foster or rescue

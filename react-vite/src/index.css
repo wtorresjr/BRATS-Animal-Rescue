@@ -29,6 +29,7 @@ html {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+  box-sizing: border-box;
 }
 
 body::-webkit-scrollbar {
@@ -73,6 +74,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 img {
   cursor: pointer;
@@ -80,6 +82,5 @@ img {
 
 #root {
   margin: 85px 0 145px 0;
+  box-sizing: border-box;
 }
-
-

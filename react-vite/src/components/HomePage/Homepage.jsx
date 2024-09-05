@@ -22,6 +22,7 @@ const Homepage = () => {
 
   useEffect(() => {
     setOpenMenu(false);
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -57,15 +58,15 @@ const Homepage = () => {
       </NavLink>
       <div style={{ margin: "10px 0 0 0" }}></div>
 
-
-      <HomeCard
-        title={"Special Events"}
-        cardText={"View our upcoming events..."}
-        callToAction={"COMING SOON!"}
-        imgSrc={eventsImg}
-        cssStyle={"event"}
-      />
-
+      <NavLink to={"/events"}>
+        <HomeCard
+          title={"Special Events"}
+          cardText={"View our upcoming events..."}
+          callToAction={"COMING SOON!"}
+          imgSrc={eventsImg}
+          cssStyle={"event"}
+        />
+      </NavLink>
 
       <div style={{ margin: "10px 0 0 0" }}></div>
 

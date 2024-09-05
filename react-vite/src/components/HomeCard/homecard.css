@@ -38,7 +38,8 @@ img {
 .volunteer-card,
 .sponsors-card,
 .adopt-detail-card,
-.genGreyContainer {
+.genGreyContainer,
+.genGreyContainer-card {
   background-color: #00275e;
   border-radius: 10px;
   color: white;
@@ -47,6 +48,8 @@ img {
   flex-flow: row nowrap;
   gap: 10px;
   justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .genGreyContainer {
@@ -131,6 +134,22 @@ img {
 
 .sponsors-img {
   width: 25%;
+  aspect-ratio: 1/1;
+}
+
+.genGreyContainer-card {
+  background-color: #f1eff0;
+  color: black;
+  flex-flow: column wrap;
+  margin: 10px 0 10px 0;
+  border: 1px solid #ca0300;
+  /* flex-flow: row nowrap; */
+}
+
+.genGreyContainer-img {
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 125px;
   aspect-ratio: 1/1;
 }
 

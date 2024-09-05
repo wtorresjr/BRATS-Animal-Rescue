@@ -33,7 +33,7 @@ const validateData = (data) => {
   data.thumbnail_img.length > 8
     ? null
     : (errors.thumbnail_img = "Thumbnail image url required.");
-  data.type ? null : (errors.rescueType = "Rescue type is required.");
+  data.animal_type ? null : (errors.rescueType = "Rescue type is required.");
 
   if (Object.keys(errors).length === 0) {
     return true;
