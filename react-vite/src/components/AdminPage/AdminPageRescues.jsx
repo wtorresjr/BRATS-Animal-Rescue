@@ -51,7 +51,7 @@ const AdminPageRescues = () => {
       setGWKids(editRescue?.good_w_kids ? 1 : 0);
       setTrained(editRescue?.potty_trained ? 1 : 0);
       setRescueDate(formattedDate);
-      setRescueType(editRescue?.type);
+      setRescueType(editRescue?.animal_type);
       setSex(editRescue?.sex);
       setStory(editRescue?.story);
       setCanAdopt(editRescue?.can_adopt ? 1 : 0);
