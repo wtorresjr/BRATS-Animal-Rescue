@@ -89,7 +89,7 @@ const AdminPageRescues = () => {
       sex: sex,
       story: story,
       thumbnail_img: thumbnail,
-      type: rescueType,
+      animal_type: rescueType,
     };
 
     const validationResult = await validateData(data);

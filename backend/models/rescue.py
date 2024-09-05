@@ -14,7 +14,7 @@ class Rescue(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     sex = db.Column(Enum('Male', 'Female', name='animal_sex'), nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    type = db.Column(Enum('Dog', 'Cat', 'Parrot',
+    animal_type = db.Column(Enum('Dog', 'Cat', 'Parrot',
                      name='animal_types'), nullable=False)
     animal_name = db.Column(db.String(30), nullable=False)
     can_adopt = db.Column(db.Boolean, nullable=False)
@@ -35,7 +35,7 @@ class Rescue(db.Model, UserMixin):
             "id": self.id,
             "sex": self.sex,
             "age": self.age,
-            "type": self.type,
+            "type": self.animal_type,
             "animal_name": self.animal_name,
             "rescue_date": self.rescue_date,
             "story": self.story,

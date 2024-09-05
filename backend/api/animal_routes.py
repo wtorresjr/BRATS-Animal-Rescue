@@ -45,7 +45,7 @@ def create_animal():
         story=new_animal["story"],
         can_adopt=new_animal["can_adopt"],
         thumbnail_img=new_animal["thumbnail_img"],
-        type=new_animal["type"]
+        type=new_animal["animal_type"]
     )
 
     db.session.add(create_pet)
