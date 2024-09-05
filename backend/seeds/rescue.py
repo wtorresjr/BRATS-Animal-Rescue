@@ -44,7 +44,7 @@ def seed_rescue():
             sex=animal_sex,
             animal_name=chosen_name,
             age=randint(1, 10),
-            type=choice(["Dog", "Cat"]),
+            animal_type=choice(["Dog", "Cat"]),
             rescue_date=fake.date_between(
                 start_date=start_date, end_date=end_date),
             story=fake.paragraph(nb_sentences=6),
