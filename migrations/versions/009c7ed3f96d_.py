@@ -38,7 +38,7 @@ def upgrade():
                     sa.Column('sex', sa.Enum('Male', 'Female',
                               name='animal_sex'), nullable=False),
                     sa.Column('age', sa.Integer(), nullable=False),
-                    sa.Column('animal_type', sa.Enum('Dog', 'Cat', 'Parrot',
+                    sa.Column('animal_type', sa.Enum('Dog', 'Cat',
                                                      name='animal_types'), nullable=False),
                     sa.Column('animal_name', sa.String(
                         length=30), nullable=False),
