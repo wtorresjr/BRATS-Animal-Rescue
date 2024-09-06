@@ -17,7 +17,7 @@ const Footer = () => {
         <div>
           <NavLink to={"/donate"}>DONATE</NavLink>|
           <NavLink to={"/adopt"}>ADOPT A PET</NavLink>|
-          <NavLink onClick={alertSoon}>FOSTER A PET</NavLink>
+          <NavLink to={"/foster"}>FOSTER A RESCUE</NavLink>
         </div>
         <div>
           <NavLink to={"/events"}>EVENTS</NavLink>|

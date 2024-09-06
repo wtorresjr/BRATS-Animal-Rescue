@@ -12,6 +12,7 @@ import { VolunteerPage } from "../components/VolunteerPage";
 import { ComingSoon } from "../components/ComingSoon";
 import { MissionPage } from "../components/MissionPage";
 import { EventsPage } from "../components/EventsPage";
+import { FosterPage } from "../components/FosterPage";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/mission",
         element: <MissionPage />,
+      },
+      {
+        path: "/foster",
+        element: <FosterPage />,
       },
       {
         path: "/events",

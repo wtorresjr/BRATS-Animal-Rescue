@@ -20,7 +20,7 @@ const NavMenu = () => {
   return (
     <div className="navmenu">
       <ColorButton>
-        <NavLink onClick={alertSoon}>Foster A Rescue</NavLink>
+        <NavLink to={"/foster"}>Foster A Rescue</NavLink>
       </ColorButton>
       <ColorButton>
         <NavLink to={"/adopt"}>Adopt A Rescue</NavLink>
