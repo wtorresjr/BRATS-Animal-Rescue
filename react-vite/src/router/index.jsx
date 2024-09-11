@@ -13,6 +13,7 @@ import { ComingSoon } from "../components/ComingSoon";
 import { MissionPage } from "../components/MissionPage";
 import { EventsPage } from "../components/EventsPage";
 import { FosterPage } from "../components/FosterPage";
+import { SponsorPage } from "../components/SponsorPage";
 
 export const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/sponsors",
-        element: <ComingSoon />,
+        element: <SponsorPage />,
       },
       {
         path: "/mission",

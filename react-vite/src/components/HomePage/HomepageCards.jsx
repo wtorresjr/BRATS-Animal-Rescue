@@ -77,14 +77,15 @@ const HomePageCards = () => {
       </NavLink>
 
       <div style={{ margin: "10px 0 0 0" }}></div>
-
-      <SmallCard
-        title={"OUR SPONSORS"}
-        cssStyle={"sponsors"}
-        cardText={"Help keep our mission alive..."}
-        callToAction={"COMING SOON!"}
-        imgSrc={sponsorsImg}
-      />
+      <NavLink to={"/sponsors"}>
+        <SmallCard
+          title={"OUR SPONSORS"}
+          cssStyle={"sponsors"}
+          cardText={"Help keep our mission alive..."}
+          callToAction={"VIEW SPONSORS or BECOME ONE..."}
+          imgSrc={sponsorsImg}
+        />
+      </NavLink>
       <div style={{ margin: "10px 0 0 0" }}></div>
     </>
   );

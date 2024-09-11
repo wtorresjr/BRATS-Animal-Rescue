@@ -21,7 +21,7 @@ const Footer = () => {
         </div>
         <div>
           <NavLink to={"/events"}>EVENTS</NavLink>|
-          <NavLink onClick={alertSoon}>BECOME A SPONSOR</NavLink>|
+          <NavLink to={"/sponsors"}>BECOME A SPONSOR</NavLink>|
           <NavLink to={"/volunteer"}>VOLUNTEER</NavLink>
         </div>
       </div>
