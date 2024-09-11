@@ -57,6 +57,7 @@ img {
   color: black;
   flex-flow: column wrap;
   margin: 10px 0 0 0;
+  width: 100%;
 }
 
 .adopt-detail-card {
@@ -143,10 +144,11 @@ img {
 .genGreyContainer-card {
   background-color: #f1eff0;
   color: black;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   margin: 10px 0 10px 0;
   border: 1px solid #ca0300;
-  /* flex-flow: row nowrap; */
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .genGreyContainer-img {
