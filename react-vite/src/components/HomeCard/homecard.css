@@ -84,8 +84,11 @@ img {
 }
 
 .adopt-story-contain {
+  display: flex;
   position: relative;
+  width: 100%;
 }
+
 .adopt-story-contain > button {
   border-radius: 10px;
   color: white;
@@ -96,9 +99,9 @@ img {
   margin: 10px 0 0 0;
   padding: 5px;
 }
-.adopt-story-contain > text {
+/* .adopt-story-contain > text {
   display: inline-block;
-}
+} */
 
 .volunteer-card {
   background-color: white;

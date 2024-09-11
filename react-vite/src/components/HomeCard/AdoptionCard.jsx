@@ -67,9 +67,9 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
             <div>Spayed/Neutered? {rescue.fixed ? "Yes" : "No"}</div>
             <div>Potty Trained? {rescue.potty_trained ? "Yes" : "No"}</div>
           </div>
-          <div>
+          <div style={{ width: "100%" }}>
             <div className="adopt-story-contain">
-              <div>
+              <div className="story-text">
                 <strong>{`${rescue.animal_name}'s Story`}:</strong>{" "}
                 {rescue.story}
               </div>
