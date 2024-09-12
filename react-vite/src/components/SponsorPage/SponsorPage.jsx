@@ -320,9 +320,7 @@ const SponsorPage = () => {
         ))
       ) : (
         <div style={{ width: "100%" }}>
-          <p style={{ width: "100%" }}>
-            No events found, Please check back again later for updates.
-          </p>
+          <p style={{ width: "100%" }}>No sponsors yet be the first!</p>
         </div>
       )}
       <Footer />
