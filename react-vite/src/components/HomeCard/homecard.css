@@ -191,3 +191,20 @@ img {
 .event-text {
   text-align: left;
 }
+
+.sponsor-page li {
+  /* color: red; */
+  font-size: 15px;
+}
+
+.sponsor-page h3 {
+  color: #ca0300;
+  padding: 0px;
+  margin: 0px;
+}
+
+.sponsor-page h4 {
+  /* color: #00275e; */
+  padding: 0px;
+  margin: 0px;
+}
