@@ -18,6 +18,7 @@ import "../HomeCard/homecard.css";
 const SponsorPage = () => {
   const { openMenu, setOpenMenu } = useContext(MyContext);
   const events = useSelector((state) => state?.events);
+  const sponsors = useSelector((state) => state?.sponsors);
   const dispatch = useDispatch();
   const [openAcc1, setOpenAcc1] = useState(true);
   const [openAcc2, setOpenAcc2] = useState(true);
@@ -310,17 +311,19 @@ const SponsorPage = () => {
         </div>
       </div>
       <h1 style={{ color: "#00275e", textAlign: "center" }}>Our Sponsors</h1>
-      {events?.events?.length > 0 ? (
-        events.events.map((event) => (
+      {sponsors?.sponsors?.length > 0 ? (
+        sponsors.sponsors.map((sponsor) => (
           <SponsorCard
-            key={event.id}
-            event={event}
+            key={sponsor.id}
+            sponsor={sponsor}
             cssStyle={"genGreyContainer"}
           />
         ))
       ) : (
         <div style={{ width: "100%" }}>
-          <p style={{ width: "100%" }}>No sponsors yet be the first!</p>
+          <p style={{ width: "100%", textAlign: "center" }}>
+            No sponsors yet be the first!
+          </p>
         </div>
       )}
       <Footer />
