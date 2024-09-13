@@ -128,6 +128,23 @@ const MissionPage = () => {
           501(c) (3) section of the internal revenue code and are operated
           exclusively for educational and charitable purposes.
         </p>
+
+        <p>
+          <h2>Core Values</h2>
+          <h3>Compassion</h3>
+          We Treat animals, volunteers, and the community with compassion,
+          kindness, respect and patience.
+          <h3>Integrity</h3>
+          We will operate in an honest, ethical and transparent manner with our
+          operations, actions, words and behaviors.
+          <h3>Service</h3>
+          We are responsible and accountable to the community and pets we serve
+          and to the donors and sponsors who enable our mission.
+          <h3>Community Cooperation</h3>
+          We develop and cultivate sustainable and positive community
+          relationships by working together and supporting each other to create
+          a positive impact, save animals and improve the community we serve.
+        </p>
         <div
           style={{ margin: "10px 0 0 0", borderBottom: "1px solid #d20c09" }}
         ></div>
