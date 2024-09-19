@@ -4,7 +4,7 @@ import { MyContext } from "../../context/MyContext";
 import { SponsorCard } from "./SponsorCard";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
-import { getAllEventsThunks } from "../../redux/events";
+import { getAllSponsorsThunk } from "../../redux/sponsors";
 import NavMenu from "../NavMenu/NavMenu";
 
 import Accordion from "@mui/material/Accordion";
@@ -17,7 +17,6 @@ import "../HomeCard/homecard.css";
 
 const SponsorPage = () => {
   const { openMenu, setOpenMenu } = useContext(MyContext);
-  const events = useSelector((state) => state?.events);
   const sponsors = useSelector((state) => state?.sponsors);
   const dispatch = useDispatch();
   const [openAcc1, setOpenAcc1] = useState(true);
@@ -30,8 +29,8 @@ const SponsorPage = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(getAllEventsThunks());
-  }, [events.new_event]);
+    dispatch(getAllSponsorsThunk());
+  }, [sponsors.new_sponsor]);
 
   return (
     <>

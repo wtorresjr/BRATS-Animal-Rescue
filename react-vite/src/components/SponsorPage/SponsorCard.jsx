@@ -1,36 +1,36 @@
 import "../HomeCard/homecard.css";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
-import { deleteEventThunk } from "../../redux/events";
+// import { deleteEventThunk } from "../../redux/events";
 
-const SponsorCard = ({ cssStyle, event }) => {
+const SponsorCard = ({ cssStyle, sponsor }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const navigate = useNavigate();
   const [deleting, setDeleting] = useState(false);
   const dispatch = useDispatch();
 
-  const calcTime = (time) => {
-    const convertTime = time.split(":");
-    if (convertTime[0] > 12) {
-      const newTime = convertTime[0] - 12 + ":" + convertTime[1] + " " + "PM";
-      return newTime;
-    } else {
-      const newTime = time + " " + "AM";
-      return newTime;
-    }
-  };
+  // const calcTime = (time) => {
+  //   const convertTime = time.split(":");
+  //   if (convertTime[0] > 12) {
+  //     const newTime = convertTime[0] - 12 + ":" + convertTime[1] + " " + "PM";
+  //     return newTime;
+  //   } else {
+  //     const newTime = time + " " + "AM";
+  //     return newTime;
+  //   }
+  // };
 
-  const deleteEvent = async () => {
-    dispatch(deleteEventThunk(event.id));
-  };
+  // const deleteEvent = async () => {
+  //   dispatch(deleteEventThunk(event.id));
+  // };
 
-  const editEvent = () => {
-    // console.log("Animal To Edit", rescue);
-    navigate("/admin/events", { state: { editEvent: event } });
-  };
+  // const editEvent = () => {
+  //   // console.log("Animal To Edit", rescue);
+  //   navigate("/admin/events", { state: { editEvent: event } });
+  // };
 
   return (
     <div className={`${cssStyle}-card`}>
@@ -44,7 +44,7 @@ const SponsorCard = ({ cssStyle, event }) => {
             width: "100%",
           }}
         >
-          <p>{`Please confirm you would like to delete the ${event.event_title} event?`}</p>
+          <p>{`Please confirm you would like to delete the ${sponsor.sponsor_name} event?`}</p>
           <Button variant="contained" color="error" onClick={deleteEvent}>
             DELETE
           </Button>
@@ -58,27 +58,24 @@ const SponsorCard = ({ cssStyle, event }) => {
         </div>
       ) : (
         <>
-          {event.event_img && (
+          <div className={`${cssStyle}-adptText`}>
+            <h1 style={{ color: "#ca0300" }}>{sponsor.sponsor_name}</h1>
+          </div>
+          {sponsor.sponsor_img && (
             <div className={`${cssStyle}-img`}>
-              <img src={event.event_img}></img>
+              <img src={sponsor.sponsor_img}></img>
             </div>
           )}
-          <div className={`${cssStyle}-adptText`}>
-            <h1 style={{ color: "#ca0300" }}>{event.event_title}</h1>
-          </div>
           <div>
-            <div>
-              <strong>When: </strong>
-              {event.event_date} at {calcTime(event.event_time)}
-            </div>
-            <div>
-              <strong>Where: </strong>
-              {event.event_location}
-            </div>
             <div className="adopt-story-contain">
-              <div>{event.event_desc}</div>
-
-              {/* {event.can_adopt ? "CAN ADOPT" : "ADOPTED!"} */}
+              <div>
+                Website:{" "}
+                {
+                  <NavLink style={{ color: "#ca0300" }}>
+                    {sponsor.sponsor_site}
+                  </NavLink>
+                }
+              </div>
             </div>
             {sessionUser && (
               <div
@@ -94,7 +91,7 @@ const SponsorCard = ({ cssStyle, event }) => {
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={editEvent}
+                  // onClick={editEvent}
                 >
                   Edit
                 </Button>
