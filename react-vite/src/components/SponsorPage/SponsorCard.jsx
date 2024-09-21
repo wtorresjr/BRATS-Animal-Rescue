@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
-// import { deleteEventThunk } from "../../redux/events";
+import { deleteSponsorThunk } from "../../redux/sponsors";
 
 const SponsorCard = ({ cssStyle, sponsor }) => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -23,9 +23,10 @@ const SponsorCard = ({ cssStyle, sponsor }) => {
   //   }
   // };
 
-  // const deleteEvent = async () => {
-  //   dispatch(deleteEventThunk(event.id));
-  // };
+  const deleteSponsor = async () => {
+    console.log(sponsor.id);
+    dispatch(deleteSponsorThunk(sponsor.id));
+  };
 
   // const editEvent = () => {
   //   // console.log("Animal To Edit", rescue);
@@ -45,7 +46,7 @@ const SponsorCard = ({ cssStyle, sponsor }) => {
           }}
         >
           <p>{`Please confirm you would like to delete the ${sponsor.sponsor_name} event?`}</p>
-          <Button variant="contained" color="error" onClick={deleteEvent}>
+          <Button variant="contained" color="error" onClick={deleteSponsor}>
             DELETE
           </Button>
           <Button

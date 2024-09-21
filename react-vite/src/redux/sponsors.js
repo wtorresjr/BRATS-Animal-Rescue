@@ -1,9 +1,25 @@
 const GET_ALL_SPONSORS = "sponsors/getAllSponsors";
+const DELETE_SPONSOR = "sponsors/deleteSponsor";
 
 const getAllSponsors = (sponsors) => ({
   type: GET_ALL_SPONSORS,
   payload: sponsors,
 });
+
+const deleteSponsor = (sponsor) => ({
+  type: DELETE_SPONSOR,
+  payload: sponsor,
+});
+
+export const deleteSponsorThunk = (sponsorId) => async (dispatch) => {
+  const response = await fetch(`/api/sponsors/${sponsorId}`);
+  if (response.ok) {
+    dispatch(deleteSponsor(sponsorId));
+    return sponsorId;
+  } else {
+    throw new Error("Error Deleting Sponsor");
+  }
+};
 
 export const getAllSponsorsThunk = () => async (dispatch) => {
   const response = await fetch("/api/sponsors/");
@@ -13,6 +29,8 @@ export const getAllSponsorsThunk = () => async (dispatch) => {
       return data.errors;
     }
     dispatch(getAllSponsors(data));
+  } else {
+    throw new Error("Error Getting Sponsors");
   }
 };
 
@@ -31,13 +49,13 @@ function sponsorReducer(state = initialState, action) {
     //     sponsors: [...state.sponsors, action.payload],
     //     new_sponsor: [...state.new_sponsor, action.payload],
     //   };
-    // case DELETE_SPONSOR:
-    //   return {
-    //     ...state,
-    //     sponsors: state.sponsors.filter(
-    //       (sponsor) => sponsor.id !== action.payload
-    //     ),
-    //   };
+    case DELETE_SPONSOR:
+      return {
+        ...state,
+        sponsors: state.sponsors.filter(
+          (sponsor) => sponsor.id !== action.payload
+        ),
+      };
     // case EDIT_SPONSOR:
     //   return {
     //     ...state,
