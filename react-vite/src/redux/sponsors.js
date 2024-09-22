@@ -12,7 +12,9 @@ const deleteSponsor = (sponsor) => ({
 });
 
 export const deleteSponsorThunk = (sponsorId) => async (dispatch) => {
-  const response = await fetch(`/api/sponsors/${sponsorId}`);
+  const response = await fetch(`/api/sponsors/${sponsorId}`, {
+    method: "DELETE",
+  });
   if (response.ok) {
     dispatch(deleteSponsor(sponsorId));
     return sponsorId;

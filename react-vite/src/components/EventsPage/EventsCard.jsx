@@ -28,7 +28,6 @@ const EventCard = ({ cssStyle, event }) => {
   };
 
   const editEvent = () => {
-    // console.log("Animal To Edit", rescue);
     navigate("/admin/events", { state: { editEvent: event } });
   };
 

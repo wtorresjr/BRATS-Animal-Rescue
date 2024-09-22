@@ -12,26 +12,14 @@ const SponsorCard = ({ cssStyle, sponsor }) => {
   const [deleting, setDeleting] = useState(false);
   const dispatch = useDispatch();
 
-  // const calcTime = (time) => {
-  //   const convertTime = time.split(":");
-  //   if (convertTime[0] > 12) {
-  //     const newTime = convertTime[0] - 12 + ":" + convertTime[1] + " " + "PM";
-  //     return newTime;
-  //   } else {
-  //     const newTime = time + " " + "AM";
-  //     return newTime;
-  //   }
-  // };
-
   const deleteSponsor = async () => {
     console.log(sponsor.id);
     dispatch(deleteSponsorThunk(sponsor.id));
   };
 
-  // const editEvent = () => {
-  //   // console.log("Animal To Edit", rescue);
-  //   navigate("/admin/events", { state: { editEvent: event } });
-  // };
+  const editSponsor = () => {
+    navigate("/admin/sponsors", { state: { editSponsor: sponsor } });
+  };
 
   return (
     <div className={`${cssStyle}-card`}>
@@ -92,7 +80,7 @@ const SponsorCard = ({ cssStyle, sponsor }) => {
                 <Button
                   variant="contained"
                   color="secondary"
-                  // onClick={editEvent}
+                  onClick={editSponsor}
                 >
                   Edit
                 </Button>

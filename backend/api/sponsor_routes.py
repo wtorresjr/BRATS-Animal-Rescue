@@ -32,3 +32,20 @@ def delete_sponsor(sponsor_id):
     return jsonify({"message": f"Successfully Deleted Sponsor # {sponsor_id}"})
 
 
+@sponsor_routes.route("/", methods=["POST"])
+def add_sponsor():
+
+    new_sponsor = request.json
+
+    create_sponsor = Sponsor(
+        sponsor_name=new_sponsor["sponsor_name"],
+        sponsor_site=new_sponsor["sponsor_site"],
+        sponsor_img=new_sponsor["sponsor_img"]
+    )
+
+    db.session.add(create_sponsor)
+    db.session.commit()
+
+    return jsonify({"message": f"Created new sponsor {create_sponsor.to_dict()}"})
+
+
