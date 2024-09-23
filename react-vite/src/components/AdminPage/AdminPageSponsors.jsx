@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import "./admin-page.css";
-import validateEvents from "./validationEvents";
+
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
-// import {
-//   addSponsorThunk,
-//   editSponsorThunk,
-//   getAllEventsThunks,
-// } from "../../redux/events";
-import { getAllSponsorsThunk } from "../../redux/sponsors";
+import validateSponsor from "../AdminPage/validateSponsors";
+
+import { getAllSponsorsThunk, addNewSponsorThunk } from "../../redux/sponsors";
 
 const AdminPageSponsors = () => {
   const location = useLocation();
@@ -36,6 +33,10 @@ const AdminPageSponsors = () => {
     }
   }, [editSponsor]);
 
+  useEffect(() => {
+    console.log("Form Errors", formErrors);
+  }, [formErrors]);
+
   const addEditSponsor = async () => {
     const data = {
       sponsor_name: sponsorName,
@@ -43,7 +44,7 @@ const AdminPageSponsors = () => {
       sponsor_img: sponsorImg,
     };
 
-    const validationResult = await validateEvents(data);
+    const validationResult = await validateSponsor(data);
 
     if (validationResult === true) {
       try {
@@ -54,11 +55,11 @@ const AdminPageSponsors = () => {
             editSponsorThunk(editSponsor.id, data)
           );
         } else {
-          addSponsor = await dispatch(addSponsorThunk(data));
+          addSponsor = await dispatch(addNewSponsorThunk(data));
         }
         if (addSponsor || editedSponsor) {
-          const loadNew = await dispatch(getAllEventsThunks());
-          navigate("/events");
+          const loadNew = await dispatch(getAllSponsorsThunk());
+          navigate("/sponsors");
         }
       } catch (error) {
         console.error("Error Adding Event", error);
@@ -70,7 +71,7 @@ const AdminPageSponsors = () => {
 
   return (
     <>
-      <h1>Admin - {editSponsor ? "Edit An Event" : "Add An Event"}</h1>
+      <h1>Admin - {editSponsor ? "Edit A Sponsor" : "Add An Sponsor"}</h1>
       <div className="div-admin dropDown-div">
         <label>Sponsor Name:</label>
         <input
@@ -78,8 +79,8 @@ const AdminPageSponsors = () => {
           value={sponsorName}
           onChange={(e) => setSponsorName(e.target.value)}
         />
-        {formErrors.title_error && (
-          <span className="errors-red">{formErrors.title_error}</span>
+        {formErrors.sponsor_name_error && (
+          <span className="errors-red">{formErrors.sponsor_name_error}</span>
         )}
       </div>
 
@@ -88,10 +89,7 @@ const AdminPageSponsors = () => {
         <input
           value={sponsorSite}
           onChange={(e) => setSponsorSite(e.target.value)}
-        />
-        {formErrors.date_error && (
-          <span className="errors-red">{formErrors.date_error}</span>
-        )}
+        />{" "}
       </div>
 
       <div className="dropDown-div">
@@ -100,9 +98,6 @@ const AdminPageSponsors = () => {
           value={sponsorImg}
           onChange={(e) => setSponsorImg(e.target.value)}
         />
-        {formErrors.time_error && (
-          <span className="errors-red">{formErrors.time_error}</span>
-        )}
       </div>
 
       <Button

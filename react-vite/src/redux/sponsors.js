@@ -1,5 +1,27 @@
 const GET_ALL_SPONSORS = "sponsors/getAllSponsors";
 const DELETE_SPONSOR = "sponsors/deleteSponsor";
+const ADD_SPONSOR = "sponsor/addSponsor";
+
+const addSponsor = (sponsor) => ({
+  type: ADD_SPONSOR,
+  payload: sponsor,
+});
+
+export const addNewSponsorThunk = (sponsorData) => async (dispatch) => {
+  const response = await fetch("/api/sponsors/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(sponsorData),
+  });
+
+  if (response.ok) {
+    const newSponsor = await response.json();
+    dispatch(addSponsor(newSponsor));
+    return newSponsor;
+  } else {
+    throw new Error("Error adding sponsor");
+  }
+};
 
 const getAllSponsors = (sponsors) => ({
   type: GET_ALL_SPONSORS,
@@ -45,12 +67,12 @@ function sponsorReducer(state = initialState, action) {
   switch (action.type) {
     case GET_ALL_SPONSORS:
       return { ...state, sponsors: action.payload };
-    // case ADD_SPONSOR:
-    //   return {
-    //     ...state,
-    //     sponsors: [...state.sponsors, action.payload],
-    //     new_sponsor: [...state.new_sponsor, action.payload],
-    //   };
+    case ADD_SPONSOR:
+      return {
+        ...state,
+        sponsors: [...state.sponsors, action.payload],
+        new_sponsor: [...state.new_sponsor, action.payload],
+      };
     case DELETE_SPONSOR:
       return {
         ...state,
