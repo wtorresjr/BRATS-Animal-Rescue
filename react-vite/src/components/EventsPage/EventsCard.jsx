@@ -65,7 +65,7 @@ const EventCard = ({ cssStyle, event }) => {
           <div className={`${cssStyle}-adptText`}>
             <h1 style={{ color: "#ca0300" }}>{event.event_title}</h1>
           </div>
-          <div>
+          <div style={{ width: "100%" }}>
             <div>
               <strong>When: </strong>
               {event.event_date} at {calcTime(event.event_time)}
@@ -76,9 +76,8 @@ const EventCard = ({ cssStyle, event }) => {
             </div>
             <div className="adopt-story-contain">
               <div>{event.event_desc}</div>
-
-              {/* {event.can_adopt ? "CAN ADOPT" : "ADOPTED!"} */}
             </div>
+            {/* {event.can_adopt ? "CAN ADOPT" : "ADOPTED!"} */}
             {sessionUser && (
               <div
                 style={{

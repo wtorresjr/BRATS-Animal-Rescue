@@ -55,7 +55,7 @@ const SponsorCard = ({ cssStyle, sponsor }) => {
               <img src={sponsor.sponsor_img}></img>
             </div>
           )}
-          <div>
+          <div style={{ width: "100%" }}>
             <div className="adopt-story-contain">
               <div>
                 Website:{" "}
