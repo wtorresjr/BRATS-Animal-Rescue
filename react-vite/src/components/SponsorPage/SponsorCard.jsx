@@ -1,7 +1,7 @@
 import "../HomeCard/homecard.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
 import { deleteSponsorThunk } from "../../redux/sponsors";
@@ -13,13 +13,16 @@ const SponsorCard = ({ cssStyle, sponsor }) => {
   const dispatch = useDispatch();
 
   const deleteSponsor = async () => {
-    console.log(sponsor.id);
     dispatch(deleteSponsorThunk(sponsor.id));
   };
 
   const editSponsor = () => {
     navigate("/admin/sponsors", { state: { editSponsor: sponsor } });
   };
+
+  useEffect(() => {
+    console.log("Sponsor Info", sponsor);
+  }, []);
 
   return (
     <div className={`${cssStyle}-card`}>
@@ -60,9 +63,20 @@ const SponsorCard = ({ cssStyle, sponsor }) => {
               <div>
                 Website:{" "}
                 {
-                  <NavLink style={{ color: "#ca0300" }}>
+                  // <NavLink
+                  //   to={sponsor.sponsor_site}
+                  //   style={{ color: "#ca0300" }}
+                  // >
+                  //   {sponsor.sponsor_site}
+                  //   </NavLink>
+                  <a
+                    href={sponsor.sponsor_site}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#ca0300" }}
+                  >
                     {sponsor.sponsor_site}
-                  </NavLink>
+                  </a>
                 }
               </div>
             </div>
