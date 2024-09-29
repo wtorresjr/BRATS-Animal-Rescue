@@ -20,7 +20,7 @@ def get_all_animals():
     return jsonify(animals)
 
 
-@animal_routes.route("/", methods=["POST"])
+@animal_routes.route("/", methods=["POST"]) 
 def create_animal():
 
     new_animal = request.json

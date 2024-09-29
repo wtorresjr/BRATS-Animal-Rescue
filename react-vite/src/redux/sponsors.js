@@ -1,6 +1,28 @@
 const GET_ALL_SPONSORS = "sponsors/getAllSponsors";
 const DELETE_SPONSOR = "sponsors/deleteSponsor";
 const ADD_SPONSOR = "sponsor/addSponsor";
+const EDIT_SPONSOR = "sponsor/editSponsor";
+
+const editSponsor = (sponsor) => ({
+  type: EDIT_SPONSOR,
+  payload: sponsor,
+});
+
+export const editSponsorThunk = (sponsorId, editedData) => async (dispatch) => {
+  const response = await fetch(`/api/sponsors/${sponsorId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(editedData),
+  });
+
+  if (response.ok) {
+    const editingSponsor = await response.json();
+    dispatch(editSponsor(editingSponsor));
+    return editingSponsor;
+  } else {
+    throw new Error("Error editing sponsor");
+  }
+};
 
 const addSponsor = (sponsor) => ({
   type: ADD_SPONSOR,
@@ -80,13 +102,13 @@ function sponsorReducer(state = initialState, action) {
           (sponsor) => sponsor.id !== action.payload
         ),
       };
-    // case EDIT_SPONSOR:
-    //   return {
-    //     ...state,
-    //     sponsors: state.sponsors.map((sponsor) =>
-    //       sponsor.id === action.payload.id ? action.payload : sponsor
-    //     ),
-    //   };
+    case EDIT_SPONSOR:
+      return {
+        ...state,
+        sponsors: state.sponsors.map((sponsor) =>
+          sponsor.id === action.payload.id ? action.payload : sponsor
+        ),
+      };
     default:
       return state;
   }

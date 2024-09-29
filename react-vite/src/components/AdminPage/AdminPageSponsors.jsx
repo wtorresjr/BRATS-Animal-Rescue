@@ -7,7 +7,7 @@ import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import validateSponsor from "../AdminPage/validateSponsors";
 
-import { getAllSponsorsThunk, addNewSponsorThunk } from "../../redux/sponsors";
+import { getAllSponsorsThunk, addNewSponsorThunk, editSponsorThunk } from "../../redux/sponsors";
 
 const AdminPageSponsors = () => {
   const location = useLocation();
@@ -33,9 +33,9 @@ const AdminPageSponsors = () => {
     }
   }, [editSponsor]);
 
-  useEffect(() => {
-    console.log("Form Errors", formErrors);
-  }, [formErrors]);
+  // useEffect(() => {
+  //   console.log("Form Errors", formErrors);
+  // }, [formErrors]);
 
   const addEditSponsor = async () => {
     const data = {

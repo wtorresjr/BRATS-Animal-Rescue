@@ -49,3 +49,20 @@ def add_sponsor():
     return jsonify({"message": f"Created new sponsor {create_sponsor.to_dict()}"})
 
 
+@sponsor_routes.route("/<int:sponsor_id>", methods=["PUT"])
+def edit_sponsor(sponsor_id):
+
+    sponsor_to_edit = Sponsor.query.filter_by(id=sponsor_id).first()
+
+    if not sponsor_to_edit:
+        return jsonify({"message": f"Could not find sponsor # {sponsor_id}"})
+
+    edit_sponsor_data = request.json
+
+    for key, value in edit_sponsor_data.items():
+        if hasattr(sponsor_to_edit, key):
+            setattr(sponsor_to_edit, key, value)
+
+    db.session.commit()
+
+    return jsonify({"message": f"Successfully made changes {edit_sponsor_data}"})
