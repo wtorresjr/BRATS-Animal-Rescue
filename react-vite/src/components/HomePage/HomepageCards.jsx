@@ -4,8 +4,6 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { HomeCard } from "../HomeCard";
 import { DonationsCard } from "../HomeCard";
 import { SmallCard } from "../HomeCard";
-import { MyContext } from "../../context/MyContext";
-import { useContext } from "react";
 
 const volunteerImg = "Cat-n-Dog.jpg";
 const sponsorsImg = "sponsor-image.jpg";
@@ -23,7 +21,7 @@ const HomePageCards = () => {
             alignItems: "center",
             borderRadius: "10px",
           }}
-          fullWidth={"True"}
+          fullWidth={true}
           variant="contained"
           endIcon={<ArrowRightIcon />}
         >

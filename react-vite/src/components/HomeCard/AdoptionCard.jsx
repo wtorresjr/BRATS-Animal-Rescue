@@ -73,8 +73,6 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
                 <strong>{`${rescue.animal_name}'s Story`}:</strong>{" "}
                 {rescue.story}
               </div>
-
-              {/* {rescue.can_adopt ? "CAN ADOPT" : "ADOPTED!"} */}
             </div>
             <div
               style={{

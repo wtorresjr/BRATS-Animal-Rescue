@@ -14,6 +14,7 @@ import { MissionPage } from "../components/MissionPage";
 import { EventsPage } from "../components/EventsPage";
 import { FosterPage } from "../components/FosterPage";
 import { SponsorPage } from "../components/SponsorPage";
+import AdminPageSponsors from "../components/AdminPage/AdminPageSponsors";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +65,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AdminPageEvents />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/admin/sponsors",
+        element: (
+          <PrivateRoute>
+            <AdminPageSponsors />
           </PrivateRoute>
         ),
       },
