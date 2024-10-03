@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import "./message.css";
 
-const MessageComponent = ({ message, isVisible, origin }) => {
+const MessageComponent = ({ message, origin }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
