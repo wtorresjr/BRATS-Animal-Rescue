@@ -2,47 +2,82 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
-.header {
-  display: flex;
-  flex-flow: row nowrap;
-  /* width: 100%; */
-  justify-content: space-between;
-  align-items: center;
-  /* height: auto; */
-  border-bottom: 3px solid #ca0300;
-  padding: 10px;
-  position: fixed;
-  background-color: white;
-  top: 0;
-  max-width: 380px;
-  /* left: 0; */
-  z-index: 100;
-  /* margin:0 auto; */
-  box-sizing: border-box;
-}
-
-.header-title {
-  cursor: pointer;
-}
-
 .header img {
   width: 25%;
 }
 
-.header-title {
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: bolder;
-  font-style: normal;
-  font-size: 1rem;
-  letter-spacing: -0.8px;
-  width: 40%;
-  color: #00235b;
-  /* border-top:3px solid #ca0300; */
+@media only screen and (min-width: 381px) {
+  .header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #ca0300;
+    padding: 10px;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    max-width: 768px;
+    z-index: 100;
+    box-sizing: border-box;
+  }
+
+  .header-title {
+    cursor: pointer;
+  }
+
+  .header-title {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 1rem;
+    letter-spacing: -0.8px;
+    width: 40%;
+    color: #00235b;
+  }
+
+  .menuButton {
+    color: "#ca0300";
+    border: "2px solid #ca0300";
+    box-shadow: 3px 3px 3px black;
+  }
 }
 
-.menuButton {
-  color: "#ca0300";
-  border: "2px solid #ca0300";
-  box-shadow: 3px 3px 3px black;
+@media only screen and (max-width: 380px) {
+  .header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #ca0300;
+    padding: 10px;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    max-width: 380px;
+    z-index: 100;
+    box-sizing: border-box;
+  }
+
+  .header-title {
+    cursor: pointer;
+  }
+
+  .header-title {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 1rem;
+    letter-spacing: -0.8px;
+    width: 40%;
+    color: #00235b;
+  }
+
+  .menuButton {
+    color: "#ca0300";
+    border: "2px solid #ca0300";
+    box-shadow: 3px 3px 3px black;
+  }
 }

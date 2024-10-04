@@ -91,14 +91,15 @@ img {
 @media only screen and (min-width: 381px) {
   body {
     margin: 0 auto;
-    max-width: 786px;
+    max-width: 768px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
   }
   #root {
-    margin: 85px 0 145px 0;
+    margin: 150px 0 145px 0;
+    /* margin: 150px 0 0 0; */
     box-sizing: border-box;
   }
 }
