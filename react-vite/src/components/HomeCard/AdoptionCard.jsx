@@ -1,5 +1,11 @@
 import { useSelector } from "react-redux";
-import { Button } from "@mui/material";
+import {
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+} from "@mui/material";
 import { useDispatch } from "react-redux";
 import { deleteAnimalThunk } from "../../redux/animals";
 import { useEffect, useState } from "react";
@@ -12,8 +18,17 @@ const getInfo = (rescueInfo) => {
 
 const AdoptionCard = ({ cssStyle, rescue }) => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const dispatch = useDispatch();
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const editAnimal = () => {
     // console.log("Animal To Edit", rescue);
@@ -29,6 +44,35 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
 
   return (
     <div className={`${cssStyle}-card`}>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {`For more information about ${rescue.animal_name}`}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Call Us:{" "}
+            <a href="tel:+13522660721" style={{ color: "#ca0300" }}>
+              352-266-0721
+            </a>{" "}
+            or
+          </DialogContentText>
+          <DialogContentText id="alert-dialog-description">
+            Email Us:{" "}
+            <a
+              href="mailto:brats_alliance@outlook.com"
+              style={{ color: "#ca0300" }}
+            >
+              brats_alliance@outlook.com
+            </a>
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
+
       {deleting ? (
         <div
           className="errorsPtag"
@@ -119,7 +163,7 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
                   variant="contained"
                   color="error"
                   onClick={() => {
-                    getInfo(rescue.animal_name);
+                    handleClickOpen();
                   }}
                 >{`Learn More About ${rescue.animal_name}`}</Button>
               ) : (
