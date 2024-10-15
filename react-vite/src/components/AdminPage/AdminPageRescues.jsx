@@ -46,10 +46,34 @@ const AdminPageRescues = () => {
       setName(editRescue?.animal_name);
       setBreed(editRescue?.breed);
       setFixed(editRescue?.fixed ? 1 : 0);
-      setGWCats(editRescue?.good_w_cats ? 1 : 0);
-      setGWDogs(editRescue?.good_w_dogs ? 1 : 0);
-      setGWKids(editRescue?.good_w_kids ? 1 : 0);
-      setTrained(editRescue?.potty_trained ? 1 : 0);
+      setGWCats(
+        editRescue?.good_w_cats === 0
+          ? 0
+          : editRescue?.good_w_cats === 1
+          ? 1
+          : 2
+      );
+      setGWDogs(
+        editRescue?.good_w_dogs === 0
+          ? 0
+          : editRescue?.good_w_dogs === 1
+          ? 1
+          : 2
+      );
+      setGWKids(
+        editRescue?.good_w_kids === 0
+          ? 0
+          : editRescue?.good_w_kids === 1
+          ? 1
+          : 2
+      );
+      setTrained(
+        editRescue?.potty_trained === 0
+          ? 0
+          : editRescue?.potty_trained === 1
+          ? 1
+          : 2
+      );
       setRescueDate(formattedDate);
       setRescueType(editRescue?.animal_type);
       setSex(editRescue?.sex);
