@@ -199,6 +199,7 @@ const AdminPageRescues = () => {
           <option value={""}>Good With Cats?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
+          <option value={2}>Unknown</option>
         </select>
         {formErrors.good_w_cats && (
           <span className="errors-red">{formErrors.good_w_cats}</span>
@@ -211,6 +212,7 @@ const AdminPageRescues = () => {
           <option value={""}>Good With Dogs?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
+          <option value={2}>Unknown</option>
         </select>
         {formErrors.good_w_dogs && (
           <span className="errors-red">{formErrors.good_w_dogs}</span>
@@ -223,6 +225,7 @@ const AdminPageRescues = () => {
           <option value={""}>Good With Kids?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
+          <option value={2}>Unknown</option>
         </select>
         {formErrors.good_w_kids && (
           <span className="errors-red">{formErrors.good_w_kids}</span>
@@ -235,6 +238,7 @@ const AdminPageRescues = () => {
           <option value={""}>Potty Trained?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
+          <option value={2}>Unknown</option>
         </select>
         {formErrors.potty_trained && (
           <span className="errors-red">{formErrors.potty_trained}</span>

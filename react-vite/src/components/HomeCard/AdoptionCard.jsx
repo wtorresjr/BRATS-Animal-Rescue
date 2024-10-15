@@ -61,11 +61,42 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
             <div>{`Rescue Date: ${r_date[2]}-${r_date[1]}-${r_date[3]}`}</div>
             <div>Age: {rescue.age} Years Old</div>
             <div>Sex: {rescue.sex}</div>
-            <div>Good With Kids? {rescue.good_w_kids ? "Yes" : "No"}</div>
-            <div>Good With Cats? {rescue.good_w_cats ? "Yes" : "No"}</div>
-            <div>Good With Dogs? {rescue.good_w_dogs ? "Yes" : "No"}</div>
+            <div>
+              Good With Kids?{" "}
+              {rescue.good_w_kids === 0
+                ? "No"
+                : rescue.good_w_kids === 1
+                ? "Yes"
+                : "Unknown"}
+            </div>
+
+            <div>
+              Good With Cats?{" "}
+              {rescue.good_w_cats === 0
+                ? "No"
+                : rescue.good_w_cats === 1
+                ? "Yes"
+                : "Unknown"}
+            </div>
+
+            <div>
+              Good With Dogs?{" "}
+              {rescue.good_w_dogs === 0
+                ? "No"
+                : rescue.good_w_dogs === 1
+                ? "Yes"
+                : "Unknown"}
+            </div>
+
             <div>Spayed/Neutered? {rescue.fixed ? "Yes" : "No"}</div>
-            <div>Potty Trained? {rescue.potty_trained ? "Yes" : "No"}</div>
+            <div>
+              Potty Trained?{" "}
+              {rescue.potty_trained === 0
+                ? "No"
+                : rescue.potty_trained === 1
+                ? "Yes"
+                : "Unknown"}
+            </div>
           </div>
           <div style={{ width: "100%" }}>
             <div className="adopt-story-contain">

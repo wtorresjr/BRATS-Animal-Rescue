@@ -53,11 +53,11 @@ def upgrade():
                     sa.Column('rescue_date', sa.Date(), nullable=False),
                     sa.Column('story', sa.String(length=500), nullable=False),
                     sa.Column('breed', sa.String(length=30), nullable=False),
-                    sa.Column('potty_trained', sa.Boolean(), nullable=False),
+                    sa.Column('potty_trained', sa.Integer(), nullable=False),
                     sa.Column('fixed', sa.Boolean(), nullable=False),
-                    sa.Column('good_w_dogs', sa.Boolean(), nullable=False),
-                    sa.Column('good_w_cats', sa.Boolean(), nullable=False),
-                    sa.Column('good_w_kids', sa.Boolean(), nullable=False),
+                    sa.Column('good_w_dogs', sa.Integer(), nullable=False),
+                    sa.Column('good_w_cats', sa.Integer(), nullable=False),
+                    sa.Column('good_w_kids', sa.Integer(), nullable=False),
                     sa.Column('thumbnail_img', sa.String(), nullable=False),
                     sa.PrimaryKeyConstraint('id')
                     )

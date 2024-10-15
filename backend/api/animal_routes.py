@@ -31,6 +31,7 @@ def create_animal():
     day = int(int_val[2])
     rescue_date = date(year, month, day)
 
+
     create_pet = Rescue(
         age=new_animal["age"],
         animal_name=new_animal["animal_name"],
