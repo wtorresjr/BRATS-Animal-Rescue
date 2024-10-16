@@ -56,8 +56,8 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             Call Us:{" "}
-            <a href="tel:+13522660721" style={{ color: "#ca0300" }}>
-              352-266-0721
+            <a href="tel:+13522998911" style={{ color: "#ca0300" }}>
+              352-299-8911
             </a>{" "}
             or
           </DialogContentText>
