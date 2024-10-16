@@ -60,25 +60,27 @@ const SponsorCard = ({ cssStyle, sponsor }) => {
           )}
           <div style={{ width: "100%" }}>
             <div className="adopt-story-contain">
-              <div>
-                Website:{" "}
-                {
-                  // <NavLink
-                  //   to={sponsor.sponsor_site}
-                  //   style={{ color: "#ca0300" }}
-                  // >
-                  //   {sponsor.sponsor_site}
-                  //   </NavLink>
-                  <a
-                    href={sponsor.sponsor_site}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "#ca0300" }}
-                  >
-                    {sponsor.sponsor_site}
-                  </a>
-                }
-              </div>
+              {sponsor.sponsor_site && (
+                <div>
+                  Website:{" "}
+                  {
+                    // <NavLink
+                    //   to={sponsor.sponsor_site}
+                    //   style={{ color: "#ca0300" }}
+                    // >
+                    //   {sponsor.sponsor_site}
+                    //   </NavLink>
+                    <a
+                      href={sponsor.sponsor_site}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#ca0300" }}
+                    >
+                      {sponsor.sponsor_site}
+                    </a>
+                  }
+                </div>
+              )}
             </div>
             {sessionUser && (
               <div
