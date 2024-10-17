@@ -7,19 +7,19 @@ const validateData = (data) => {
   data.fixed === 0 || data.fixed === 1
     ? null
     : (errors.fixed_error = "Must indicate if spayed or neutered.");
-  data.good_w_cats === 0 || data.good_w_cats === 1
+  data.good_w_cats === 0 || data.good_w_cats === 1 || 2
     ? null
     : (errors.good_w_cats = "Must indicate if good with cats.");
   data.can_adopt === 0 || data.can_adopt === 1
     ? null
     : (errors.can_adopt = "Must indicate if available to adopt.");
-  data.good_w_dogs === 0 || data.good_w_dogs === 1
+  data.good_w_dogs === 0 || data.good_w_dogs === 1 || 2
     ? null
     : (errors.good_w_dogs = "Must indicate if good with dogs.");
-  data.good_w_kids === 0 || data.good_w_kids === 1
+  data.good_w_kids === 0 || data.good_w_kids === 1 || 2
     ? null
     : (errors.good_w_kids = "Must indicate if good with kids.");
-  data.potty_trained === 0 || data.potty_trained === 1
+  data.potty_trained === 0 || data.potty_trained === 1 || 2
     ? null
     : (errors.potty_trained = "Must indicate if potty trained.");
   data.rescue_date.length > 0

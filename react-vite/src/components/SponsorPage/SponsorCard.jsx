@@ -1,35 +1,28 @@
 import "../HomeCard/homecard.css";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
-import { deleteEventThunk } from "../../redux/events";
+import { deleteSponsorThunk } from "../../redux/sponsors";
 
-const EventCard = ({ cssStyle, event }) => {
+const SponsorCard = ({ cssStyle, sponsor }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const navigate = useNavigate();
   const [deleting, setDeleting] = useState(false);
   const dispatch = useDispatch();
 
-  const calcTime = (time) => {
-    const convertTime = time.split(":");
-    if (convertTime[0] > 12) {
-      const newTime = convertTime[0] - 12 + ":" + convertTime[1] + " " + "PM";
-      return newTime;
-    } else {
-      const newTime = time + " " + "AM";
-      return newTime;
-    }
+  const deleteSponsor = async () => {
+    dispatch(deleteSponsorThunk(sponsor.id));
   };
 
-  const deleteEvent = async () => {
-    dispatch(deleteEventThunk(event.id));
+  const editSponsor = () => {
+    navigate("/admin/sponsors", { state: { editSponsor: sponsor } });
   };
 
-  const editEvent = () => {
-    navigate("/admin/events", { state: { editEvent: event } });
-  };
+  useEffect(() => {
+    console.log("Sponsor Info", sponsor);
+  }, []);
 
   return (
     <div className={`${cssStyle}-card`}>
@@ -43,8 +36,8 @@ const EventCard = ({ cssStyle, event }) => {
             width: "100%",
           }}
         >
-          <p>{`Please confirm you would like to delete the ${event.event_title} event?`}</p>
-          <Button variant="contained" color="error" onClick={deleteEvent}>
+          <p>{`Please confirm you would like to delete the ${sponsor.sponsor_name} event?`}</p>
+          <Button variant="contained" color="error" onClick={deleteSponsor}>
             DELETE
           </Button>
           <Button
@@ -57,27 +50,38 @@ const EventCard = ({ cssStyle, event }) => {
         </div>
       ) : (
         <>
-          {event.event_img && (
+          <div className={`${cssStyle}-adptText`}>
+            <h1 style={{ color: "#ca0300" }}>{sponsor.sponsor_name}</h1>
+          </div>
+          {sponsor.sponsor_img && (
             <div className={`${cssStyle}-img`}>
-              <img src={event.event_img}></img>
+              <img src={sponsor.sponsor_img}></img>
             </div>
           )}
-          <div className={`${cssStyle}-adptText`}>
-            <h1 style={{ color: "#ca0300" }}>{event.event_title}</h1>
-          </div>
           <div style={{ width: "100%" }}>
-            <div>
-              <strong>When: </strong>
-              {event.event_date} at {calcTime(event.event_time)}
-            </div>
-            <div>
-              <strong>Where: </strong>
-              {event.event_location}
-            </div>
             <div className="adopt-story-contain">
-              <div>{event.event_desc}</div>
+              {sponsor.sponsor_site && (
+                <div>
+                  Website:{" "}
+                  {
+                    // <NavLink
+                    //   to={sponsor.sponsor_site}
+                    //   style={{ color: "#ca0300" }}
+                    // >
+                    //   {sponsor.sponsor_site}
+                    //   </NavLink>
+                    <a
+                      href={sponsor.sponsor_site}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#ca0300" }}
+                    >
+                      {sponsor.sponsor_site}
+                    </a>
+                  }
+                </div>
+              )}
             </div>
-            {/* {event.can_adopt ? "CAN ADOPT" : "ADOPTED!"} */}
             {sessionUser && (
               <div
                 style={{
@@ -92,7 +96,7 @@ const EventCard = ({ cssStyle, event }) => {
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={editEvent}
+                  onClick={editSponsor}
                 >
                   Edit
                 </Button>
@@ -105,4 +109,4 @@ const EventCard = ({ cssStyle, event }) => {
   );
 };
 
-export { EventCard };
+export { SponsorCard };

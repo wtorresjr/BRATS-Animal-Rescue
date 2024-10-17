@@ -12,6 +12,9 @@ import { VolunteerPage } from "../components/VolunteerPage";
 import { ComingSoon } from "../components/ComingSoon";
 import { MissionPage } from "../components/MissionPage";
 import { EventsPage } from "../components/EventsPage";
+import { FosterPage } from "../components/FosterPage";
+import { SponsorPage } from "../components/SponsorPage";
+import AdminPageSponsors from "../components/AdminPage/AdminPageSponsors";
 
 export const router = createBrowserRouter([
   {
@@ -35,11 +38,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/sponsors",
-        element: <ComingSoon />,
+        element: <SponsorPage />,
       },
       {
         path: "/mission",
         element: <MissionPage />,
+      },
+      {
+        path: "/foster",
+        element: <FosterPage />,
       },
       {
         path: "/events",
@@ -62,12 +69,24 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/admin/sponsors",
+        element: (
+          <PrivateRoute>
+            <AdminPageSponsors />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/login",
         element: <LoginFormPage />,
       },
       {
-        path: "signup",
-        element: <SignupFormPage />,
+        path: "/signup",
+        element: (
+          <PrivateRoute>
+            <SignupFormPage />
+          </PrivateRoute>
+        ),
       },
     ],
   },

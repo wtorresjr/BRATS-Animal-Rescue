@@ -9,7 +9,6 @@ const addEvent = (event) => ({
 });
 
 export const addEventThunk = (eventData) => async (dispatch) => {
-  // console.log("eventData=>>>>>>>>>>>>>>>>>>>>>>>>>>", eventData);
   const response = await fetch("/api/events/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

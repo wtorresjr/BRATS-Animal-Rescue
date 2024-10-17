@@ -20,7 +20,7 @@ def get_all_animals():
     return jsonify(animals)
 
 
-@animal_routes.route("/", methods=["POST"])
+@animal_routes.route("/", methods=["POST"]) 
 def create_animal():
 
     new_animal = request.json
@@ -30,6 +30,7 @@ def create_animal():
     month = int(int_val[1])
     day = int(int_val[2])
     rescue_date = date(year, month, day)
+
 
     create_pet = Rescue(
         age=new_animal["age"],

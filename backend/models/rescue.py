@@ -22,12 +22,12 @@ class Rescue(db.Model, UserMixin):
     rescue_date = db.Column(db.Date, nullable=False)
     story = db.Column(db.String(500), nullable=False)
     breed = db.Column(db.String(30), nullable=False)
-    potty_trained = db.Column(db.Boolean, nullable=False)
+    potty_trained = db.Column(db.Integer, nullable=False)
     fixed = db.Column(db.Boolean, nullable=False)
 
-    good_w_dogs = db.Column(db.Boolean, nullable=False)
-    good_w_cats = db.Column(db.Boolean, nullable=False)
-    good_w_kids = db.Column(db.Boolean, nullable=False)
+    good_w_dogs = db.Column(db.Integer, nullable=False)
+    good_w_cats = db.Column(db.Integer, nullable=False)
+    good_w_kids = db.Column(db.Integer, nullable=False)
     thumbnail_img = db.Column(db.String(), nullable=False)
 
     def to_dict(self):

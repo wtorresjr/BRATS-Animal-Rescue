@@ -45,7 +45,6 @@ const AdminPageEvents = () => {
   }, [editEvent]);
 
   const addEditEvent = async () => {
-
     const data = {
       event_title: eventTitle,
       event_location: eventLocation,
@@ -141,7 +140,7 @@ const AdminPageEvents = () => {
       </div>
 
       <div className="div-admin url-input">
-        <label>Thumbnail Image URL:</label>
+        <label>Thumbnail Image URL: (Optional)</label>
         <input
           type="text"
           value={eventImg}

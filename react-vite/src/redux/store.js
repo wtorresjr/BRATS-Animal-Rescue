@@ -8,11 +8,13 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import animalReducer from "./animals";
 import eventsReducer from "./events";
+import sponsorReducer from "./sponsors";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   animals: animalReducer,
   events: eventsReducer,
+  sponsors: sponsorReducer,
 });
 
 let enhancer;

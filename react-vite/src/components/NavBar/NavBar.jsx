@@ -26,13 +26,19 @@ const NavBar = () => {
               <NavLink to="/admin">Add New Rescue</NavLink>
             </Button>
             <Button variant="contained" color="secondary">
-              <NavLink to="/adopt">Edit / Delete Rescue Info</NavLink>
+              <NavLink to="/adopt">Edit / Delete A Rescue</NavLink>
             </Button>
             <Button variant="contained" color="success">
-              <NavLink to="/admin/events">Add An Event</NavLink>
+              <NavLink to="/admin/sponsors">Add New Sponsor</NavLink>
             </Button>
             <Button variant="contained" color="secondary">
-              <NavLink to="/events">Edit / Delete An Event</NavLink>
+              <NavLink to="/sponsors">Edit / Delete A Sponsor</NavLink>
+            </Button>
+            <Button variant="contained" color="success">
+              <NavLink to="/admin/events">Add New Event</NavLink>
+            </Button>
+            <Button variant="contained" color="secondary">
+              <NavLink to="/events">Edit / Delete A Event</NavLink>
             </Button>
             <Button onClick={logOutNow} color="error" variant="contained">
               Log Out

@@ -2,6 +2,7 @@ from flask.cli import AppGroup
 from .staff import seed_staff, undo_staff
 from .rescue import seed_rescue, undo_rescue
 from .event import seed_events, undo_events
+from .sponsor import seed_sponsors, undo_sponsors
 from backend.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -23,9 +24,11 @@ def create_schema():
 def seed():
     if environment == "production":
         create_schema()
+        undo_sponsors()
         undo_staff()
         undo_rescue()
         undo_events()
+    seed_sponsors()
     seed_staff()
     seed_rescue()
     seed_events()
@@ -34,6 +37,7 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command("undo")
 def undo():
+    undo_sponsors()
     undo_staff()
     undo_rescue()
     undo_events()

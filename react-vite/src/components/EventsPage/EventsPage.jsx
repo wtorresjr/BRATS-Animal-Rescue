@@ -11,7 +11,7 @@ import "../HomeCard/homecard.css";
 const EventsPage = () => {
   const { openMenu, setOpenMenu } = useContext(MyContext);
   const events = useSelector((state) => state?.events);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
 
   useEffect(() => {
     setOpenMenu(false);

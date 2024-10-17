@@ -1,5 +1,11 @@
 import { useSelector } from "react-redux";
-import { Button } from "@mui/material";
+import {
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+} from "@mui/material";
 import { useDispatch } from "react-redux";
 import { deleteAnimalThunk } from "../../redux/animals";
 import { useEffect, useState } from "react";
@@ -12,8 +18,17 @@ const getInfo = (rescueInfo) => {
 
 const AdoptionCard = ({ cssStyle, rescue }) => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const dispatch = useDispatch();
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const editAnimal = () => {
     // console.log("Animal To Edit", rescue);
@@ -29,6 +44,35 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
 
   return (
     <div className={`${cssStyle}-card`}>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {`For more information about ${rescue.animal_name}`}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Call Us:{" "}
+            <a href="tel:+13522998911" style={{ color: "#ca0300" }}>
+              352-299-8911
+            </a>{" "}
+            or
+          </DialogContentText>
+          <DialogContentText id="alert-dialog-description">
+            Email Us:{" "}
+            <a
+              href="mailto:brats_alliance@outlook.com"
+              style={{ color: "#ca0300" }}
+            >
+              brats_alliance@outlook.com
+            </a>
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
+
       {deleting ? (
         <div
           className="errorsPtag"
@@ -61,20 +105,49 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
             <div>{`Rescue Date: ${r_date[2]}-${r_date[1]}-${r_date[3]}`}</div>
             <div>Age: {rescue.age} Years Old</div>
             <div>Sex: {rescue.sex}</div>
-            <div>Good With Kids? {rescue.good_w_kids ? "Yes" : "No"}</div>
-            <div>Good With Cats? {rescue.good_w_cats ? "Yes" : "No"}</div>
-            <div>Good With Dogs? {rescue.good_w_dogs ? "Yes" : "No"}</div>
+            <div>
+              Good With Kids?{" "}
+              {rescue.good_w_kids === 0
+                ? "No"
+                : rescue.good_w_kids === 1
+                ? "Yes"
+                : "Unknown"}
+            </div>
+
+            <div>
+              Good With Cats?{" "}
+              {rescue.good_w_cats === 0
+                ? "No"
+                : rescue.good_w_cats === 1
+                ? "Yes"
+                : "Unknown"}
+            </div>
+
+            <div>
+              Good With Dogs?{" "}
+              {rescue.good_w_dogs === 0
+                ? "No"
+                : rescue.good_w_dogs === 1
+                ? "Yes"
+                : "Unknown"}
+            </div>
+
             <div>Spayed/Neutered? {rescue.fixed ? "Yes" : "No"}</div>
-            <div>Potty Trained? {rescue.potty_trained ? "Yes" : "No"}</div>
+            <div>
+              Potty Trained?{" "}
+              {rescue.potty_trained === 0
+                ? "No"
+                : rescue.potty_trained === 1
+                ? "Yes"
+                : "Unknown"}
+            </div>
           </div>
-          <div>
+          <div style={{ width: "100%" }}>
             <div className="adopt-story-contain">
-              <div>
+              <div className="story-text">
                 <strong>{`${rescue.animal_name}'s Story`}:</strong>{" "}
                 {rescue.story}
               </div>
-
-              {/* {rescue.can_adopt ? "CAN ADOPT" : "ADOPTED!"} */}
             </div>
             <div
               style={{
@@ -90,7 +163,7 @@ const AdoptionCard = ({ cssStyle, rescue }) => {
                   variant="contained"
                   color="error"
                   onClick={() => {
-                    getInfo(rescue.animal_name);
+                    handleClickOpen();
                   }}
                 >{`Learn More About ${rescue.animal_name}`}</Button>
               ) : (

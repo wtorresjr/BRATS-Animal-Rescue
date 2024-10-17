@@ -46,10 +46,34 @@ const AdminPageRescues = () => {
       setName(editRescue?.animal_name);
       setBreed(editRescue?.breed);
       setFixed(editRescue?.fixed ? 1 : 0);
-      setGWCats(editRescue?.good_w_cats ? 1 : 0);
-      setGWDogs(editRescue?.good_w_dogs ? 1 : 0);
-      setGWKids(editRescue?.good_w_kids ? 1 : 0);
-      setTrained(editRescue?.potty_trained ? 1 : 0);
+      setGWCats(
+        editRescue?.good_w_cats === 0
+          ? 0
+          : editRescue?.good_w_cats === 1
+          ? 1
+          : 2
+      );
+      setGWDogs(
+        editRescue?.good_w_dogs === 0
+          ? 0
+          : editRescue?.good_w_dogs === 1
+          ? 1
+          : 2
+      );
+      setGWKids(
+        editRescue?.good_w_kids === 0
+          ? 0
+          : editRescue?.good_w_kids === 1
+          ? 1
+          : 2
+      );
+      setTrained(
+        editRescue?.potty_trained === 0
+          ? 0
+          : editRescue?.potty_trained === 1
+          ? 1
+          : 2
+      );
       setRescueDate(formattedDate);
       setRescueType(editRescue?.animal_type);
       setSex(editRescue?.sex);
@@ -199,6 +223,7 @@ const AdminPageRescues = () => {
           <option value={""}>Good With Cats?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
+          <option value={2}>Unknown</option>
         </select>
         {formErrors.good_w_cats && (
           <span className="errors-red">{formErrors.good_w_cats}</span>
@@ -211,6 +236,7 @@ const AdminPageRescues = () => {
           <option value={""}>Good With Dogs?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
+          <option value={2}>Unknown</option>
         </select>
         {formErrors.good_w_dogs && (
           <span className="errors-red">{formErrors.good_w_dogs}</span>
@@ -223,6 +249,7 @@ const AdminPageRescues = () => {
           <option value={""}>Good With Kids?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
+          <option value={2}>Unknown</option>
         </select>
         {formErrors.good_w_kids && (
           <span className="errors-red">{formErrors.good_w_kids}</span>
@@ -235,6 +262,7 @@ const AdminPageRescues = () => {
           <option value={""}>Potty Trained?</option>
           <option value={0}>No</option>
           <option value={1}>Yes</option>
+          <option value={2}>Unknown</option>
         </select>
         {formErrors.potty_trained && (
           <span className="errors-red">{formErrors.potty_trained}</span>
